@@ -14,7 +14,7 @@
         <li class="dropdown"><a class="nav-link menu-title" href="{{route('home')}}"><i data-feather="home"></i><span>Dashboard</span></a>
 
         </li>
-        <li class="dropdown"><a class="nav-link menu-title" href="{{route('contact.index')}}"><i data-feather="home"></i><span>Contact</span></a>
+        <li class="dropdown"><a class="nav-link menu-title" href="{{route('contact.index')}}"><i data-feather="align-justify"></i><span>Contact</span></a>
 
         </li>
 

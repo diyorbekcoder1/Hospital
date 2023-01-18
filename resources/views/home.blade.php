@@ -11,11 +11,11 @@
                 <h6>General             </h6>
             </div>
         </li>
-        <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="home"></i><span>Dashboard</span></a>
-            <ul class="nav-submenu menu-content">
-                <li><a href="{{route('home')}}">Dashboard</a></li>
-                <li><a href="{{route('contact.index')}}">Contact</a></li>
-            </ul>
+        <li class="dropdown"><a class="nav-link menu-title" href="{{route('home')}}"><i data-feather="home"></i><span>Dashboard</span></a>
+
+        </li>
+        <li class="dropdown"><a class="nav-link menu-title" href="{{route('contact.index')}}"><i data-feather="align-justify"></i><span>Contact</span></a>
+
         </li>
 
     </ul>
