@@ -1,5 +1,7 @@
 <?php
 
 return [
-    'general'=>"General"
+    'general'=>"General",
+    'user'=>"Users",
+    'settings'=>"Settings"
 ];

@@ -1,41 +1,11 @@
 @extends('layouts.app')
-
-
-@section('sidebar')
-    <ul class="nav-menu custom-scrollbar">
-        <li class="back-btn">
-            <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i>
-            </div>
-        </li>
-        <li class="sidebar-main-title">
-            <div>
-                <h6>General </h6>
-            </div>
-        </li>
-        <li class="dropdown"><a class="nav-link menu-title" href="{{route('home')}}"><i data-feather="home"></i><span>Dashboard</span></a>
-
-        </li>
-        <li class="dropdown"><a class="nav-link menu-title" href="{{route('contact.index')}}"><i
-                    data-feather="align-justify"></i><span>Contact</span></a>
-
-        </li>
-        <li class="dropdown"><a class="nav-link menu-title" href="{{route('blog.index')}}"><i
-                    data-feather="align-justify"></i><span>Blogs</span></a>
-
-        </li>
-
-
-    </ul>
-@endsection
 @section('content')
     <div class="page-body">
         <div class="container-fluid">
             <div class="page-header">
                 <div class="row">
-
                     <div class="col-sm-6">
                         <!-- Bookmark Start-->
-
                     </div>
                 </div>
             </div>
@@ -80,8 +50,6 @@
                                                 @enderror
                                             </div>
                                         </div>
-
-
                                         <div class="col-12">
                                             <div class="form-label-group">
                                                 <label for="form_message">Image *</label>
@@ -96,19 +64,20 @@
                                         </div>
                                         <div class="card-footer">
                                             <button class="btn btn-primary">Submit</button>
-
                                         </div>
                                     </form>
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
 @endsection
+@push('javascript')
+    <script src="{{asset('../assets/js/editor/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('../assets/js/editor/ckeditor/adapters/jquery.js')}}"></script>
+    <script src="{{asset('../assets/js/editor/ckeditor/styles.js')}}"></script>
+    <script src="{{asset('../assets/js/editor/ckeditor/ckeditor.custom.js')}}"></script>
+@endpush
