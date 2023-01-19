@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ibn Sino Html-5 Template | Home-1</title>
+    <title>Hospital</title>
     <link rel="icon" href="./images/icon.png">
 
     <!-- wow animation style -->
