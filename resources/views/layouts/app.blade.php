@@ -19,9 +19,8 @@
         @include('layouts.partials.footer')
     </div>
 </div>
-<!-- latest jquery-->
+
 @include('layouts.partials.javascript')
 @stack("javascript")
-
 </body>
 </html>
