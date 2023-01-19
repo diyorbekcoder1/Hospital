@@ -1,20 +1,22 @@
 @extends('layouts.app')
 
 
-@section('layouts.partials.sidebar')
+@section('sidebar')
     <ul class="nav-menu custom-scrollbar">
         <li class="back-btn">
-            <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
+            <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i>
+            </div>
         </li>
         <li class="sidebar-main-title">
             <div>
-                <h6>General             </h6>
+                <h6>General </h6>
             </div>
         </li>
         <li class="dropdown"><a class="nav-link menu-title" href="{{route('home')}}"><i data-feather="home"></i><span>Dashboard</span></a>
 
         </li>
-        <li class="dropdown"><a class="nav-link menu-title" href="{{route('contact.index')}}"><i data-feather="align-justify"></i><span>Contact</span></a>
+        <li class="dropdown"><a class="nav-link menu-title" href="{{route('contact.index')}}"><i
+                    data-feather="align-justify"></i><span>Contact</span></a>
 
         </li>
         <li class="dropdown"><a class="nav-link menu-title" href="{{route('blog.index')}}"><i
@@ -25,7 +27,6 @@
 
     </ul>
 @endsection
-
 @section('content')
     <div class="page-body">
         <div class="container-fluid">
@@ -47,54 +48,39 @@
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header pb-0">
-                                    <h5>Contact</h5>
+                                    <h5>Blogs</h5>
                                 </div>
                                 <div class="card-body">
-                                    <form class="theme-form" method="post" action="{{route('contact.update',$contact_edit)}}" enctype="multipart/form-data" >
-                                        @method('PUT')
+                                    <form class="theme-form" method="post" action="{{route('blog.store')}}"
+                                          enctype="multipart/form-data">
+                                        @method('POST')
                                         @csrf
                                         <div class="col-12">
                                             <div class="form-label-group">
-                                                <label for="form_name">Address</label>
-                                                <input id="form_name" type="text" name="address"
-                                                       class="form-control  @error('address') is-invalid @enderror"
+                                                <label for="form_name">Title</label>
+                                                <input id="form_name" type="text" name="title"
+                                                       class="form-control  @error('title') is-invalid @enderror"
                                                        placeholder="Please enter your address *"
                                                        data-error="address is required."
-                                                       value="{{old('address', $contact_edit->address)}}">
+                                                       value="{{old('title')}}">
 
-                                                @error('address')
+                                                @error('title')
                                                 <span style="color: red">{{$message}} </span>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-12">
+                                        <div class="col-12 mt-5">
                                             <div class="form-label-group">
-                                                <label for="form_name">Phone</label>
-                                                <input id="form_name" type="phone" name="phone"
-                                                       class="form-control  @error('phone') is-invalid @enderror"
-                                                       placeholder="Please enter your phone *"
-                                                       data-error="phone is required."
-                                                       value="{{old('phone', $contact_edit->phone)}}">
+                                                <label for="form_name">Description</label>
+                                                <textarea id="editor1" name="description" cols="30"
+                                                          rows="10"></textarea>
 
-                                                @error('phone')
+                                                @error('description')
                                                 <span style="color: red">{{$message}} </span>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-12">
-                                            <div class="form-label-group">
-                                                <label for="form_name">Email</label>
-                                                <input id="form_name" type="email" name="email"
-                                                       class="form-control  @error('email') is-invalid @enderror"
-                                                       placeholder="Please enter your email *"
-                                                       data-error="email is required."
-                                                       value="{{old('email', $contact_edit->email)}}">
 
-                                                @error('email')
-                                                <span style="color: red">{{$message}} </span>
-                                                @enderror
-                                            </div>
-                                        </div>
 
                                         <div class="col-12">
                                             <div class="form-label-group">

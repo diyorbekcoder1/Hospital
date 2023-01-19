@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-@section('nav')
+@section('layouts.partials.sidebar')
     <ul class="nav-menu custom-scrollbar">
         <li class="back-btn">
             <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
@@ -17,12 +17,16 @@
         <li class="dropdown"><a class="nav-link menu-title" href="{{route('contact.index')}}"><i data-feather="align-justify"></i><span>Contact</span></a>
 
         </li>
+        <li class="dropdown"><a class="nav-link menu-title" href="{{route('blog.index')}}"><i
+                    data-feather="align-justify"></i><span>Blogs</span></a>
+
+        </li>
 
 
     </ul>
 @endsection
 
-@section('page')
+@section('content')
     <div class="page-body">
         <div class="container-fluid">
             <div class="page-header">

@@ -82,7 +82,7 @@ $(document).ready(function () {
         var mixLayout = $(this).attr("data-attr");
         $("body").attr("class", mixLayout);
     });
-   
+
     $('.sidebar-main-bg-setting li').on('click', function () {
         $(".sidebar-main-bg-setting li").removeClass('active')
         $(this).addClass("active")
@@ -157,5 +157,5 @@ $(document).ready(function () {
         location.reload(true);
     });
 
-    
+
 });

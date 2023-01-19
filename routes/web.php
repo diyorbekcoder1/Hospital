@@ -21,6 +21,7 @@ Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('
 Route::middleware(['auth:web'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('/contact', \App\Http\Controllers\ContactController::class);
+    Route::resource('/blog', \App\Http\Controllers\BlogController::class);
 
 });
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'login'])->name('login');

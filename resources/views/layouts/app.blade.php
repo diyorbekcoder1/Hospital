@@ -16,7 +16,7 @@
     <div class="page-body-wrapper sidebar-icon">
         @include('layouts.partials.sidebar')
         @yield('content')
-        @include('layouts.partials.footer')
+            @include('layouts.partials.footer')
     </div>
 </div>
 
