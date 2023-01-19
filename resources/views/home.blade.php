@@ -1,27 +1,5 @@
 @extends('layouts.app')
-
-
-@section('nav')
-    <ul class="nav-menu custom-scrollbar">
-        <li class="back-btn">
-            <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
-        </li>
-        <li class="sidebar-main-title">
-            <div>
-                <h6>General             </h6>
-            </div>
-        </li>
-        <li class="dropdown"><a class="nav-link menu-title" href="{{route('home')}}"><i data-feather="home"></i><span>Dashboard</span></a>
-
-        </li>
-        <li class="dropdown"><a class="nav-link menu-title" href="{{route('contact.index')}}"><i data-feather="align-justify"></i><span>Contact</span></a>
-
-        </li>
-
-    </ul>
-@endsection
-
-@section('page')
+@section('content')
     <div class="page-body">
         <!-- Container-fluid starts-->
         <div class="container-fluid dashboard-default-sec">

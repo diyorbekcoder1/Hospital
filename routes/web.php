@@ -27,3 +27,7 @@ Route::get('/login', [App\Http\Controllers\LoginController::class, 'login'])->na
 Route::get('/register', [App\Http\Controllers\LoginController::class, 'register'])->name('register');
 Route::post('/register-user', [App\Http\Controllers\LoginController::class, 'store'])->name('create_user');
 Route::get('/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
