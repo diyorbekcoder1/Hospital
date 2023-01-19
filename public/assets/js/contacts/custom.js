@@ -48,7 +48,7 @@ function submitContact() {
 		$( '.contact-tab-'+index_var ).addClass('active show');
 	    $('#exampleModal').modal('toggle');
 	    $('#bookmark-form').find('input[type="text"]').val('');
-	    var notify = $.notify('Contact added successfully.', {
+	    var notify = $.notify('contact added successfully.', {
 		    type: 'contactadd',
 		    allow_dismiss: false,
 		    delay: 2000,
@@ -59,7 +59,7 @@ function submitContact() {
 		    timer: 300
 		});
 	}
-} 
+}
 
 (function($) {
 	$(".contact-editform").hide();
@@ -143,7 +143,7 @@ $('.edit-information').on('click', function(e) {
 	$(".edit-information").hide();
 });
 
-// history 
+// history
 
 function history(index) {
     $("#right-history").toggleClass("show");

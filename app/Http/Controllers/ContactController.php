@@ -14,13 +14,13 @@ class ContactController extends Controller
     public function index()
     {
         $contact = Contact::all();
-        return view('Contact.contact', compact('contact'));
+        return view('contact.contact', compact('contact'));
     }
 
 
     public function create()
     {
-        return view('Contact.contact_create');
+        return view('contact.contact_create');
     }
 
 
@@ -37,7 +37,7 @@ class ContactController extends Controller
     public function edit($id)
     {
         $contact_edit = Contact::find($id);
-        return view('Contact.contact_edit', compact('contact_edit'));
+        return view('contact.contact_edit', compact('contact_edit'));
     }
 
 
