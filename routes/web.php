@@ -32,9 +32,31 @@ Route::get('/', [\App\Http\Controllers\Front\IndexController::class, 'index'])->
         Route::post('/register-user', [App\Http\Controllers\Admin\LoginController::class, 'store'])->name('create_user');
         Route::get('/logout', [App\Http\Controllers\Admin\LoginController::class, 'logout'])->name('logout');
 
-
-        Route::group(['prefix'=>'admin/users'],function(){
+        Route::group(['prefix'=>'/users',['middleware' => 'can:manage_user']],function(){
                 Route::get('/',[App\Http\Controllers\Admin\UsersController::class,'index']);
+                Route::get('get-list',[App\Http\Controllers\Admin\UsersController::class,'getUserList'])->name('get-list');
+                Route::get('/create', [App\Http\Controllers\Admin\UsersController::class,'create']);
+                Route::post('/create', [App\Http\Controllers\Admin\UsersController::class,'store'])->name('create-user');
+                Route::get('/user/{id}', [App\Http\Controllers\Admin\UsersController::class,'edit']);
+                Route::post('/update', [App\Http\Controllers\Admin\UsersController::class,'update']);
+                Route::get('/delete/{id}', [App\Http\Controllers\Admin\UsersController::class,'delete']);
+        });
+//        'middleware' => 'can:manage_role|manage_user'
+        Route::group(['prefix'=>'/roles'], function(){
+            Route::get('/', [App\Http\Controllers\Admin\RolesController::class,'index']);
+            Route::get('/get-list', [App\Http\Controllers\Admin\RolesController::class,'getRoleList']);
+            Route::post('/create', [App\Http\Controllers\Admin\RolesController::class,'create']);
+            Route::get('/edit/{id}', [App\Http\Controllers\Admin\RolesController::class,'edit']);
+            Route::post('/update', [App\Http\Controllers\Admin\RolesController::class,'update']);
+            Route::get('/delete/{id}', [App\Http\Controllers\Admin\RolesController::class,'delete']);
+        });
+//        ,'middleware' => 'can:manage_permission|manage_user'
+        Route::group(['prefix'=>'/permission'], function(){
+            Route::get('/', [App\Http\Controllers\Admin\PermissionController::class,'index']);
+            Route::get('/get-list', [App\Http\Controllers\Admin\PermissionController::class,'getPermissionList']);
+            Route::post('/create', [App\Http\Controllers\Admin\PermissionController::class,'create']);
+            Route::get('/update', [App\Http\Controllers\Admin\PermissionController::class,'update']);
+            Route::get('/delete/{id}', [App\Http\Controllers\Admin\PermissionController::class,'delete']);
         });
 
     });

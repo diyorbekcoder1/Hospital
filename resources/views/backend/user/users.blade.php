@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 @section('content')
     @push('style')
-        <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/datatables.css') }}">
     @endpush
     <div class="page-header">
         <div class="row">
@@ -41,7 +41,8 @@
                 <div class="card p-3">
                     <div class="card-header"><h3>{{ __('Users')}}</h3></div>
                     <div class="card-body">
-                        <table id="user_table" class="table">
+                        <div class="table-responsive">
+                        <table id="user_table" class="display datatables stripe">
                             <thead>
                             <tr>
                                 <th>{{ __('Name')}}</th>
@@ -55,13 +56,16 @@
                             </tbody>
                         </table>
                     </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     @push('javascript')
-        <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
+        <script src="{{ asset('/plugins/datatable/datatables/jquery.dataTables.min.js')}}"></script>
+        <script src="{{ asset('/plugins/datatable/datatables/datatable.custom.js') }}"></script>
+{{--        <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>--}}
         <script src="{{ asset('plugins/select2/dist/js/select2.min.js') }}"></script>
         <!--server side users table script-->
         <script src="{{ asset('js/custom.js') }}"></script>

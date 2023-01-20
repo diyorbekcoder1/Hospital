@@ -21,7 +21,7 @@
             pagingType: "full_numbers",
             dom: "<'row'<'col-sm-2'l><'col-sm-7 text-center'B><'col-sm-3'f>>tipr",
             ajax: {
-                url: 'role/get-list',
+                url: '/admin/roles/get-list',
                 type: "get"
             },
             columns: [
@@ -146,9 +146,9 @@
               processing: '<i class="ace-icon fa fa-spinner fa-spin orange bigger-500" style="font-size:60px;margin-top:50px;"></i>'
             },
             scroller: {
-                loadingIndicator: false
+                loadingIndicator: true
             },
-            pagingType: "full_numbers",
+            // pagingType: "full_numbers",
             dom: "<'row'<'col-sm-2'l><'col-sm-7 text-center'B><'col-sm-3'f>>tipr",
             ajax: {
                 url: '/admin/users/get-list',
