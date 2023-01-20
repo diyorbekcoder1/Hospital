@@ -6,14 +6,14 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>Login</title>
     <!-- General CSS Files -->
-    <link rel="stylesheet" href="assetsapp/css/app.min.css">
-    <link rel="stylesheet" href="assetsapp/bundles/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="/assetsapp/css/app.min.css">
+    <link rel="stylesheet" href="/assetsapp/bundles/bootstrap-social/bootstrap-social.css">
     <!-- Template CSS -->
-    <link rel="stylesheet" href="assetsapp/css/style.css">
-    <link rel="stylesheet" href="assetsapp/css/components.css">
+    <link rel="stylesheet" href="/assetsapp/css/style.css">
+    <link rel="stylesheet" href="/assetsapp/css/components.css">
     <!-- Custom style CSS -->
-    <link rel="stylesheet" href="assetsapp/css/custom.css">
-    <link rel='shortcut icon' type='image/x-icon' href='assetsapp/img/favicon.ico' />
+    <link rel="stylesheet" href="/assetsapp/css/custom.css">
+    <link rel='shortcut icon' type='image/x-icon' href='/assetsapp/img/favicon.ico' />
 </head>
 
 <body>
@@ -75,13 +75,13 @@
     </section>
 </div>
 <!-- General JS Scripts -->
-<script src="assetsapp/js/app.min.js"></script>
+<script src="/assetsapp/js/app.min.js"></script>
 <!-- JS Libraies -->
 <!-- Page Specific JS File -->
 <!-- Template JS File -->
-<script src="assetsapp/js/scripts.js"></script>
+<script src="/assetsapp/js/scripts.js"></script>
 <!-- Custom JS File -->
-<script src="assetsapp/js/custom.js"></script>
+<script src="/assetsapp/js/custom.js"></script>
 </body>
 
 

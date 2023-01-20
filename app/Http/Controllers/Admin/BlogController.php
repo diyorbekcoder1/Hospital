@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogRequest;
-use App\Http\Requests\ContactRequest;
 use App\Models\Blog;
-use App\Models\Contact;
 use App\Traits\FileUpload;
-use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
