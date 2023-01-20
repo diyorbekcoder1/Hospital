@@ -46,7 +46,7 @@ class BlogController extends Controller
         }
         $post->update($data);
 
-        return redirect()->route('blog.index')->with('message', 'Post successfully update.');
+        return redirect()->route('backend.blog.index')->with('message', 'Post successfully update.');
     }
 
 
@@ -57,6 +57,6 @@ class BlogController extends Controller
         $post = Blog::find($id);
         unlink('storage/images/' . $post->image);
         $post->delete();
-        return redirect()->route('blog.index')->with('message', 'Post successfully delete.');
+        return redirect()->route('backend.blog.index')->with('message', 'Post successfully delete.');
     }
 }

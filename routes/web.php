@@ -27,9 +27,8 @@ Route::get('/', [\App\Http\Controllers\Front\IndexController::class, 'index'])->
         Route::get('/logout', [App\Http\Controllers\Admin\LoginController::class, 'logout'])->name('logout');
 
 
-        Route::group(['prefix'=>'users','middleware'=>['auth:web']],function(){
-                Route::get('/',[App\Http\Controllers\Admin\UsersController::class,'index']);
-                Route::get('/get-list',[App\Http\Controllers\Admin\UsersController::class,'getUserList'])->name('get-list');
+        Route::group(['namespace'=>'Admin','prefix'=>'admin/users','middleware'=>['auth:web']],function(){
+                Route::get('/index',[App\Http\Controllers\Admin\UsersController::class,'index']);
         });
 
     });
