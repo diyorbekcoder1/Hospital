@@ -1,19 +1,5 @@
 @extends('backend.layouts.app')
 @section('content')
-    <div class="page-body">
-        <div class="container-fluid">
-            <div class="page-header">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <!-- Bookmark Start-->
-                        <div class="bookmark">
-
-                        </div>
-                        <!-- Bookmark Ends-->
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- Container-fluid starts-->
         <div class="container-fluid">
             @if (session()->has('message'))
@@ -86,7 +72,7 @@
             </div>
         </div>
         <!-- Container-fluid Ends-->
-    </div>
+
 @endsection
 
 
