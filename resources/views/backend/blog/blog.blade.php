@@ -85,10 +85,10 @@
 
             </div>
         </div>
-        <!-- Container-fluid Ends-->
+
     </div>
 @endsection
 
-@include('layouts.partials.footer')
+@include('backend.layouts.partials.footer')
 
 
