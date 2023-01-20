@@ -21,6 +21,12 @@ Route::get('/', [\App\Http\Controllers\Front\IndexController::class, 'index'])->
         Route::get('/home', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('home');
         Route::resource('/contact', App\Http\Controllers\Admin\ContactController::class);
         Route::resource('/blog', App\Http\Controllers\Admin\BlogController::class);
+        Route::resource('/employees', App\Http\Controllers\Admin\EmployessController::class);
+        Route::resource('/event', App\Http\Controllers\Admin\EventController::class);
+        Route::resource('/page', App\Http\Controllers\Admin\PageController::class);
+        Route::resource('/setting', App\Http\Controllers\Admin\SettingController::class);
+        Route::resource('/usefullink', App\Http\Controllers\Admin\UsefullinkController::class);
+        Route::resource('/category', App\Http\Controllers\Admin\CategoryController::class);
 //        Route::get('/login', [App\Http\Controllers\Admin\LoginController::class, 'login'])->name('login');
         Route::get('/register', [App\Http\Controllers\Admin\LoginController::class, 'register'])->name('register');
         Route::post('/register-user', [App\Http\Controllers\Admin\LoginController::class, 'store'])->name('create_user');
