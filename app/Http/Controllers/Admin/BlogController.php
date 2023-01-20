@@ -13,11 +13,11 @@ class BlogController extends Controller
     public function index()
     {
         $blog = Blog::all();
-        return view('blog.blog', compact('blog'));
+        return view('backend.blog.blog', compact('blog'));
     }
     public function create()
     {
-        return view('blog.blog_create');
+        return view('backend.blog.blog_create');
     }
 
     public function store(BlogRequest $blogRequest)
@@ -26,14 +26,14 @@ class BlogController extends Controller
         $data = $blogRequest->validated();
         $data = $this->fileUpload($data);
         Blog::create($data);
-        return redirect()->route('blog.index')->with('message', 'Post successfully create.');
+        return redirect()->route('backend.blog.index')->with('message', 'Post successfully create.');
     }
 
 
     public function edit($id)
     {
         $blog_edit = Blog::find($id);
-        return view('blog.blog_edit', compact('blog_edit'));
+        return view('backend.blog.blog_edit', compact('blog_edit'));
     }
 
 

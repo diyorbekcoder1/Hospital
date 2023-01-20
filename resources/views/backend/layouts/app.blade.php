@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-@include('layouts.partials.meta')
+@include('backend.layouts.partials.meta')
     @stack("style")
 </head>
 <body>
@@ -12,15 +12,15 @@
     </div>
 </div>
 <div class="page-wrapper compact-wrapper" id="pageWrapper">
-    @include('layouts.partials.header')
+    @include('backend.layouts.partials.header')
     <div class="page-body-wrapper sidebar-icon">
-        @include('layouts.partials.sidebar')
+        @include('backend.layouts.partials.sidebar')
          @yield('content')
-         @include('layouts.partials.footer')
+         @include('backend.layouts.partials.footer')
     </div>
 </div>
 
-@include('layouts.partials.javascript')
+@include('backend.layouts.partials.javascript')
 @stack("javascript")
 </body>
 </html>
