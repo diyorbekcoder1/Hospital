@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('backend.layouts.app')
 @section('content')
     <div class="page-body">
         <div class="container-fluid">
             <div class="page-header">
                 <div class="row">
-              <div class="col-sm-6">
+                    <div class="col-sm-6">
                         <!-- Bookmark Start-->
                         <div class="bookmark">
 
@@ -28,7 +28,8 @@
                             <h5>Blogs </h5>
                         </div>
                         <div class="title m-l-5"><a
-                                class="btn mr-1 mb-3 btn-primary btn-sm " href="{{route('blog.create')}}">Blogs add</a>
+                                    class="btn mr-1 mb-3 btn-primary btn-sm " href="{{route('blog.create')}}">Blogs
+                                add</a>
                         </div>
                         <div class="table-responsive">
                             <table class="table">
@@ -51,9 +52,9 @@
 
 
                                             <td style="width: 50px; height: 50px; border-radius: 50%;"><img
-                                                    style="width: 50px; height: 50px; border-radius: 50%;"
-                                                    src="{{ asset('storage/images/'.$blogs->image) }}"
-                                                    alt="">
+                                                        style="width: 50px; height: 50px; border-radius: 50%;"
+                                                        src="{{ asset('storage/images/'.$blogs->image) }}"
+                                                        alt="">
                                             </td>
 
                                             <td>

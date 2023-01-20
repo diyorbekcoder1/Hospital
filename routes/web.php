@@ -1,9 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Admin\ContactController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,17 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('homes');
+Route::get('/', [\App\Http\Controllers\Front\IndexController::class, 'index'])->name('homes');
 
 
-    Route::group(['namespace' => 'Admin', 'middleware' => ['auth:web'], 'prefix' => 'admin'],function () {
-        Route::get('/home', [DashboardController::class, 'index'])->name('home');
-        Route::resource('/contact', ContactController::class);
-        Route::resource('/blog', BlogController::class);
-//        Route::get('/login', [LoginController::class, 'login'])->name('login');
-        Route::get('/register', [LoginController::class, 'register'])->name('register');
-        Route::post('/register-user', [LoginController::class, 'store'])->name('create_user');
-        Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::group(['middleware' => ['auth:web'], 'prefix' => 'admin'],function () {
+        Route::get('/home', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('home');
+        Route::resource('/contact', App\Http\Controllers\Admin\ContactController::class);
+        Route::resource('/blog', App\Http\Controllers\Admin\BlogController::class);
+//        Route::get('/login', [App\Http\Controllers\Admin\LoginController::class, 'login'])->name('login');
+        Route::get('/register', [App\Http\Controllers\Admin\LoginController::class, 'register'])->name('register');
+        Route::post('/register-user', [App\Http\Controllers\Admin\LoginController::class, 'store'])->name('create_user');
+        Route::get('/logout', [App\Http\Controllers\Admin\LoginController::class, 'logout'])->name('logout');
+
+
+        Route::group(['namespace'=>'Admin','prefix'=>'admin/users','middleware'=>['auth:web']],function(){
+                Route::get('/index',[App\Http\Controllers\Admin\UsersController::class,'index']);
+        });
 
     });
 

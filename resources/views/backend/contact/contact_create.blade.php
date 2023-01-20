@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('backend.layouts.app')
 
 
 @section('layouts.partials.sidebar')
@@ -50,8 +50,8 @@
                                     <h5>Contact</h5>
                                 </div>
                                 <div class="card-body">
-                                    <form class="theme-form" method="post" action="{{route('contact.update',$contact_edit)}}" enctype="multipart/form-data" >
-                                        @method('PUT')
+                                    <form class="theme-form"method="post" action="{{route('contact.store')}}" enctype="multipart/form-data" >
+                                        @method('POST')
                                         @csrf
                                         <div class="col-12">
                                             <div class="form-label-group">
@@ -60,7 +60,7 @@
                                                        class="form-control  @error('address') is-invalid @enderror"
                                                        placeholder="Please enter your address *"
                                                        data-error="address is required."
-                                                       value="{{old('address', $contact_edit->address)}}">
+                                                       value="{{old('address')}}">
 
                                                 @error('address')
                                                 <span style="color: red">{{$message}} </span>
@@ -74,7 +74,7 @@
                                                        class="form-control  @error('phone') is-invalid @enderror"
                                                        placeholder="Please enter your phone *"
                                                        data-error="phone is required."
-                                                       value="{{old('phone', $contact_edit->phone)}}">
+                                                       value="{{old('phone')}}">
 
                                                 @error('phone')
                                                 <span style="color: red">{{$message}} </span>
@@ -88,7 +88,7 @@
                                                        class="form-control  @error('email') is-invalid @enderror"
                                                        placeholder="Please enter your email *"
                                                        data-error="email is required."
-                                                       value="{{old('email', $contact_edit->email)}}">
+                                                       value="{{old('email')}}">
 
                                                 @error('email')
                                                 <span style="color: red">{{$message}} </span>
