@@ -18,7 +18,33 @@
                 </li>
                 <li class="dropdown"><a class="nav-link menu-title" href="{{route('blog.index')}}"><i
                             data-feather="align-justify"></i><span>Blogs</span></a>
+                </li>
 
+                <li class="sidebar-main-title">
+                    <div>
+                        <h6>{{ trans('labels.user') }}</h6>
+                    </div>
+                </li>
+                <li class="dropdown"><a class="nav-link menu-title" href="{{route('home')}}"><i data-feather="home"></i><span>Dashboard</span></a>
+                </li>
+                <li class="dropdown"><a class="nav-link menu-title" href="{{route('contact.index')}}"><i data-feather="align-justify"></i><span>Contact</span></a>
+                </li>
+                <li class="dropdown"><a class="nav-link menu-title" href="{{route('blog.index')}}"><i
+                            data-feather="align-justify"></i><span>Blogs</span></a>
+                </li>
+
+
+                <li class="sidebar-main-title">
+                    <div>
+                        <h6>{{ trans('labels.settings') }}</h6>
+                    </div>
+                </li>
+                <li class="dropdown"><a class="nav-link menu-title" href="{{route('home')}}"><i data-feather="home"></i><span>Dashboard</span></a>
+                </li>
+                <li class="dropdown"><a class="nav-link menu-title" href="{{route('contact.index')}}"><i data-feather="align-justify"></i><span>Contact</span></a>
+                </li>
+                <li class="dropdown"><a class="nav-link menu-title" href="{{route('blog.index')}}"><i
+                            data-feather="align-justify"></i><span>Blogs</span></a>
                 </li>
             </ul>
         </div>

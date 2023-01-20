@@ -12,19 +12,15 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
     use  FileUpload;
-
     public function index()
     {
         $blog = Blog::all();
         return view('blog.blog', compact('blog'));
     }
-
-
     public function create()
     {
         return view('blog.blog_create');
     }
-
 
     public function store(BlogRequest $blogRequest)
     {
@@ -49,7 +45,6 @@ class BlogController extends Controller
         $post = Blog::find($id);
         if (isset($data['image'])) {
             $data = $this->fileUpload($data);
-
         }
         $post->update($data);
 

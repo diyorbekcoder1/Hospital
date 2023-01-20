@@ -1,15 +1,10 @@
 @extends('layouts.app')
-
-
-
-
 @section('content')
     <div class="page-body">
         <div class="container-fluid">
             <div class="page-header">
                 <div class="row">
-
-                    <div class="col-sm-6">
+              <div class="col-sm-6">
                         <!-- Bookmark Start-->
                         <div class="bookmark">
 
