@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,23 +16,23 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-\Illuminate\Support\Facades\Auth::Routes();
+Auth::routes();
 
 Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('homes');
 
 
+    Route::group(['namespace' => 'Admin', 'middleware' => ['auth:web'], 'prefix' => 'admin'],function () {
+        Route::get('/home', [DashboardController::class, 'index'])->name('home');
+        Route::resource('/contact', ContactController::class);
+        Route::resource('/blog', BlogController::class);
+//        Route::get('/login', [LoginController::class, 'login'])->name('login');
+        Route::get('/register', [LoginController::class, 'register'])->name('register');
+        Route::post('/register-user', [LoginController::class, 'store'])->name('create_user');
+        Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::middleware(['auth:web'])->group(function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::resource('/contact', \App\Http\Controllers\ContactController::class);
-    Route::resource('/blog', \App\Http\Controllers\BlogController::class);
+    });
 
-});
-Route::get('/login', [App\Http\Controllers\LoginController::class, 'login'])->name('login');
-Route::get('/register', [App\Http\Controllers\LoginController::class, 'register'])->name('register');
-Route::post('/register-user', [App\Http\Controllers\LoginController::class, 'store'])->name('create_user');
-Route::get('/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
