@@ -1,9 +1,10 @@
 <header class="main-nav">
 <nav>
     <div class="main-navbar">
+
         <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
         <div id="mainnav">
-            <ul class="nav-menu custom-scrollbar" >
+            <ul class="nav-menu custom-scrollbar">
                 <li class="back-btn">
                     <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                 </li>
