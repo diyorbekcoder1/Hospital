@@ -14,13 +14,13 @@ class ContactController extends Controller
     public function index()
     {
         $contact = Contact::all();
-        return view('contact.contact', compact('contact'));
+        return view('backend.contact.contact', compact('contact'));
     }
 
 
     public function create()
     {
-        return view('contact.contact_create');
+        return view('backend.contact.contact_create');
     }
 
 

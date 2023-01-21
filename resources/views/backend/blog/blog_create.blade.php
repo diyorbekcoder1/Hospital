@@ -1,17 +1,7 @@
 @extends('backend.layouts.app')
 @section('content')
     <div class="page-body">
-        <div class="container-fluid">
-            <div class="page-header">
-                <div class="row">
-                    <div class="col-sm-6">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Container-fluid starts-->
-        <div class="container-fluid">
+               <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12 col-xl-12">
                     <div class="row">
@@ -76,8 +66,8 @@
     </div>
 @endsection
 @push('javascript')
-    <script src="{{asset('../assets/js/editor/ckeditor/ckeditor.js')}}"></script>
-    <script src="{{asset('../assets/js/editor/ckeditor/adapters/jquery.js')}}"></script>
-    <script src="{{asset('../assets/js/editor/ckeditor/styles.js')}}"></script>
-    <script src="{{asset('../assets/js/editor/ckeditor/ckeditor.custom.js')}}"></script>
+    <script src="{{asset('/assets/js/editor/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('/assets/js/editor/ckeditor/adapters/jquery.js')}}"></script>
+    <script src="{{asset('/assets/js/editor/ckeditor/styles.js')}}"></script>
+    <script src="{{asset('/assets/js/editor/ckeditor/ckeditor.custom.js')}}"></script>
 @endpush
