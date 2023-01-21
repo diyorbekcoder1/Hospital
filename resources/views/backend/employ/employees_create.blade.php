@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 @section('content')
-    <div class="page-body col-12">
+
         <div class="container-fluid">
             <div class="page-header">
                 <div class="row">
@@ -117,7 +117,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
 @endsection
 @push('javascript')
     <script src="{{asset('/assets/js/editor/ckeditor/ckeditor.js')}}"></script>
