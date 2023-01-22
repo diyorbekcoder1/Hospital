@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,8 @@ Auth::routes();
 Route::get('/', [\App\Http\Controllers\Front\IndexController::class, 'index'])->name('homes');
 
 
-    Route::group(['middleware' => ['auth:web'], 'prefix' => 'admin'],function () {
+//'namespace' => 'Admin'
+    Route::group([ 'middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin',],function () {
         Route::get('/home', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('home');
         Route::resource('/contact', App\Http\Controllers\Admin\ContactController::class);
         Route::resource('/blog', App\Http\Controllers\Admin\BlogController::class);
@@ -27,6 +29,14 @@ Route::get('/', [\App\Http\Controllers\Front\IndexController::class, 'index'])->
         Route::resource('/setting', App\Http\Controllers\Admin\SettingController::class);
         Route::resource('/usefullink', App\Http\Controllers\Admin\UsefullinkController::class);
         Route::resource('/category', App\Http\Controllers\Admin\CategoryController::class);
+
+
+//        Route::group(['prefix'=>'menus'], function() {
+            Route::post('menus/save', 'MenuController@save')->name('menus.save');
+            Route::post('menus/{id}/toggle-publish', 'MenuController@togglePublish')->name('admin.menus.toggle-publish')->where('id', '[0-9]+');
+            Route::resource('/menus', App\Http\Controllers\Admin\MenuController::class);
+//        });
+
 //        Route::get('/login', [App\Http\Controllers\Admin\LoginController::class, 'login'])->name('login');
         Route::get('/register', [App\Http\Controllers\Admin\LoginController::class, 'register'])->name('register');
         Route::post('/register-user', [App\Http\Controllers\Admin\LoginController::class, 'store'])->name('create_user');
@@ -58,6 +68,7 @@ Route::get('/', [\App\Http\Controllers\Front\IndexController::class, 'index'])->
             Route::get('/update', [App\Http\Controllers\Admin\PermissionController::class,'update']);
             Route::get('/delete/{id}', [App\Http\Controllers\Admin\PermissionController::class,'delete']);
         });
+
 
     });
 

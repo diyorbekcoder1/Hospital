@@ -14,8 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pages', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('title', 255);
+            $table->string('slug')->nullable();
+            $table->text('content');
             $table->timestamps();
+            $table->boolean('is_published')->default(true);
+            $table->string('lang', 20);
         });
     }
 

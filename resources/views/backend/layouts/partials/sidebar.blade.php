@@ -13,29 +13,29 @@
                         <h6>{{ trans('labels.general') }}</h6>
                     </div>
                 </li>
-                <li class="dropdown"><a class="nav-link " href="{{route('home')}}"><i data-feather="home"></i><span>Dashboard</span></a>
+                <li class="dropdown"><a class="nav-link " href="{{route('admin.home')}}"><i data-feather="home"></i><span>Dashboard</span></a>
                 </li>
-                <li class="dropdown"><a class="nav-link" href="{{route('contact.index')}}"><i data-feather="align-justify"></i><span>Contact</span></a>
+                <li class="dropdown"><a class="nav-link" href="{{route('admin.contact.index')}}"><i data-feather="align-justify"></i><span>Contact</span></a>
                 </li>
-                <li class="dropdown"><a class="nav-link " href="{{route('blog.index')}}"><i
+                <li class="dropdown"><a class="nav-link " href="{{route('admin.blog.index')}}"><i
                             data-feather="align-justify"></i><span>Blogs</span></a>
                 </li>
-                <li ><a class="nav-link " href="{{route('employees.index')}}"><i
+                <li ><a class="nav-link " href="{{route('admin.employees.index')}}"><i
                             data-feather="align-justify"></i><span>Employees</span></a>
                 </li>
-                <li class="dropdown"><a class="nav-link " href="{{route('event.index')}}"><i
+                <li class="dropdown"><a class="nav-link " href="{{route('admin.event.index')}}"><i
                             data-feather="align-justify"></i><span>Events</span></a>
                 </li>
-                <li class="dropdown"><a class="nav-link" href="{{route('page.index')}}"><i
+                <li class="dropdown"><a class="nav-link" href="{{route('admin.page.index')}}"><i
                             data-feather="align-justify"></i><span>Pages</span></a>
                 </li>
-                <li class="dropdown"><a class="nav-link " href="{{route('setting.index')}}"><i
+                <li class="dropdown"><a class="nav-link " href="{{route('admin.setting.index')}}"><i
                             data-feather="align-justify"></i><span>Settings</span></a>
                 </li>
-                <li class="dropdown"><a class="nav-link " href="{{route('usefullink.index')}}"><i
+                <li class="dropdown"><a class="nav-link " href="{{route('admin.usefullink.index')}}"><i
                             data-feather="align-justify"></i><span>Usefullink</span></a>
                 </li>
-                <li class="dropdown"><a class="nav-link " href="{{route('category.index')}}"><i
+                <li class="dropdown"><a class="nav-link " href="{{route('admin.category.index')}}"><i
                             data-feather="align-justify"></i><span>Categories</span></a>
                 </li>
                 <li class="sidebar-main-title">
@@ -56,11 +56,11 @@
                         <h6>{{ trans('labels.settings') }}</h6>
                     </div>
                 </li>
-                <li class="dropdown"><a class="nav-link " href="{{route('home')}}"><i data-feather="home"></i><span>Dashboard</span></a>
+                <li class="dropdown"><a class="nav-link " href="{{route('admin.home')}}"><i data-feather="home"></i><span>Dashboard</span></a>
                 </li>
-                <li class="dropdown"><a class="nav-link " href="{{route('contact.index')}}"><i data-feather="align-justify"></i><span>Contact</span></a>
+                <li class="dropdown"><a class="nav-link " href="{{route('admin.contact.index')}}"><i data-feather="align-justify"></i><span>Contact</span></a>
                 </li>
-                <li class="dropdown"><a class="nav-link" href="{{route('blog.index')}}"><i
+                <li class="dropdown"><a class="nav-link" href="{{route('admin.blog.index')}}"><i
                             data-feather="align-justify"></i><span>Blogs</span></a>
                 </li>
             </ul>

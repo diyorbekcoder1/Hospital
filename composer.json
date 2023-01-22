@@ -5,7 +5,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^8.0.2",
+        "php": "^7.2|^8.0.2",
         "ext-curl": "^8.0",
         "ext-gd": "^8.0",
         "ext-json": "^8.0",
@@ -57,7 +57,10 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
             "App\\Helpers\\": "Helpers/"
-        }
+        },
+        "files": [
+            "app/Helpers/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
