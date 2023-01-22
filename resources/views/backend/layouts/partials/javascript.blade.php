@@ -35,5 +35,7 @@
 <script src="{{asset('/plugins/datepicker/date-picker/datepicker.js')}}"></script>
 <script src="{{asset('/plugins/datepicker/date-picker/datepicker.en.js')}}"></script>
 <script src="{{asset('/plugins/datepicker/date-picker/datepicker.custom.js')}}"></script>
+<script src="{{ asset('/plugins/nestable/jquery.nestable.js') }}"></script>
 <script src="{{asset('/assets/js/script.js')}}"></script>
+<script src="{{ asset('/js/sortable-nestable.js') }}"></script>
 

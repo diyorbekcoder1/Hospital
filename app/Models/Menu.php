@@ -80,9 +80,6 @@ class Menu extends Model
 			            </a>
 			            <input type='hidden' value='1' name='menu_id'></span>
 			    </div>
-
-
-
 			        ".$this->generateMenu($menu, $item->id).'
 			</li>';
             }

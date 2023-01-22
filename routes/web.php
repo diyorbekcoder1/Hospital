@@ -32,8 +32,8 @@ Route::get('/', [\App\Http\Controllers\Front\IndexController::class, 'index'])->
 
 
 //        Route::group(['prefix'=>'menus'], function() {
-            Route::post('menus/save', 'MenuController@save')->name('menus.save');
-            Route::post('menus/{id}/toggle-publish', 'MenuController@togglePublish')->name('admin.menus.toggle-publish')->where('id', '[0-9]+');
+            Route::post('menus/save', [App\Http\Controllers\Admin\MenuController::class,'save'])->name('menus.save');
+            Route::post('menus/{id}/toggle-publish', [App\Http\Controllers\Admin\MenuController::class,'togglePublish'])->name('admin.menus.toggle-publish')->where('id', '[0-9]+');
             Route::resource('/menus', App\Http\Controllers\Admin\MenuController::class);
 //        });
 

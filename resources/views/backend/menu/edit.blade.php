@@ -80,13 +80,6 @@
                         <div class="form-group">
                             <label>  <h6>Язык</h6></label>
                             {!! Form::select('lang', $langs, $menu->lang, array('class'=>'form-control', 'id' => 'lang', 'value'=>old('lang'))) !!}
-
-{{--                            <select class="form-control" id="lang" name="lang">--}}
-{{--                                <option selected>Выбрать...</option>--}}
-{{--                                @foreach($langs as $key=>$lang)--}}
-{{--                                    <option value="{{ $lang->code }}">{{ $lang->code }}</option>--}}
-{{--                                @endforeach--}}
-{{--                            </select>--}}
                         </div>
                         <div class="form-group">
                             <label class="fancy-checkbox">
@@ -104,7 +97,7 @@
         </div>
     </div>
 @endsection
-@push('js')
+@push('javascript')
 
 
 @endpush
