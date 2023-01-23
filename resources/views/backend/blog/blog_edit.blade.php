@@ -1,13 +1,8 @@
 @extends('backend.layouts.app')
-
-
-
 @section('content')
-    <div class="page-body">
         <div class="container-fluid">
             <div class="page-header">
                 <div class="row">
-
                     <div class="col-sm-6">
                                     </div>
                 </div>
@@ -24,7 +19,7 @@
                                     <h5>Blogs</h5>
                                 </div>
                                 <div class="card-body">
-                                    <form class="theme-form" method="post" action="{{route('blog.update',$blog_edit)}}"
+                                    <form class="theme-form" method="post" action="{{route('admin.blog.update',$blog_edit)}}"
                                           enctype="multipart/form-data">
                                         @method('POST')
                                         @csrf
@@ -73,22 +68,17 @@
                                         </div>
                                     </form>
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
-
-    </div>
 @endsection
 
 @push('javascript')
-    <script src="{{asset('/assets/js/editor/ckeditor/ckeditor.js')}}"></script>
-    <script src="{{asset('/assets/js/editor/ckeditor/adapters/jquery.js')}}"></script>
-    <script src="{{asset('/assets/js/editor/ckeditor/styles.js')}}"></script>
-    <script src="{{asset('/assets/js/editor/ckeditor/ckeditor.custom.js')}}"></script>
+    <script src="{{asset('/plugins/js/editor/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('/plugins/js/editor/ckeditor/adapters/jquery.js')}}"></script>
+    <script src="{{asset('/plugins/js/editor/ckeditor/styles.js')}}"></script>
+    <script src="{{asset('/plugins/js/editor/ckeditor/ckeditor.custom.js')}}"></script>
 @endpush

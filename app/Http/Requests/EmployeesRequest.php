@@ -28,7 +28,7 @@ class EmployeesRequest extends FormRequest
             'specialty' => ['required', 'string'],
             'working_time' => ['required', 'string'],
             'experience' => ['required', 'string'],
-            'contact' => ['required', 'string'],
+            'contacts' => ['required', 'string'],
             'image'=> ['mimes:jpeg,jpg,png,gif|max:1000'],
         ];
     }

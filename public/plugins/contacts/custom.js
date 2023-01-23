@@ -6,7 +6,7 @@ function submitContact() {
 		var mail = $('#con-mail').val();
 		$('#index_var').val(parseInt(index_var)+5);
 
-			var tablist = '	<a class="contact-tab-'+index_var+' nav-link active" id="v-pills-user-tab" data-bs-toggle="pill" onclick="activeDiv('+index_var+')" href="#v-pills-user" role="tab" aria-controls="v-pills-user" aria-selected="true" data-original-title="" title="">\
+			var tablist = '	<a class="contacts-tab-'+index_var+' nav-link active" id="v-pills-user-tab" data-bs-toggle="pill" onclick="activeDiv('+index_var+')" href="#v-pills-user" role="tab" aria-controls="v-pills-user" aria-selected="true" data-original-title="" title="">\
 			                <div class="media">\
 				                <img class="img-50 img-fluid m-r-20 rounded-circle update_img_0" src="../assets/images/user/user.png" alt="" data-original-title="" title="">\
 				                <div class="media-body">\
@@ -17,7 +17,7 @@ function submitContact() {
 				                </div>\
 			                </div>\
 			            </a>';
-		      var tabcontent =  '<div class="tab-pane contact-tab-'+index_var+' tab-content-child fade show active" id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab">\
+		      var tabcontent =  '<div class="tab-pane contacts-tab-'+index_var+' tab-content-child fade show active" id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab">\
 		                <div class="profile-mail">\
 		                  <div class="media">\
 		                  <img class="img-100 img-fluid m-r-20 rounded-circle update_img_0" src="../assets/images/user/user.png" alt="" data-original-title="" title="">\
@@ -45,10 +45,10 @@ function submitContact() {
 	    $('#v-pills-tabContent').append(tabcontent);
 	    $('.contacts-tabs .nav-link ').removeClass('active show');
 	    $('.contacts-tabs .tab-content .tab-content-child ').removeClass('active show');
-		$( '.contact-tab-'+index_var ).addClass('active show');
+		$( '.contacts-tab-'+index_var ).addClass('active show');
 	    $('#exampleModal').modal('toggle');
 	    $('#bookmark-form').find('input[type="text"]').val('');
-	    var notify = $.notify('contact added successfully.', {
+	    var notify = $.notify('contacts added successfully.', {
 		    type: 'contactadd',
 		    allow_dismiss: false,
 		    delay: 2000,
@@ -62,16 +62,16 @@ function submitContact() {
 }
 
 (function($) {
-	$(".contact-editform").hide();
+	$(".contacts-editform").hide();
 	$(".more-data").hide();
 })(jQuery);
 
-// edit contact
+// edit contacts
 
 function editContact(index){
 
 	$("#v-pills-tabContent").hide();
-	$(".contact-editform").show();
+	$(".contacts-editform").show();
 
 	var first_name = $(".first_name_"+index).html();
 	var last_name = $(".last_name_"+index).html();
@@ -81,7 +81,7 @@ function editContact(index){
 	$("#email_add").val(email_add);
 }
 
-// print contact
+// print contacts
 
 function printContact(index){
 
@@ -100,27 +100,27 @@ function printContact(index){
 function deleteContact(index){
 	swal({
             title: "Are you sure?",
-            text: "This contact will be deleted from your Personal Contacts and from the chat list too.",
+            text: "This contacts will be deleted from your Personal Contacts and from the chat list too.",
             icon: "warning",
             buttons: true,
             dangerMode: true,
         })
         .then((willDelete) => {
             if (willDelete) {
-                $('.contact-tab-'+index).hide();
-				$( '.contact-tab-'+index ).next().addClass('active show');
+                $('.contacts-tab-'+index).hide();
+				$( '.contacts-tab-'+index ).next().addClass('active show');
             } else {
-                swal("Your contact is safe!");
+                swal("Your contacts is safe!");
             }
         })
-	// var el = $('contact-tab-'+index);
-	// el.addClass('delete-contact');
+	// var el = $('contacts-tab-'+index);
+	// el.addClass('delete-contacts');
 
 }
 function activeDiv(index){
 	$('.contacts-tabs .nav-link ').removeClass('active show');
 	$('.contacts-tabs .tab-content .tab-content-child ').removeClass('active show');
-	$( '.contact-tab-'+index ).addClass('active show');
+	$( '.contacts-tab-'+index ).addClass('active show');
 }
 
 // upload images
@@ -133,9 +133,9 @@ function activeDiv(index){
 		}
   };
 
-$('.update-contact').on('click', function(e) {
+$('.update-contacts').on('click', function(e) {
 	$("#v-pills-tabContent").show();
-	$(".contact-editform").hide();
+	$(".contacts-editform").hide();
 });
 
 $('.edit-information').on('click', function(e) {

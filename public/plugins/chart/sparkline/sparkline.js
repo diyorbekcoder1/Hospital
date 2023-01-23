@@ -4,7 +4,7 @@
 *
 * v2.1.2
 * (c) Splunk, Inc
-* contact: Gareth Watts (gareth@splunk.com)
+* contacts: Gareth Watts (gareth@splunk.com)
 * http://omnipotent.net/jquery.sparkline/
 *
 * Generates inline sparkline charts from data supplied either to the method

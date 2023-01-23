@@ -14,13 +14,12 @@ class ContactController extends Controller
     public function index()
     {
         $contact = Contact::all();
-        return view('backend.contact.contact', compact('contact'));
+        return view('backend.contacts.contact', compact('contact'));
     }
-
 
     public function create()
     {
-        return view('backend.contact.contact_create');
+        return view('backend.contacts.contact_create');
     }
 
 
@@ -30,14 +29,14 @@ class ContactController extends Controller
         $data = $contactRequest->validated();
         $data = $this->fileUpload($data);
         Contact::create($data);
-        return redirect()->route('contact.index')->with('message', 'Post successfully create.');
+        return redirect()->route('contacts.index')->with('message', 'Post successfully create.');
     }
 
 
     public function edit($id)
     {
         $contact_edit = Contact::find($id);
-        return view('contact.contact_edit', compact('contact_edit'));
+        return view('contacts.contact_edit', compact('contact_edit'));
     }
 
 
@@ -51,7 +50,7 @@ class ContactController extends Controller
         }
         $post->update($data);
 
-        return redirect()->route('contact.index')->with('message', 'Post successfully update.');
+        return redirect()->route('contacts.index')->with('message', 'Post successfully update.');
     }
 
 
@@ -62,6 +61,6 @@ class ContactController extends Controller
         $post = Contact::find($id);
         unlink('storage/images/' . $post->image);
         $post->delete();
-        return redirect()->route('contact.index')->with('message', 'Post successfully delete.');
+        return redirect()->route('contacts.index')->with('message', 'Post successfully delete.');
     }
 }

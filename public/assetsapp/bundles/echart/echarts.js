@@ -51965,7 +51965,7 @@
                     updateProps(group, groupNewProp, seriesModel);
                 }
             }
-            // Fix edge contact point with node
+            // Fix edge contacts point with node
             adjustEdge(seriesModel.getGraph(), this._getNodeGlobalScale(seriesModel));
 
             var data = seriesModel.getData();
@@ -57966,7 +57966,7 @@
 
     /**
      * Compute the x-position for each node.
-     * 
+     *
      * Here we use Kahn algorithm to detect cycle when we traverse
      * the node to computer the initial x position.
      *

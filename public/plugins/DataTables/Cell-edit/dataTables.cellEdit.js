@@ -8,7 +8,7 @@
  * @version     1.0.19
  * @file        dataTables.editCell.js
  * @author      Elliott Beaty
- * @contact     elliott@elliottbeaty.com
+ * @contacts     elliott@elliottbeaty.com
  * @copyright   Copyright 2016 Elliott Beaty
  *
  * This source file is free software, available under the following license:

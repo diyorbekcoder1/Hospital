@@ -144,7 +144,7 @@ class Menu extends Model
                 'blog' => 'Блог',
                 'project' => 'Project',
                 'faq' => 'Faq',
-                'contact' => 'Контакт',),
+                'contacts' => 'Контакт',),
             'Страница' => (isset($opts['Page']) ? $opts['Page'] : array()),
             'Фотогалерея' => (isset($opts['PhotoGallery']) ? $opts['PhotoGallery'] : array()), );
 
@@ -172,8 +172,8 @@ class Menu extends Model
             case 'faq':
                 $url = '/faq';
                 break;
-            case 'contact':
-                $url = '/contact';
+            case 'contacts':
+                $url = '/contacts';
                 break;
             default:
                 $url = $this->getModuleUrl($option);

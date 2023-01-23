@@ -15,7 +15,7 @@
                 </li>
                 <li class="dropdown"><a class="nav-link " href="{{route('admin.home')}}"><i data-feather="home"></i><span>Dashboard</span></a>
                 </li>
-                <li class="dropdown"><a class="nav-link" href="{{route('admin.contact.index')}}"><i data-feather="align-justify"></i><span>Contact</span></a>
+                <li class="dropdown"><a class="nav-link" href="{{route('admin.contacts.index')}}"><i data-feather="align-justify"></i><span>Contact</span></a>
                 </li>
                 <li class="dropdown"><a class="nav-link " href="{{route('admin.blog.index')}}"><i
                             data-feather="align-justify"></i><span>Blogs</span></a>
@@ -25,6 +25,9 @@
                 </li>
                 <li class="dropdown"><a class="nav-link " href="{{route('admin.event.index')}}"><i
                             data-feather="align-justify"></i><span>Events</span></a>
+                </li>
+                <li class="dropdown"><a class="nav-link " href="{{route('admin.menus.index')}}"><i
+                            data-feather="align-justify"></i><span>Menu</span></a>
                 </li>
                 <li class="dropdown"><a class="nav-link" href="{{route('admin.page.index')}}"><i
                             data-feather="align-justify"></i><span>Pages</span></a>
@@ -58,7 +61,7 @@
                 </li>
                 <li class="dropdown"><a class="nav-link " href="{{route('admin.home')}}"><i data-feather="home"></i><span>Dashboard</span></a>
                 </li>
-                <li class="dropdown"><a class="nav-link " href="{{route('admin.contact.index')}}"><i data-feather="align-justify"></i><span>Contact</span></a>
+                <li class="dropdown"><a class="nav-link " href="{{route('admin.contacts.index')}}"><i data-feather="align-justify"></i><span>Contact</span></a>
                 </li>
                 <li class="dropdown"><a class="nav-link" href="{{route('admin.blog.index')}}"><i
                             data-feather="align-justify"></i><span>Blogs</span></a>

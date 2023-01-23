@@ -14,7 +14,7 @@
                             <h5>Blogs </h5>
                         </div>
                         <div class="title m-l-5"><a
-                                    class="btn mr-1 mb-3 btn-primary btn-sm " href="{{route('blog.create')}}">Blogs
+                                    class="btn mr-1 mb-3 btn-primary btn-sm " href="{{route('admin.blog.create')}}">Blogs
                                 add</a>
                         </div>
                         <div class="table-responsive">
@@ -44,10 +44,10 @@
                                             </td>
 
                                             <td>
-                                                <a href="{{route('contact.edit', $blogs)}}"
+                                                <a href="{{route('contacts.edit', $blogs)}}"
                                                    class="btn btn-primary">Edit</a>
                                                 <form class="d-inline"
-                                                      action="{{route('contact.destroy', $blogs->id)}}"
+                                                      action="{{route('contacts.destroy', $blogs->id)}}"
                                                       method="post">
                                                     @csrf
                                                     @method('DELETE')

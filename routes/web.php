@@ -21,8 +21,8 @@ Route::get('/', [\App\Http\Controllers\Front\IndexController::class, 'index'])->
 //'namespace' => 'Admin'
     Route::group([ 'middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin',],function () {
         Route::get('/home', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('home');
-        Route::resource('/contact', App\Http\Controllers\Admin\ContactController::class);
-        Route::resource('/blog', App\Http\Controllers\Admin\BlogController::class);
+        Route::resource('/contacts', App\Http\Controllers\Admin\ContactController::class);
+        Route::resource('/blog', \App\Http\Controllers\Admin\BlogController::class);
         Route::resource('/employees', App\Http\Controllers\Admin\EmployessController::class);
         Route::resource('/event', App\Http\Controllers\Admin\EventController::class);
         Route::resource('/page', App\Http\Controllers\Admin\PageController::class);

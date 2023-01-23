@@ -19,7 +19,7 @@
                                     <h5>Blogs</h5>
                                 </div>
                                 <div class="card-body">
-                                    <form class="theme-form" method="post" action="{{route('employees.store')}}"
+                                    <form class="theme-form" method="post" action="{{route('admin.employees.store')}}"
                                           enctype="multipart/form-data">
                                         @method('POST')
                                         @csrf
@@ -83,12 +83,12 @@
                                             <div class="form-label-group">
                                                 <label for="form_name">Contact</label>
                                                 <input id="form_name" type="number" name="contact"
-                                                       class="form-control  @error('contact') is-invalid @enderror"
+                                                       class="form-control  @error('contacts') is-invalid @enderror"
                                                        placeholder="Please enter your contact *"
                                                        data-error="contact is required."
-                                                       value="{{old('contact')}}">
+                                                       value="{{old('contacts')}}">
 
-                                                @error('contact')
+                                                @error('contacts')
                                                 <span style="color: red">{{$message}} </span>
                                                 @enderror
                                             </div>
@@ -120,8 +120,8 @@
 
 @endsection
 @push('javascript')
-    <script src="{{asset('/assets/js/editor/ckeditor/ckeditor.js')}}"></script>
-    <script src="{{asset('/assets/js/editor/ckeditor/adapters/jquery.js')}}"></script>
-    <script src="{{asset('/assets/js/editor/ckeditor/styles.js')}}"></script>
-    <script src="{{asset('/assets/js/editor/ckeditor/ckeditor.custom.js')}}"></script>
+    <script src="{{asset('/plugins/editor/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('/plugins/editor/ckeditor/adapters/jquery.js')}}"></script>
+    <script src="{{asset('/plugins/editor/ckeditor/styles.js')}}"></script>
+    <script src="{{asset('/plugins/editor/ckeditor/ckeditor.custom.js')}}"></script>
 @endpush

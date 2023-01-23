@@ -9,8 +9,8 @@
 // 4. svg-icons
 // 5. btn-styles
 // 6. template animation
-// 7. template circle blocks 
-// 8. to-top btn 
+// 7. template circle blocks
+// 8. to-top btn
 // 9. font-awesome
 // 10. preloader
 // 11. searchBox
@@ -34,14 +34,14 @@ These are css styles, others're attached
 5. blog-grid.html
 6. blog-grid_left.html
 7. departments-3_column.html
-8. departments-details_right.html 
-9. cases-3_columns.html 
-10. doctors-single_right.html 
-11. shop.html 
-12. faqs.html 
+8. departments-details_right.html
+9. cases-3_columns.html
+10. doctors-single_right.html
+11. shop.html
+12. faqs.html
 ...
-// responsive 
-*/ 
+// responsive
+*/
 
 @import "variables";
 @import "container";
@@ -109,22 +109,22 @@ These are css styles, others're attached
 // 5. blog-grid.html
 @import "main/latest-news-4";
 // 6. blog-grid_left.html
-@import "blog-sidebar";            
+@import "blog-sidebar";
 // 7. departments-3_column.html
-@import "main/our-departments-3";            
-// 8. departments-details_right.html 
+@import "main/our-departments-3";
+// 8. departments-details_right.html
 @import "departments-sidebar";
-// 9. cases-3_columns.html 
+// 9. cases-3_columns.html
 @import "main/case";
-// 10. doctors-single_right.html 
+// 10. doctors-single_right.html
 @import "main/doctors";
 @import "doctors-sidebar";
-// 11. shop.html 
+// 11. shop.html
 @import "main/shop";
 @import "shop-sidebar";
-// 12. faqs.html 
+// 12. faqs.html
 @import "main/faqs";
-// 13. contact.html 
+// 13. contacts.html
 @import "main/contact";
 
 // . responsive

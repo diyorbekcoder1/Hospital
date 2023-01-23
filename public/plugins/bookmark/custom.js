@@ -57,9 +57,9 @@ function submitBookMark() {
     $('#exampleModal').modal('toggle');
     $('#bookmark-form').find('input[type="text"],textarea').val('');
 	}
-} 
+}
 
-// edit contact
+// edit contacts
 
 function editBookmark(index_var){
 
@@ -82,20 +82,20 @@ function setFavourite(index_var){
 	var desc = $(".desc_"+index_var).html();
 	var collection = $(".collection_"+index_var).html();
 	var n = fav_arr.includes(index_var);
-	
+
 	console.log(fav_arr);
 	console.log(n);
 	if(n){
-		for( var i = 0; i < fav_arr.length; i++){ 
+		for( var i = 0; i < fav_arr.length; i++){
 		   if ( fav_arr[i] === index_var) {
-		     fav_arr.splice(i, 1); 
+		     fav_arr.splice(i, 1);
 		   }
 		}
 		$(".favourite_card_"+index_var).hide();
 	}
 	else {
 		fav_arr.push(index_var);
-	
+
 		var bmColData = '<div class="col-xl-3 col-md-4 xl-50 favourite_card_'+index_var+'">\
 	      <div class="card card-with-border bookmark-card o-hidden"><div class="details-website"><img class="img-fluid" src="../assets/images/lightgallry/07.jpg" alt="" data-original-title="" title="">\
 	        <div class="favourite-icon favourite" ><a href="javascript:void(0)" class="favourite_'+index_var+'" onclick="setFavourite('+index_var+')" data-original-title="" title=""><i class="fa fa-star"></i></a></div>\
