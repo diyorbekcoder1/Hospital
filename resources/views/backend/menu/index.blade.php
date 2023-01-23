@@ -8,11 +8,11 @@
         <div class="col-lg-6 col-md-12 col-sm-12">
 
             <div class="card">
-                <div class="body">
+                <div class="body m-10">
                     <div class="pull-right">
                         <div id="msg"></div>
                     </div>
-                   <h6>Меню</h6>
+                    <h6>Меню</h6>
                     <hr>
                     <div class="clearfix m-b-20">
                         <div class="dd" id="nestable">
@@ -27,31 +27,39 @@
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
 
-            <div class="card">
-                <div class="body">
+            <div class="card m-10 ">
+                <div class="body m-20 ">
                     {!! Form::open(array('action' => '\App\Http\Controllers\Admin\MenuController@store')) !!}
                     <div class="pull-right">
                         <div id="msg"></div>
                     </div>
-                    <button  class="btn btn-primary" type="submit">
+                    <button class="btn btn-primary" type="submit">
                         <span class="glyphicon glyphicon-check"></span>&nbsp;save
                     </button>
                     <a href="{!! route('admin.menus.create') !!}" class="btn btn-danger">
                         <span class="glyphicon glyphicon-trash"></span>&nbsp;cancel </a> <br>
                     <hr>
-                    <div class="clearfix">
+                    <div class="clearfix ">
                         <h6>Заголовок пункта меню</h6>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="title" id="title" placeholder="Название меню" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" name="title" id="title" placeholder="Название меню"
+                                   aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                         <div class="form-group">
                             <label>Тип</label>
-                        <div class="fancy-radio">
-                            <label><input name="type" class="type" value="module" type="radio" checked><span><i></i>Модул</span></label>
-                        </div>
-                        <div class="fancy-radio">
-                            <label><input name="type" class="type" value="custom" type="radio"><span><i></i>Custom</span></label>
-                        </div>
+                            <div class="col">
+                                <div class="form-group m-t-15 m-checkbox-inline mb-0 custom-radio-ml">
+                                    <div class="radio radio-primary">
+                                        <input id="radioinline1" class="type" type="radio" name="radio1" value="module">
+                                        <label class="mb-0" for="radioinline1">Модул<span class="digits"> </span></label>
+                                    </div>
+                                    <div class="radio radio-primary">
+                                        <input id="radioinline2" class="type" type="radio" name="radio1" value="custom">
+                                        <label class="mb-0" for="radioinline2">Custom<span class="digits"> </span></label>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group {!! $errors->has('options') ? 'has-error' : '' !!} modules">
                             <label class="control-label" for="title">Опция</label>
@@ -74,16 +82,16 @@
                                 @endif
                             </div>
                         </div>
-
-
                         <div class="form-group">
-                            <label>  <h6>Язык</h6></label>
+                            <label><h6>Язык</h6></label>
                             {!! Form::select('lang', $langs, null, array('class'=>'form-control', 'id' => 'lang', 'value'=>old('lang'))) !!}
                         </div>
+
                         <div class="form-group">
                             <label class="fancy-checkbox">
-                                <input type="checkbox" name="is_public" id="is_public" value="1" required data-parsley-errors-container="#error-checkbox">
-                                <span>Актив</span>
+                                <input type="checkbox" name="is_public" id="is_public" value="1" required
+                                       data-parsley-errors-container="#error-checkbox">
+                                <span style="color: black;font-weight: bold" >Актив</span>
                             </label>
 
                             <p id="error-checkbox"></p>
@@ -114,9 +122,9 @@
                     success: function (response) {
                         if (response['result'] == 'success') {
                             var imagePath = (response['changed'] == 1) ? "fa fa-check" : "fa fa-remove";
-                            var message=(response['changed'] == 1) ? "published":"unpublished";
+                            var message = (response['changed'] == 1) ? "published" : "unpublished";
                             $("#publish-image-" + id).attr('class', imagePath);
-                            $("#msg").html('<div class="msg-save" style="float:right; color:red;">'+message+'</div>');
+                            $("#msg").html('<div class="msg-save" style="float:right; color:red;">' + message + '</div>');
                         }
                     },
                     error: function () {
@@ -131,8 +139,7 @@
                     if (selected == "custom") {
                         $('.modules').css('display', 'none');
                         $('.url').css('display', 'block');
-                    }
-                    else {
+                    } else {
                         $('.modules').css('display', 'block');
                         $('.url').css('display', 'none');
                     }
