@@ -5,6 +5,7 @@ use App\Models\Page;
 use App\Repositories\RepositoryAbstract;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Validation\ValidationException;
+use stdClass;
 
 class PageRepositoty extends RepositoryAbstract
 {
