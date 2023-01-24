@@ -26,7 +26,7 @@ class BlogController extends Controller
         $data = $blogRequest->validated();
         $data = $this->fileUpload($data);
         Blog::create($data);
-        return redirect()->route('backend.blog.index')->with('message', 'Post successfully create.');
+        return redirect()->route('admin.blog.index')->with('message', 'Post successfully create.');
     }
 
 
@@ -46,7 +46,7 @@ class BlogController extends Controller
         }
         $post->update($data);
 
-        return redirect()->route('backend.blog.index')->with('message', 'Post successfully update.');
+        return redirect()->route('admin.blog.index')->with('message', 'Post successfully update.');
     }
 
 
@@ -57,6 +57,6 @@ class BlogController extends Controller
         $post = Blog::find($id);
         unlink('storage/images/' . $post->image);
         $post->delete();
-        return redirect()->route('backend.blog.index')->with('message', 'Post successfully delete.');
+        return redirect()->route('admin.blog.index')->with('message', 'Post successfully delete.');
     }
 }

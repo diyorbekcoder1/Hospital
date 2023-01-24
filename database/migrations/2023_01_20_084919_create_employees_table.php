@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('specialty');
             $table->string('working_time');
             $table->string('experience');
+            $table->text('description');
             $table->string('contact');
             $table->timestamps();
         });

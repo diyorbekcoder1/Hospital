@@ -1,5 +1,6 @@
 @extends('backend.layouts.app')
 @section('content')
+    <!-- Container-fluid starts-->
     <div class="container-fluid">
         @if (session()->has('message'))
             <div class="alert alert-success">
@@ -13,7 +14,7 @@
                         <h5>Blogs </h5>
                     </div>
                     <div class="title m-l-5"><a
-                            class="btn mr-1 mb-3 btn-primary btn-sm " href="{{route('admin.employees.create')}}">Employees
+                            class="btn mr-1 mb-3 btn-primary btn-sm " href="{{route('admin.blog.create')}}">Blogs
                             add</a>
                     </div>
                     <div class="table-responsive">
@@ -21,51 +22,57 @@
                             <thead>
                             <tr>
                                 <th scope="col">№</th>
-                                <th scope="col">Name</th>
+                                <th scope="col">Title</th>
                                 <th scope="col">Image</th>
-                                <th scope="col">Specialty</th>
-                                <th scope="col">Working time</th>
-                                <th scope="col">Experience</th>
-                                <th scope="col">Contact</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @if(isset($employeess))
-                                @foreach($employeess as $key => $employees)
+
+                            @if(isset($blog))
+                                @foreach($blog as $key => $blogs)
                                     <tr>
                                         <th scope="row">{{++$key}}</th>
-                                        <td>{{$employees->name}}</td>
+
+                                        <td>{{$blogs->title}}</td>
+
+
                                         <td style="width: 50px; height: 50px; border-radius: 50%;"><img
                                                 style="width: 50px; height: 50px; border-radius: 50%;"
-                                                src="{{ asset('storage/images/'.$employees->image) }}"
+                                                src="{{ asset('storage/images/'.$blogs->image) }}"
                                                 alt="">
                                         </td>
-                                        <td>{{$employees->specialty}}</td>
-                                        <td>{{$employees->working_time}}</td>
-                                        <td>{{$employees->experience}}</td>
-                                        <td>{{$employees->contact}}</td>
+
                                         <td>
-                                            <a href="{{route('admin.employees.edit', $employees)}}"
+                                            <a href="{{route('contacts.edit', $blogs)}}"
                                                class="btn btn-primary">Edit</a>
                                             <form class="d-inline"
-                                                  action="{{route('admin.employees.destroy', $employees->id)}}"
+                                                  action="{{route('contacts.destroy', $blogs->id)}}"
                                                   method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Delete</button>
                                             </form>
+
+
                                         </td>
+
                                     </tr>
+
                                 @endforeach
+
                             @endif
+
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
+    <!-- Container-fluid Ends-->
+
 @endsection
 
 

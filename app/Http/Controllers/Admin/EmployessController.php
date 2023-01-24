@@ -33,14 +33,14 @@ class EmployessController extends Controller
         $data = $employeesRequest->validated();
         $data = $this->fileUpload($data);
         Employees::create($data);
-        return redirect()->route('backend.employ.index')->with('message', 'Post successfully create.');
+        return redirect()->route('admin.employees.index')->with('message', 'Post successfully create.');
     }
 
 
     public function edit($id)
     {
         $employees_edit = Employees::find($id);
-        return view('backend.employ.employees_edit', compact('employees_edit'));
+        return view('admin.employ.employees_edit', compact('employees_edit'));
     }
 
 
@@ -54,17 +54,17 @@ class EmployessController extends Controller
         }
         $post->update($data);
 
-        return redirect()->route('backendemploy.index')->with('message', 'Post successfully update.');
+        return redirect()->route('admin.employees.index')->with('message', 'Post successfully update.');
     }
 
 
     public function destroy($id)
     {
         $request = request()->merge(['id' => $id]);
-        $request->validate(['id' => 'required|exists:employ,id']);
+        $request->validate(['id' => 'required|exists:employees,id']);
         $post = Employees::find($id);
         unlink('storage/images/' . $post->image);
         $post->delete();
-        return redirect()->route('backend.employ.index')->with('message', 'Post successfully delete.');
+        return redirect()->route('admin.employees.index')->with('message', 'Post successfully delete.');
     }
 }

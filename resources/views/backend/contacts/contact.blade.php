@@ -52,9 +52,9 @@
                                                 alt="">
                                         </td>
                                         <td>
-                                            <a href="{{route('contacts.edit', $contact_a)}}" class="btn btn-primary">Edit</a>
+                                            <a href="{{route('admin.contacts.edit', $contact_a)}}" class="btn btn-primary">Edit</a>
                                             <form class="d-inline"
-                                                  action="{{route('contacts.destroy', $contact_a->id)}}"
+                                                  action="{{route('admin.contacts.destroy', $contact_a->id)}}"
                                                   method="post">
                                                 @csrf
                                                 @method('DELETE')

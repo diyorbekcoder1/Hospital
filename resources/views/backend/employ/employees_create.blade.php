@@ -16,7 +16,7 @@
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header pb-0">
-                                    <h5>Blogs</h5>
+                                    <h5>Employees</h5>
                                 </div>
                                 <div class="card-body">
                                     <form class="theme-form" method="post" action="{{route('admin.employees.store')}}"
@@ -82,17 +82,30 @@
                                         <div class="col-12">
                                             <div class="form-label-group">
                                                 <label for="form_name">Contact</label>
-                                                <input id="form_name" type="number" name="contact"
+                                                <input id="form_name" type="text" name="contact"
                                                        class="form-control  @error('contacts') is-invalid @enderror"
                                                        placeholder="Please enter your contact *"
                                                        data-error="contact is required."
-                                                       value="{{old('contacts')}}">
+                                                       value="{{old('contact')}}">
 
-                                                @error('contacts')
+                                                @error('contact')
                                                 <span style="color: red">{{$message}} </span>
                                                 @enderror
                                             </div>
                                         </div>
+                                        <div class="col-12 mt-5">
+                                            <div class="form-label-group">
+                                                <label for="form_name">Description</label>
+                                                <textarea id="editor1" name="description"  value="{{old('description')}}" cols="30"
+                                                          rows="10"></textarea>
+
+                                                @error('text')
+                                                <span style="color: red">{{$message}} </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+
 
                                         <div class="col-12">
                                             <div class="form-label-group">

@@ -7,17 +7,17 @@
         <div class="col-lg-12">
             @include('flash::message')
             <div class="card">
-                <div class="body">
+                <div class="body m-10">
                     <div class="pull-left">
                         <div class="btn-toolbar"><a href="{!! route('admin.page.create') !!}" class="btn btn-primary">
-                     <span class="glyphicon glyphicon-plus"></span>&nbsp;Add Page </a></div>
+                                <span class="glyphicon glyphicon-plus"></span>&nbsp;Add Page </a></div>
                     </div>
                     @if($pages->count())
                         <div class="">
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>№</th>
                                     <th>Название страница</th>
                                     <th>Язык</th>
                                     <th>Актив</th>
@@ -27,7 +27,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $counter=0;?>
+                                    <?php $counter = 0; ?>
                                 @foreach( $pages as $page )
                                     <tr>
                                         <td>{{ $counter+=1 }}</td>
@@ -37,40 +37,28 @@
                                         <td>{{ $page->lang }}</td>
                                         <td>
                                             <a href="#" id="{!! $page->id !!}" class="publish">
-                                                <i id="publish-image-{!! $page->id !!}" class="{!! ($page->is_published) ? 'fa fa-check' : 'fa fa-remove'  !!}"></i>
+                                                <i id="publish-image-{!! $page->id !!}"
+                                                   class="{!! ($page->is_published) ? 'fa fa-check' : 'fa fa-remove'  !!}"></i>
                                             </a>
                                         </td>
                                         <td>{!! $page->created_at !!}</td>
                                         <td>{!! $page->updated_at !!}</td>
                                         <td>
-                                            <div class="btn-group">
-                                                <a class="btn btn-danger dropdown-toggle" data-toggle="dropdown" href="#">
-                                                    Action <span class="caret"></span> </a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="{!! route('admin.page.show', [$page->id]) !!}">
-                                                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;Show Page
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{!! route('admin.page.edit', [$page->id]) !!}">
-                                                            <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit Page </a>
-                                                    </li>
-                                                    <li class="divider"></li>
-                                                    <li>
-                                                        <a href="{!! route('admin.page.destroy', [$page->id]) !!}">
-                                                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Delete
-                                                            Page </a>
-                                                    </li>
-                                                    <li class="divider"></li>
-                                                    {{--                                            <li>--}}
-                                                    {{--                                                <a target="_blank" href="{!! route('dashboard.page.show', ['slug' => $page->slug]) !!}">--}}
-                                                    {{--                                                    <span class="glyphicon glyphicon-eye-open"></span>&nbsp;View On Site--}}
-                                                    {{--                                                </a>--}}
-                                                    {{--                                            </li>--}}
-                                                </ul>
-                                            </div>
+
+                                            <a href="{{route('admin.page.edit', $page)}}"
+                                               class="btn btn-primary">Edit</a>
+                                            <form class="d-inline"
+                                                  action="{{route('admin.page.destroy', $page->id)}}"
+                                                  method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                            </ul>
+
+
                                         </td>
+
 
                                     </tr>
                                 @endforeach

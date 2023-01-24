@@ -16,7 +16,7 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header pb-0">
-                                <h5>Blogs</h5>
+                                <h5>Employees</h5>
                             </div>
                             <div class="card-body">
                                 <form class="theme-form" method="post" action="{{route('admin.employees.update',$employees_edit)}}"
@@ -90,6 +90,18 @@
 
                                             @error('contacts')
                                             <span style=" color: red" >{{$message}} </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 mt-5">
+                                        <div class="form-label-group">
+                                            <label for="form_name">Description</label>
+                                            <textarea id="editor1" name="text  value="{{old('text', $employees_edit->text)}}" cols="30"
+                                                      rows="10"></textarea>
+
+                                            @error('text')
+                                            <span style="color: red">{{$message}} </span>
                                             @enderror
                                         </div>
                                     </div>

@@ -7,7 +7,7 @@
     <div class="row clearfix">
         <div class="col-lg-12">
             <div class="card">
-                <div class="body">
+                <div class="body m-15">
                     {!! Form::open(array('action' => '\App\Http\Controllers\Admin\PageController@store')) !!}
                     <!-- Title -->
                     <div class="form-group m-t-20 m-b-20 {!! $errors->has('title') ? 'has-error' : '' !!}">

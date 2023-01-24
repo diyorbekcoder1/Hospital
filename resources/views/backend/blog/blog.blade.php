@@ -44,10 +44,10 @@
                                             </td>
 
                                             <td>
-                                                <a href="{{route('contacts.edit', $blogs)}}"
+                                                <a href="{{route('admin.contacts.edit', $blogs)}}"
                                                    class="btn btn-primary">Edit</a>
                                                 <form class="d-inline"
-                                                      action="{{route('contacts.destroy', $blogs->id)}}"
+                                                      action="{{route('admin.contacts.destroy', $blogs->id)}}"
                                                       method="post">
                                                     @csrf
                                                     @method('DELETE')

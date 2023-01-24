@@ -15,7 +15,8 @@ class Employees extends Model
         'specialty',
         'working_time',
         'experience',
-        'contacts',
+        'contact',
+        'description',
         'image',
     ];
 }
