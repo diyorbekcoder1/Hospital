@@ -17,6 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
+            $table->string('lang', 20);
             $table->string('image')->default('default.png');
             $table->timestamps();
         });

@@ -28,6 +28,7 @@
         "laravel/ui": "^4.2",
         "laravelcollective/html": "^6.3",
         "livewire/livewire": "^2.11",
+        "mcamara/laravel-localization": "^1.7",
         "mews/purifier": "^3.3",
         "nwidart/laravel-modules": "^9.0",
         "prettus/l5-repository": "^2.8",

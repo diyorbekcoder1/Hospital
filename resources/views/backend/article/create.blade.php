@@ -1,4 +1,4 @@
-@extends('backend/layout/layout')
+@extends('backend.layouts.app')
 @section('content')
     {!! HTML::style('assets/bootstrap/css/bootstrap-tagsinput.css') !!}
     {!! HTML::style('jasny-bootstrap/css/jasny-bootstrap.min.css') !!}
@@ -24,14 +24,14 @@
     <br>
     <div class="container">
 
-        {!! Form::open(array('action' => '\Fully\Http\Controllers\Admin\ArticleController@store', 'files'=>true)) !!}
+        {!! Form::open(array('action' => '\App\Http\Controllers\Admin\ArticleController@store', 'files'=>true)) !!}
 
         <!-- Title -->
         <div class="control-group {!! $errors->has('title') ? 'has-error' : '' !!}">
             <label class="control-label" for="title">Title</label>
 
             <div class="controls">
-                {!! Form::text('title', null, array('class'=>'form-control', 'id' => 'title', 'placeholder'=>'Title', 'value'=>Input::old('title'))) !!}
+                {!! Form::text('title', null, array('class'=>'form-control', 'id' => 'title', 'placeholder'=>'Title', 'value'=>old('title'))) !!}
                 @if ($errors->first('title'))
                     <span class="help-block">{!! $errors->first('title') !!}</span>
                 @endif
@@ -44,7 +44,7 @@
             <label class="control-label" for="title">Tag</label>
 
             <div class="controls">
-                {!! Form::text('tag', null, array('class'=>'form-control', 'id' => 'tag', 'placeholder'=>'Tag', 'value'=>Input::old('tag'))) !!}
+                {!! Form::text('tag', null, array('class'=>'form-control', 'id' => 'tag', 'placeholder'=>'Tag', 'value'=>old('tag'))) !!}
                 @if ($errors->first('tag'))
                     <span class="help-block">{!! $errors->first('tag') !!}</span>
                 @endif
@@ -57,7 +57,7 @@
             <label class="control-label" for="title">Category</label>
 
             <div class="controls">
-                {!! Form::select('category', $categories, null, array('class' => 'form-control', 'value'=>Input::old('category'))) !!}
+                {!! Form::select('category', $categories, null, array('class' => 'form-control', 'value'=>old('category'))) !!}
                 @if ($errors->first('category'))
                     <span class="help-block">{!! $errors->first('category') !!}</span>
                 @endif
@@ -70,7 +70,7 @@
             <label class="control-label" for="title">Content</label>
 
             <div class="controls">
-                {!! Form::textarea('content', null, array('class'=>'form-control', 'id' => 'content', 'placeholder'=>'Content', 'value'=>Input::old('content'))) !!}
+                {!! Form::textarea('content', null, array('class'=>'form-control', 'id' => 'content', 'placeholder'=>'Content', 'value'=>old('content'))) !!}
                 @if ($errors->first('content'))
                     <span class="help-block">{!! $errors->first('content') !!}</span>
                 @endif
@@ -95,7 +95,7 @@
                                 <label class="control-label" for="title">Meta Description</label>
 
                                 <div class="controls">
-                                    {!! Form::text('meta_description', null, array('class'=>'form-control', 'id' => 'meta_description', 'placeholder'=>'Meta Description', 'value'=>Input::old('meta_description'))) !!}
+                                    {!! Form::text('meta_description', null, array('class'=>'form-control', 'id' => 'meta_description', 'placeholder'=>'Meta Description', 'value'=>old('meta_description'))) !!}
                                     @if ($errors->first('meta_description'))
                                         <span class="help-block">{!! $errors->first('meta_description') !!}</span>
                                     @endif
@@ -109,7 +109,7 @@
                                 <label class="control-label" for="title">Meta Keywords</label>
 
                                 <div class="controls">
-                                    {!! Form::textarea('meta_keywords', null, array('class'=>'form-control', 'id' => 'meta_keywords', 'placeholder'=>'Meta Keywords', 'value'=>Input::old('meta_keywords'))) !!}
+                                    {!! Form::textarea('meta_keywords', null, array('class'=>'form-control', 'id' => 'meta_keywords', 'placeholder'=>'Meta Keywords', 'value'=>old('meta_keywords'))) !!}
                                     @if ($errors->first('meta_keywords'))
                                         <span class="help-block">{!! $errors->first('meta_keywords') !!}</span>
                                     @endif
@@ -125,7 +125,7 @@
         <!-- Image -->
         <div class="fileinput fileinput-new control-group {!! $errors->has('image') ? 'has-error' : '' !!}" data-provides="fileinput">
             <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
-            <div> <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span> {!! Form::file('image', null, array('class'=>'form-control', 'id' => 'image', 'placeholder'=>'Image', 'value'=>Input::old('image'))) !!}
+            <div> <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span> {!! Form::file('image', null, array('class'=>'form-control', 'id' => 'image', 'placeholder'=>'Image', 'value'=>old('image'))) !!}
                     @if ($errors->first('image')) <span class="help-block">{!! $errors->first('image') !!}</span> @endif </span> <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> </div>
         </div>
         <br>

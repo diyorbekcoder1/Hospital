@@ -32,7 +32,9 @@ class ArticleController extends Controller
 
     public function create()
     {
-        //
+        $categories = $this->category->lists();
+
+        return view('backend.article.create', compact('categories'));
     }
 
     /**

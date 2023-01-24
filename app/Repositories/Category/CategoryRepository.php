@@ -49,7 +49,7 @@ class CategoryRepository extends RepositoryAbstract{
 
     public function lists()
     {
-        return $this->category->where('lang', $this->getLang())->pluck('title', 'id');
+        return $this->category->where('lang', $this->getLang())->pluck('name', 'id');
     }
 
     public function find($id)

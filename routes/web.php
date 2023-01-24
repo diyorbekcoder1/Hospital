@@ -25,6 +25,10 @@ Route::get('/', [\App\Http\Controllers\Front\IndexController::class, 'index'])->
         Route::resource('/blog', \App\Http\Controllers\Admin\BlogController::class);
         Route::resource('/post', \App\Http\Controllers\Admin\PostController::class);
         Route::resource('/article', \App\Http\Controllers\Admin\ArticleController::class);
+
+/*        Route::get('/article', array('as' => 'dashboard.article', 'uses' => 'ArticleController@index'));
+        Route::get('/article/{slug}', array('as' => 'dashboard.article.show', 'uses' => 'ArticleController@show'));*/
+
         Route::resource('/employees', App\Http\Controllers\Admin\EmployessController::class);
         Route::resource('/galereya', App\Http\Controllers\Admin\GalereyaController::class);
         Route::resource('/event', App\Http\Controllers\Admin\EventController::class);
