@@ -46,7 +46,7 @@
                                 @foreach($posts as $key=>$post)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ mb_substr($post->title,'10') }}</td>
+                                        <td>{{ $post->title }}</td>
                                         <td>{{ $post->user->name }}</td>
                                         <td>{{ $post->view_count }}</td>
                                         <td>

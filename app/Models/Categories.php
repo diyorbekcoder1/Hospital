@@ -10,6 +10,7 @@ class Categories extends Model
     use HasFactory;
 
     protected $table='categories';
+
     public function posts()
     {
         return $this->belongsToMany('App\Models\Post')->withTimestamps();
