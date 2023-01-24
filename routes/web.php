@@ -23,6 +23,7 @@ Route::get('/', [\App\Http\Controllers\Front\IndexController::class, 'index'])->
         Route::get('/home', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('home');
         Route::resource('/contacts', App\Http\Controllers\Admin\ContactController::class);
         Route::resource('/blog', \App\Http\Controllers\Admin\BlogController::class);
+        Route::resource('/post', \App\Http\Controllers\Admin\PostController::class);
         Route::resource('/employees', App\Http\Controllers\Admin\EmployessController::class);
         Route::resource('/event', App\Http\Controllers\Admin\EventController::class);
         Route::resource('/page', App\Http\Controllers\Admin\PageController::class);
