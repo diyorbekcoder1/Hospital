@@ -25,6 +25,7 @@ Route::get('/', [\App\Http\Controllers\Front\IndexController::class, 'index'])->
         Route::resource('/blog', \App\Http\Controllers\Admin\BlogController::class);
         Route::resource('/post', \App\Http\Controllers\Admin\PostController::class);
         Route::resource('/employees', App\Http\Controllers\Admin\EmployessController::class);
+        Route::resource('/galereya', App\Http\Controllers\Admin\GalereyaController::class);
         Route::resource('/event', App\Http\Controllers\Admin\EventController::class);
         Route::resource('/page', App\Http\Controllers\Admin\PageController::class);
         Route::resource('/setting', App\Http\Controllers\Admin\SettingController::class);

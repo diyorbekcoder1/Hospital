@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="block-header">
             <a class="btn btn-primary waves-effect" href="{{ route('admin.post.create') }}">
-                <i class="material-icons">add</i>
+
                 <span>Add New Post</span>
             </a>
         </div>
@@ -18,9 +18,11 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
+
                         <h2>
                             ALL POSTS
                             <span class="badge bg-blue">{{ $posts->count() }}</span>
+
                         </h2>
                     </div>
                     <div class="body">
@@ -39,19 +41,7 @@
                                     <th>Action</th>
                                 </tr>
                                 </thead>
-                                <tfoot>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Title</th>
-                                    <th>Author</th>
-                                    <th><i class="material-icons">visibility</i></th>
-                                    <th>Is Approved</th>
-                                    <th>Status</th>
-                                    <th>Created At</th>
-                                    {{--<th>Updated At</th>--}}
-                                    <th>Action</th>
-                                </tr>
-                                </tfoot>
+
                                 <tbody>
                                 @foreach($posts as $key=>$post)
                                     <tr>

@@ -13,8 +13,8 @@
         <form action="{{ route('admin.post.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row clearfix">
-                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 ">
+                    <div style="padding: 30px" class="card">
                         <div class="header">
                             <h2>
                                 ADD NEW POST
@@ -23,8 +23,8 @@
                         <div class="body">
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" id="title" class="form-control" name="title">
                                     <label class="form-label">Post Title</label>
+                                    <input type="text" id="title" class="form-control" name="title">
                                 </div>
                             </div>
 
@@ -40,15 +40,33 @@
 
                         </div>
                     </div>
+                    <div class="row clearfix ">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h2>
+                                        BODY
+                                    </h2>
+                                </div>
+                                <div class="body">
+                                    {!! Form::textarea('body', null, array('class'=>'form-control', 'id' => 'body', 'placeholder'=>'Body', 'value'=>old('body'))) !!}
+                                    @if ($errors->first('body'))
+                                        <span class="help-block">{!! $errors->first('content') !!}</span>
+                                    @endif
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
+                    <div class="card ">
                         <div class="header">
                             <h2>
                                 Categories and Tags
                             </h2>
                         </div>
-                        <div class="body">
+                        <div class="body m-10">
                             <div class="form-group form-float">
                                 <div class="form-line {{ $errors->has('categories') ? 'focused error' : '' }}">
                                     <label for="category">Select Category</label>
@@ -76,20 +94,9 @@
 
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                BODY
-                            </h2>
-                        </div>
-                        <div class="body">
-                            <textarea id="tinymce" name="body"></textarea>
-                        </div>
-                    </div>
+
+
+
                 </div>
             </div>
         </form>

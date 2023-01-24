@@ -41,6 +41,12 @@
                 <li class="dropdown"><a class="nav-link " href="{{route('admin.category.index')}}"><i
                             data-feather="align-justify"></i><span>Categories</span></a>
                 </li>
+                <li class="dropdown"><a class="nav-link " href="{{route('admin.galereya.index')}}"><i
+                            data-feather="align-justify"></i><span>Galereya</span></a>
+                </li>
+                <li class="dropdown"><a class="nav-link " href="{{route('admin.post.index')}}"><i
+                            data-feather="align-justify"></i><span>Posts</span></a>
+                </li>
                 <li class="sidebar-main-title">
                     <div>
                         <h6>{{ trans('labels.user') }}</h6>

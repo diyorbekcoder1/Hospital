@@ -15,13 +15,13 @@
             @method('PUT')
             <div class="row clearfix">
                 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
+                    <div style="padding: 30px"  class="card">
                         <div class="header">
                             <h2>
                                 EDIT POST
                             </h2>
                         </div>
-                        <div class="body">
+                        <div class="body m-10">
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" id="title" class="form-control" name="title" value="{{ $post->title }}">
@@ -39,6 +39,20 @@
                                 <label for="publish">Publish</label>
                             </div>
 
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h2>
+                                        BODY
+                                    </h2>
+                                </div>
+                                <div class="body">
+                                    <textarea id="tinymce" name="body">{{ $post->body }}</textarea>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -87,20 +101,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                BODY
-                            </h2>
-                        </div>
-                        <div class="body">
-                            <textarea id="tinymce" name="body">{{ $post->body }}</textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </form>
     </div>
 @endsection
