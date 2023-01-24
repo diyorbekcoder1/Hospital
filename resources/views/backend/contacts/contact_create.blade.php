@@ -76,7 +76,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="card-footer">
+                                    <div style="margin-top: 20px;" class="block-header">
                                         <button class="btn btn-primary">Submit</button>
                                     </div>
                                 </form>
