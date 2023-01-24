@@ -51,12 +51,9 @@ class PageRepositoty extends RepositoryAbstract
         if (!$all) {
             $query->where('is_published', 1);
         }
-
         $pages = $query->skip($limit * ($page - 1))->take($limit)->get();
-
         $result->totalItems = $this->totalPages($all);
         $result->items = $pages->all();
-
         return $result;
     }
 
@@ -68,15 +65,12 @@ class PageRepositoty extends RepositoryAbstract
     public function create($attributes)
     {
         $attributes['is_published'] = isset($attributes['is_published']) ? true : false;
-
         if ($this->isValid($attributes)) {
             $this->page->lang = $this->getLang();
             $this->page->slug= str_slug($attributes['title']);
             $this->page->fill($attributes)->save();
-
             return true;
         }
-
         throw new ValidationException('Page validation failed', $this->getErrors());
     }
 

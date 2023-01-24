@@ -40,10 +40,12 @@ class PageController extends Controller
 
     public function store(Request $request)
     {
+
         try {
-            $this->page->create($request->all());
+            $data=$request->except('_tokent');
+            $this->page->create($data);
             Flash::message('Page was successfully added');
-            return redirect(route('backend.page.index'));
+            return redirect(route('admin.page.index'));
         } catch (ValidationException $e) {
             return redirect(route('backend.page.create'))->withInput()->withErrors($e->getErrors());
         }

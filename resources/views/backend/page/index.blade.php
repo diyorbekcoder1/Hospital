@@ -48,17 +48,17 @@
                                                     Action <span class="caret"></span> </a>
                                                 <ul class="dropdown-menu">
                                                     <li>
-                                                        <a href="{!! route('admin.page.show', array($page->id)) !!}">
+                                                        <a href="{!! route('admin.page.show', [$page->id]) !!}">
                                                             <span class="glyphicon glyphicon-eye-open"></span>&nbsp;Show Page
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="{!! route('admin.page.edit', array($page->id)) !!}">
+                                                        <a href="{!! route('admin.page.edit', [$page->id]) !!}">
                                                             <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit Page </a>
                                                     </li>
                                                     <li class="divider"></li>
                                                     <li>
-                                                        <a href="{!! route('admin.page.delete', array($page->id)) !!}">
+                                                        <a href="{!! route('admin.page.destroy', [$page->id]) !!}">
                                                             <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Delete
                                                             Page </a>
                                                     </li>
