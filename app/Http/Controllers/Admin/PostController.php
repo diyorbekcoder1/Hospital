@@ -97,16 +97,13 @@ class PostController extends Controller
     {
         $this->validate($request,[
             'title' => 'required',
-
             'categories' => 'required',
-
             'body' => 'required',
         ]);
         $image = $request->file('image');
         $slug = $request->title;
         if(isset($image))
         {
-//            make unipue name for image
             $currentDate = Carbon::now()->toDateString();
             $imageName  = $slug.'-'.$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
 
@@ -114,7 +111,6 @@ class PostController extends Controller
             {
                 Storage::disk('public')->makeDirectory('post');
             }
-//            delete old post image
             if(Storage::disk('public')->exists('post/'.$post->image))
             {
                 Storage::disk('public')->delete('post/'.$post->image);

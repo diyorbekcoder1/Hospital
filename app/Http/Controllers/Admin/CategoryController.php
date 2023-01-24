@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
-use Brian2694\Toastr\Toastr;
+use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -65,7 +65,7 @@ class CategoryController extends Controller
         $category->slug = $slug;
         $category->image = $imagename;
         $category->save();
-//        Toastr::success('Category Successfully Saved :)' ,'Success');
+        Toastr::success('Category Successfully Saved :)' ,'Success');
         return redirect()->route('admin.category.index');
 
     }
@@ -78,8 +78,8 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
-        $category = Category::find($id);
-        return view('admin.category.edit',compact('category'));
+        $category = Categories::find($id);
+        return view('backend.category.edit',compact('category'));
     }
 
 
@@ -92,7 +92,7 @@ class CategoryController extends Controller
         // get form image
         $image = $request->file('image');
         $slug = $request->name;
-        $category = Category::find($id);
+        $category = Categories::find($id);
         if (isset($image))
         {
 //            make unique name for image
@@ -134,13 +134,13 @@ class CategoryController extends Controller
         $category->slug = $slug;
         $category->image = $imagename;
         $category->save();
-//        Toastr::success('Category Successfully Updated :)' ,'Success');
+        Toastr::success('Category Successfully Updated :)' ,'Success');
         return redirect()->route('admin.category.index');
     }
 
     public function destroy($id)
     {
-        $category = Category::find($id);
+        $category = Categories::find($id);
         if (Storage::disk('public')->exists('category/'.$category->image))
         {
             Storage::disk('public')->delete('category/'.$category->image);
