@@ -50,11 +50,11 @@
                             <div class="col">
                                 <div class="form-group m-t-15 m-checkbox-inline mb-0 custom-radio-ml">
                                     <div class="radio radio-primary">
-                                        <input id="radioinline1" class="type" type="radio" name="radio1" value="module">
+                                        <input id="radioinline1" class="type" type="radio" name="type" value="module">
                                         <label class="mb-0" for="radioinline1">Модул<span class="digits"> </span></label>
                                     </div>
                                     <div class="radio radio-primary">
-                                        <input id="radioinline2" class="type" type="radio" name="radio1" value="custom">
+                                        <input id="radioinline2" class="type" type="radio" name="type" value="custom">
                                         <label class="mb-0" for="radioinline2">Custom<span class="digits"> </span></label>
                                     </div>
 

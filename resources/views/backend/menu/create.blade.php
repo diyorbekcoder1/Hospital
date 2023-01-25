@@ -1,26 +1,6 @@
 @extends('layouts.backend.master')
 @section('content')
-@push('js')
-<script type="text/javascript">
-    $(document).ready(function () {
 
-        $('.type').change(function () {
-                var selected = $('input[class="type"]:checked').val();
-                if (selected == "custom") {
-                    $('.modules').css('display', 'none');
-                    $('.url').css('display', 'block');
-                }
-                else {
-                    $('.modules').css('display', 'block');
-                    $('.url').css('display', 'none');
-                }
-            }
-        );
-
-        $(".type").trigger("change");
-    });
-</script>
-@endpush
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1> Menu <small> | Add Menu</small> </h1>
@@ -49,7 +29,6 @@
 
     <!-- Type -->
     <label class="control-label" for="title">Type</label>
-
     <div class="controls">
         <div class="radio">
             <label>
@@ -97,4 +76,26 @@
     {!! Form::close() !!}
 
 </div>
+@push('javascript')
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.type').change(function () {
+                    var selected = $('input[class="type"]:checked').val();
+                    if (selected == "custom") {
+                        $('.modules').css('display', 'none');
+                        $('.url').css('display', 'block');
+                    }
+                    else {
+                        $('.modules').css('display', 'block');
+                        $('.url').css('display', 'none');
+                    }
+                }
+            );
+
+            $(".type").trigger("change");
+        });
+    </script>
+@endpush
 @stop
+
