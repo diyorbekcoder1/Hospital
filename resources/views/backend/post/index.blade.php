@@ -20,7 +20,7 @@
                     <div class="header">
 
                         <h2>
-                            ALL POSTS
+                            All Posts
                             <span class="badge bg-blue">{{ $posts->count() }}</span>
 
                         </h2>

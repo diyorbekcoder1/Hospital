@@ -47,6 +47,10 @@
                 <li class="dropdown"><a class="nav-link " href="{{route('admin.post.index')}}"><i
                             data-feather="align-justify"></i><span>Posts</span></a>
                 </li>
+                <li class="dropdown"><a class="nav-link " href="{{route('admin.article.index')}}"><i
+                            data-feather="align-justify"></i><span>Article</span></a>
+                </li>
+
                 <li class="sidebar-main-title">
                     <div>
                         <h6>{{ trans('labels.user') }}</h6>
@@ -65,13 +69,13 @@
                         <h6>{{ trans('labels.settings') }}</h6>
                     </div>
                 </li>
-                <li class="dropdown"><a class="nav-link " href="{{route('admin.home')}}"><i data-feather="home"></i><span>Dashboard</span></a>
-                </li>
-                <li class="dropdown"><a class="nav-link " href="{{route('admin.contacts.index')}}"><i data-feather="align-justify"></i><span>Contact</span></a>
-                </li>
-                <li class="dropdown"><a class="nav-link" href="{{route('admin.blog.index')}}"><i
-                            data-feather="align-justify"></i><span>Blogs</span></a>
-                </li>
+{{--                <li class="dropdown"><a class="nav-link " href="{{route('admin.home')}}"><i data-feather="home"></i><span>Dashboard</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="dropdown"><a class="nav-link " href="{{route('admin.contacts.index')}}"><i data-feather="align-justify"></i><span>Contact</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="dropdown"><a class="nav-link" href="{{route('admin.blog.index')}}"><i--}}
+{{--                            data-feather="align-justify"></i><span>Blogs</span></a>--}}
+{{--                </li>--}}
             </ul>
         </div>
         <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>

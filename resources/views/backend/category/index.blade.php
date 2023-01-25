@@ -18,7 +18,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            ALL CATEGORIES
+                            All Categories
                             <span class="badge bg-blue">{{ $categories->count() }}</span>
                         </h2>
                     </div>
@@ -46,7 +46,7 @@
                                         <td>{{ $category->updated_at }}</td>
                                         <td class="text-center">
                                             <a href="{{ route('admin.category.edit',$category->id) }}"
-                                               class="btn btn-info waves-effect">
+                                               class="btn btn-primary">
                                                 <i class="material-icons">edit</i>
                                             </a>
                                             <button class="btn btn-danger waves-effect" type="button"

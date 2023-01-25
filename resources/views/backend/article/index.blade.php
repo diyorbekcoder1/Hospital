@@ -5,8 +5,12 @@
             <small> | Control Panel</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="{!! url(getLang() . '/admin') !!}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li class="active">Article</li>
+            <li><a href="{!! url(getLang() . '/admin') !!}"></a></li>
+
+            <div class="title m-l-5"><a
+                    class="btn mr-1 mb-3 btn-primary btn-sm " href="{{route('admin.article.create')}}">Article
+                    add</a>
+            </div>
         </ol>
     </section>
     <br>
