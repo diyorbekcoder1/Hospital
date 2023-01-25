@@ -63,6 +63,7 @@ class CategoryController extends Controller
         $category = new Categories();
         $category->name = $request->name;
         $category->slug = $slug;
+        $category->slug = $slug;
         $category->image = $imagename;
         $category->save();
         Toastr::success('Category Successfully Saved :)' ,'Success');
