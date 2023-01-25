@@ -11,6 +11,14 @@ class Categories extends Model
 
     protected $table='categories';
 
+    protected $fillable =[
+        'name',
+        'slug',
+        'lang',
+        'image',
+    ];
+
+
     public function posts()
     {
         return $this->belongsToMany('App\Models\Post')->withTimestamps();

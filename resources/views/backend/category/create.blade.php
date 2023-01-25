@@ -14,11 +14,11 @@
             <div class="col-xxl-12 col-xl-12">
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="card">
+                        <div style="padding: 30px" class="card ">
                             <div class="card-header pb-0">
                                 <h5> ADD NEW CATEGORY</h5>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body ">
                                 <form class="theme-form" method="post" action="{{ route('admin.category.store') }}"
                                       enctype="multipart/form-data">
                                     @method('POST')

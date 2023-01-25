@@ -13,7 +13,7 @@
     </script>
 
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section style="padding: 10px" class="content-header ">
         <h1> Article <small> | Add Article</small> </h1>
         <ol class="breadcrumb">
             <li><a href="{!! url(getLang() . '/admin/article') !!}"><i class="fa fa-book"></i> Article</a></li>
@@ -77,7 +77,6 @@
             </div>
         </div>
         <br>
-
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
@@ -90,7 +89,6 @@
                     <div class="row">
                         <div class="col-md-12">
 
-                            <!-- Meta Description -->
                             <div class="control-group {!! $errors->has('meta_description') ? 'has-error' : '' !!}">
                                 <label class="control-label" for="title">Meta Description</label>
 
@@ -102,9 +100,7 @@
                                 </div>
                             </div>
                             <br>
-
-
-                            <!-- Meta Keywords -->
+                         <!-- Meta Keywords -->
                             <div class="control-group {!! $errors->has('meta_keywords') ? 'has-error' : '' !!}">
                                 <label class="control-label" for="title">Meta Keywords</label>
 
@@ -124,7 +120,7 @@
 
         <!-- Image -->
         <div class="fileinput fileinput-new control-group {!! $errors->has('image') ? 'has-error' : '' !!}" data-provides="fileinput">
-            <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+            <div class="fileinput-preview thumbnail" data-trigger="fileinput" ></div>
             <div> <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span> {!! Form::file('image', null, array('class'=>'form-control', 'id' => 'image', 'placeholder'=>'Image', 'value'=>old('image'))) !!}
                     @if ($errors->first('image')) <span class="help-block">{!! $errors->first('image') !!}</span> @endif </span> <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> </div>
         </div>
