@@ -8,7 +8,6 @@
 
 @section('content')
 
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-xxl-12 col-xl-12">
@@ -50,8 +49,15 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label><h6>Язык</h6></label>
+                                            {!! Form::select('lang', $langs, null, array('class'=>'form-control', 'id' => 'lang', 'value'=>old('lang'))) !!}
+                                        </div>
+                                    </div>
                                     <div style="margin-top: 20px;" class="block-header">
-                                        <a  class="btn btn-danger  waves-effect" href="{{ route('admin.category.index') }}">BACK</a>
+                                        <a class="btn btn-danger  waves-effect"
+                                           href="{{ route('admin.category.index') }}">BACK</a>
                                         <button class="btn btn-primary">Submit</button>
                                     </div>
                                 </form>
@@ -62,15 +68,5 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
 
 @endsection

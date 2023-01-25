@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
+use App\Models\Language;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -11,16 +12,18 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
-    public function index(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function index()
     {
         $categories = Categories::latest()->get();
-        return view('backend.category.index',compact('categories'));
+        $langs=   Language::pluck('code','code');
+        return view('backend.category.index',compact('categories','langs'));
     }
 
 
     public function create()
     {
-        return view('backend.category.create');
+        $langs=   Language::pluck('code','code');
+        return view('backend.category.create',compact('langs'));
     }
 
 
@@ -65,6 +68,7 @@ class CategoryController extends Controller
         $category->slug = $slug;
         $category->slug = $slug;
         $category->image = $imagename;
+        $category->lang=$request->lang;
         $category->save();
         Toastr::success('Category Successfully Saved :)' ,'Success');
         return redirect()->route('admin.category.index');

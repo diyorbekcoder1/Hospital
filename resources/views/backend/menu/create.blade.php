@@ -1,4 +1,4 @@
-@extends('layouts.backend.master')
+@extends('backend.layouts.app')
 @section('content')
 
 <!-- Content Header (Page header) -->

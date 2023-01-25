@@ -1,16 +1,5 @@
 @extends('backend.layouts.app')
 @section('content')
-    {!! HTML::style('assets/bootstrap/css/bootstrap-tagsinput.css') !!}
-    {!! HTML::style('jasny-bootstrap/css/jasny-bootstrap.min.css') !!}
-    {!! HTML::script('jasny-bootstrap/js/jasny-bootstrap.min.js') !!}
-    {!! HTML::script('ckeditor/ckeditor.js') !!}
-    {!! HTML::script('assets/bootstrap/js/bootstrap-tagsinput.js') !!}
-    {!! HTML::script('assets/js/jquery.slug.js') !!}
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#title").slug();
-        });
-    </script>
 
     <!-- Content Header (Page header) -->
     <section style="padding: 10px" class="content-header ">
@@ -140,6 +129,21 @@
 
         {!! Form::submit('Create', array('class' => 'btn btn-success')) !!}
         {!! Form::close() !!}
+
+        @push("javascript")
+{{--        {!! HTML::style('assets/bootstrap/css/bootstrap-tagsinput.css') !!}--}}
+{{--        {!! HTML::style('jasny-bootstrap/css/jasny-bootstrap.min.css') !!}--}}
+{{--        {!! HTML::script('jasny-bootstrap/js/jasny-bootstrap.min.js') !!}--}}
+{{--        {!! HTML::script('ckeditor/ckeditor.js') !!}--}}
+        {!! HTML::script('/plugins/bootstrap/js/bootstrap-tagsinput.js') !!}
+        {!! HTML::script('/js/jquery.slug.js') !!}
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#title").slug();
+            });
+        </script>
+
+
         <script type="text/javascript">
             window.onload = function () {
                 CKEDITOR.replace('content', {
@@ -153,5 +157,6 @@
                 }
             });
         </script>
+        @endpush
     </div>
 @stop
