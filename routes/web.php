@@ -25,6 +25,7 @@ Route::group(['middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin
     Route::resource('/blog', \App\Http\Controllers\Admin\BlogController::class);
     Route::resource('/post', \App\Http\Controllers\Admin\PostController::class);
     Route::resource('/article', \App\Http\Controllers\Admin\ArticleController::class);
+    Route::resource('/interactive_services', \App\Http\Controllers\Admin\InteractiveServiceController::class);
 
     /*        Route::get('/article', array('as' => 'dashboard.article', 'uses' => 'ArticleController@index'));
             Route::get('/article/{slug}', array('as' => 'dashboard.article.show', 'uses' => 'ArticleController@show'));*/

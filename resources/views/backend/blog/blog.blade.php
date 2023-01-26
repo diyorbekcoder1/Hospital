@@ -39,7 +39,7 @@
 
                                             <td style="width: 50px; height: 50px; border-radius: 50%;"><img
                                                         style="width: 50px; height: 50px; border-radius: 50%;"
-                                                        src="{{ asset('storage/images/'.$blogs->image) }}"
+                                                        src="{{ asset('uploads/'.$blogs->image) }}"
                                                         alt="">
                                             </td>
 
@@ -51,7 +51,9 @@
                                                       method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                    <button type="submit" onclick="return confirm('Sure Want Delete?')"
+                                                            class="btn btn-danger">Delete
+                                                    </button>
                                                 </form>
 
 

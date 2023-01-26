@@ -1,5 +1,6 @@
 @extends('backend.layouts.app')
 @section('content')
+    <!-- Container-fluid starts-->
     <div class="container-fluid">
         @if (session()->has('message'))
             <div class="alert alert-success">
@@ -10,10 +11,12 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Employees </h5>
+                        <h5>Interactive Services</h5>
                     </div>
                     <div class="title m-l-5"><a
-                            class="btn mr-1 mb-3 btn-primary btn-sm " href="{{route('admin.employees.create')}}">Employees
+                            class="btn mr-1 mb-3 btn-primary btn-sm "
+                            href="{{route('admin.interactive_services.create')}}">Interactive
+                            Services
                             add</a>
                     </div>
                     <div class="table-responsive">
@@ -21,35 +24,30 @@
                             <thead>
                             <tr>
                                 <th scope="col">№</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Image</th>
-                                <th scope="col">Specialty</th>
-                                <th scope="col">Working time</th>
-                                <th scope="col">Experience</th>
-                                <th scope="col">Contact</th>
+                                <th scope="col">Title</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @if(isset($employeess))
-                                @foreach($employeess as $key => $employees)
+
+                            @if(isset($interactive_service))
+                                @foreach($interactive_service as $key => $interactive_services)
                                     <tr>
                                         <th scope="row">{{++$key}}</th>
-                                        <td>{{$employees->name}}</td>
-                                        <td style="width: 50px; height: 50px; border-radius: 50%;"><img
-                                                style="width: 50px; height: 50px; border-radius: 50%;"
-                                                src="{{ asset('storage/images/'.$employees->image) }}"
-                                                alt="">
-                                        </td>
-                                        <td>{{$employees->specialty}}</td>
-                                        <td>{{$employees->working_time}}</td>
-                                        <td>{{$employees->experience}}</td>
-                                        <td>{{$employees->contact}}</td>
+
+                                        <td>{{$interactive_services->name}}</td>
                                         <td>
-                                            <a href="{{route('admin.employees.edit', $employees)}}"
+                                <span style=" padding: 10px 20px 10px 20px; border-radius: 30px; " ;
+                                      class="badge bg-{{ $interactive_services->status == 1 ? 'success' : 'danger' }}">
+                                    {{$interactive_services->status == 1 ? 'active' : 'inactive'}}
+                                </span>
+                                        </td>
+
+                                        <td>
+                                            <a href="{{route('admin.interactive_services.edit', $interactive_services)}}"
                                                class="btn btn-primary">Edit</a>
                                             <form class="d-inline"
-                                                  action="{{route('admin.employees.destroy', $employees->id)}}"
+                                                  action="{{route('admin.interactive_services.destroy', $interactive_services->id)}}"
                                                   method="post">
                                                 @csrf
                                                 @method('DELETE')
@@ -57,17 +55,26 @@
                                                         class="btn btn-danger">Delete
                                                 </button>
                                             </form>
+
+
                                         </td>
+
                                     </tr>
+
                                 @endforeach
+
                             @endif
+
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
+    <!-- Container-fluid Ends-->
+
 @endsection
 
 

@@ -9,7 +9,7 @@ use App\Models\Blog;
 use App\Models\Galereya;
 use App\Traits\FileUpload;
 
-class GalereyaController extends Controller
+class   GalereyaController extends Controller
 {
     use  FileUpload;
     public function index()

@@ -41,17 +41,42 @@
         </div>
         <br>
 
-        <!-- Category -->
-        <div class="control-group {!! $errors->has('category') ? 'error' : '' !!}">
-            <label class="control-label" for="title">Category</label>
 
-            <div class="controls">
-                {!! Form::select('category', $categories, null, array('class' => 'form-control', 'value'=>old('category'))) !!}
-                @if ($errors->first('category'))
-                    <span class="help-block">{!! $errors->first('category') !!}</span>
-                @endif
-            </div>
+        <div class="mb-12 ">
+            <label >
+
+                Select Category
+            </label>
+            <select name="category_id" class="form-select">
+                @foreach ($categories as $category)
+                    <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
+            @error('category_id')
+            <div class="text-sm text-red-600">{{ $message }}</div>
+            @enderror
         </div>
+
+
+
+
+
+
+
+
+
+
+{{--        <!-- Category -->--}}
+{{--        <div class="control-group {!! $errors->has('category') ? 'error' : '' !!}">--}}
+{{--            <label class="control-label" for="title">Category</label>--}}
+
+{{--            <div class="controls">--}}
+{{--                {!! Form::select('category', $categories, null, array('class' => 'form-control', 'value'=>old('category'))) !!}--}}
+{{--                @if ($errors->first('category'))--}}
+{{--                    <span class="help-block">{!! $errors->first('category') !!}</span>--}}
+{{--                @endif--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <br>
 
         <!-- Content -->

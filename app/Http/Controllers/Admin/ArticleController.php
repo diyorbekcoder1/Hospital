@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categories;
 use App\Repositories\Article\ArticleRepository;
 use App\Repositories\Category\CategoryRepository;
 use App\Services\Pagination;
@@ -32,7 +33,8 @@ class ArticleController extends Controller
 
     public function create()
     {
-        $categories = $this->category->lists();
+//        $categories = $this->category-->lists();
+        $categories = Categories::all();
 
         return view('backend.article.create', compact('categories'));
     }

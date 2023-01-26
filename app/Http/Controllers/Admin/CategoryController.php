@@ -66,7 +66,7 @@ class CategoryController extends Controller
         $category = new Categories();
         $category->name = $request->name;
         $category->slug = $slug;
-        $category->slug = $slug;
+        $category->lang =  $request->lang;
         $category->image = $imagename;
         $category->lang=$request->lang;
         $category->save();

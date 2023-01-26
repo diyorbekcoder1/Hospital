@@ -49,6 +49,8 @@
                 </li>
                 <li class="dropdown"><a class="nav-link " href="{{route('admin.article.index')}}"><i
                             data-feather="align-justify"></i><span>Article</span></a>
+                </li> <li class="dropdown"><a class="nav-link " href="{{route('admin.interactive_services.index')}}"><i
+                            data-feather="align-justify"></i><span>Interactive Services</span></a>
                 </li>
 
                 <li class="sidebar-main-title">
