@@ -52,6 +52,9 @@
                 </li> <li class="dropdown"><a class="nav-link " href="{{route('admin.interactive_services.index')}}"><i
                             data-feather="align-justify"></i><span>Interactive Services</span></a>
                 </li>
+                </li> <li class="dropdown"><a class="nav-link " href="{{route('admin.interactive.index')}}"><i
+                            data-feather="align-justify"></i><span>Interactive</span></a>
+                </li>
 
                 <li class="sidebar-main-title">
                     <div>

@@ -25,7 +25,7 @@ class InteractiveRequest extends FormRequest
     {
         return [
             'status' => 'required|string|max:255',
-            'pdf' => 'required|mimes:pdf|max:5120',
+            'file' => 'required|mimes:pdf|max:5120',
             'interactive_services_id' => 'required|exists:App\Models\Interactive_service,id'
         ];
     }

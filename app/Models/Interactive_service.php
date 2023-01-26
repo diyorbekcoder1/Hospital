@@ -15,4 +15,11 @@ class Interactive_service extends Model
         'name',
         'status',
     ];
+
+    public function interactive()
+    {
+
+        return $this->hasMany(Interactiv::class,'interactive_services_id',"id");
+
+    }
 }

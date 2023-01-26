@@ -11,12 +11,12 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Interactive Services</h5>
+                        <h5>Interactive</h5>
                     </div>
                     <div class="title m-l-5"><a
                             class="btn mr-1 mb-3 btn-primary btn-sm "
-                            href="{{route('admin.interactive_services.create')}}">Interactive
-                            Services
+                            href="{{route('admin.interactive.create')}}">Interactive
+
                             add</a>
                     </div>
                     <div class="table-responsive">
@@ -24,30 +24,35 @@
                             <thead>
                             <tr>
                                 <th scope="col">№</th>
-                                <th scope="col">Title</th>
+                                <th scope="col">Interactive</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Created</th>
+                                <th scope="col">Updated</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            @if(isset($interactive_service))
-                                @foreach($interactive_service as $key => $interactive_services)
+                            @if(isset($interactive))
+                                @foreach($interactive as $key => $interactives)
                                     <tr>
                                         <th scope="row">{{++$key}}</th>
 
-                                        <td>{{$interactive_services->name}}</td>
+                                        <td>{{$interactives->interactive_services->name}}</td>
                                         <td>
                                 <span style=" padding: 10px 20px 10px 20px; border-radius: 30px; " ;
                                       class="badge bg-{{ $interactive_services->status == 1 ? 'success' : 'danger' }}">
                                     {{$interactive_services->status == 1 ? 'active' : 'inactive'}}
                                 </span>
                                         </td>
+                                        <td>{{$interactives->created_at}}</td>
+                                        <td>{{$interactives->updated_at}}</td>
 
                                         <td>
-                                            <a href="{{route('admin.interactive_services.edit', $interactive_services)}}"
+                                            <a href="{{route('admin.interactive.edit', $interactives)}}"
                                                class="btn btn-primary">Edit</a>
                                             <form class="d-inline"
-                                                  action="{{route('admin.interactive_services.destroy', $interactive_services->id)}}"
+                                                  action="{{route('admin.interactive.destroy', $interactives->id)}}"
                                                   method="post">
                                                 @csrf
                                                 @method('DELETE')

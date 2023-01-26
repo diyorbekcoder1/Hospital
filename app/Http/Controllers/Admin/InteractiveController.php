@@ -4,18 +4,19 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InteractiveRequest;
+use App\Models\Galereya;
 use App\Models\Interactiv;
 use App\Models\Interactive_service;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Traits\PdfUpload;
 
 class InteractiveController extends Controller
 {
+    use PdfUpload;
 
     public function index()
     {
-        $interactive = Interactive_service::with('interactive')->latest()->get();
-
+        $interactive = Interactiv::all();
         return view('backend.interactive.interactive', compact('interactive'));
     }
 
@@ -24,34 +25,18 @@ class InteractiveController extends Controller
     {
         $interactive_service = Interactive_service::all();
 
-                return view('backend.interactive.interactive_create', compact('interactive_service'));
+        return view('backend.interactive.interactive_create', compact('interactive_service'));
     }
 
 
-    public function store(InteractiveRequest $request)
+    public function store(InteractiveRequest $interactiveRequest)
     {
-        $request->validate([
 
-            'status' => 'required|string|max:255',
-            'pdf' => 'required|mimes:pdf|max:5120',
-            'interactive_services_id' => 'required|exists:App\Models\Interactive_service,id'
-        ]);
-        Post::create([
-            'title' => $request->title,
-            'slug' => \Str::slug($request->slug),
-            'description' => $request->description,
-            'category_id' => $request->category_id,
-        ]);
+        $data = $interactiveRequest->validated();
+        $data = $this->pdfUpload($data);
+        Interactiv::create($data);
+        return redirect()->route('admin.interactive.index')->with('message', 'Post successfully create.');
 
-
-
-   ;
-
-
-
-
-
-        return redirect()->route('posts.index')->with('status', 'Post Created Successfully');
     }
 
 
