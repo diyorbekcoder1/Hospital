@@ -18,6 +18,6 @@ class Interactiv extends Model
 
     public function interactive_service()
     {
-        return $this->belongsTo(Interactive_service::class,'interactive_services_id');
+        return $this->belongsTo(Interactive_service::class,'interactive_services_id','id');
     }
 }

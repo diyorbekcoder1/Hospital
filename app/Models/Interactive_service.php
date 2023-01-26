@@ -19,7 +19,7 @@ class Interactive_service extends Model
     public function interactive()
     {
 
-        return $this->hasMany(Interactiv::class,'interactive_services_id',"id");
+        return $this->hasMany(Interactiv::class,'interactive_services_id','id');
 
     }
 }

@@ -37,12 +37,11 @@
                                 @foreach($interactive as $key => $interactives)
                                     <tr>
                                         <th scope="row">{{++$key}}</th>
-
-                                        <td>{{$interactives->interactive_services->name}}</td>
+                                        <td>{{$interactives->interactive_service->name}}</td>
                                         <td>
                                 <span style=" padding: 10px 20px 10px 20px; border-radius: 30px; " ;
-                                      class="badge bg-{{ $interactive_services->status == 1 ? 'success' : 'danger' }}">
-                                    {{$interactive_services->status == 1 ? 'active' : 'inactive'}}
+                                      class="badge bg-{{$interactives->status == 1 ? 'success' : 'danger' }}">
+                                    {{$interactives->status == 1 ? 'active' : 'inactive'}}
                                 </span>
                                         </td>
                                         <td>{{$interactives->created_at}}</td>
