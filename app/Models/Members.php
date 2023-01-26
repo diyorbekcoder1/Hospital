@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Employees extends Model
+class Members extends Model
 {
     use HasFactory;
-    protected $table ='employees';
+    protected $table ='members';
 
     protected $fillable =[
         'name',
@@ -17,6 +17,10 @@ class Employees extends Model
         'experience',
         'contact',
         'description',
+        'facebook',
+        'twitter',
+        'instagram',
+        'google',
         'image',
     ];
 }

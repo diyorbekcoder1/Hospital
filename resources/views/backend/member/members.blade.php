@@ -10,10 +10,10 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Employees </h5>
+                        <h5>Team Members </h5>
                     </div>
                     <div class="title m-l-5"><a
-                            class="btn mr-1 mb-3 btn-primary btn-sm " href="{{route('admin.employees.create')}}">Employees
+                            class="btn mr-1 mb-3 btn-primary btn-sm " href="{{route('admin.members.create')}}">Team Members
                             add</a>
                     </div>
                     <div class="table-responsive">
@@ -46,10 +46,10 @@
                                         <td>{{$employees->experience}}</td>
                                         <td>{{$employees->contact}}</td>
                                         <td>
-                                            <a href="{{route('admin.employees.edit', $employees)}}"
+                                            <a href="{{route('admin.members.edit', $employees)}}"
                                                class="btn btn-primary">Edit</a>
                                             <form class="d-inline"
-                                                  action="{{route('admin.employees.destroy', $employees->id)}}"
+                                                  action="{{route('admin.members.destroy', $employees->id)}}"
                                                   method="post">
                                                 @csrf
                                                 @method('DELETE')

@@ -16,10 +16,10 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header pb-0">
-                                <h5>Employees</h5>
+                                <h5>Team Members</h5>
                             </div>
                             <div class="card-body">
-                                <form class="theme-form" method="post" action="{{route('admin.employees.update',$employees_edit)}}"
+                                <form class="theme-form" method="post" action="{{route('admin.members.update',$employees_edit)}}"
                                       enctype="multipart/form-data">
                                     @method('POST')
                                     @csrf
