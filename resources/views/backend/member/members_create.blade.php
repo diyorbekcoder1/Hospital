@@ -16,14 +16,14 @@
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header pb-0">
-                                    <h5>Employees</h5>
+                                    <h5>Team Members</h5>
                                 </div>
                                 <div class="card-body">
-                                    <form class="theme-form" method="post" action="{{route('admin.employees.store')}}"
+                                    <form class="theme-form" method="post" action="{{route('admin.members.store')}}"
                                           enctype="multipart/form-data">
                                         @method('POST')
                                         @csrf
-                                        <div class="col-12">
+                                        <div class="col-12 mb-3">
                                             <div class="form-label-group">
                                                 <label for="form_name">Name</label>
                                                 <input id="form_name" type="text" name="name"
@@ -37,7 +37,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-12">
+                                        <div class="col-12 mb-3">
                                             <div class="form-label-group">
                                                 <label for="form_name">Specialty</label>
                                                 <input id="form_name" type="text" name="specialty"
@@ -51,7 +51,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-12">
+                                        <div class="col-12 mb-3">
                                             <div class="form-label-group">
                                                 <label for="form_name">Working time</label>
                                                 <input id="form_name" type="text" name="working_time"
@@ -65,7 +65,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-12">
+                                        <div class="col-12 mb-3">
                                             <div class="form-label-group">
                                                 <label for="form_name">Experience</label>
                                                 <input id="form_name" type="text" name="experience"
@@ -79,7 +79,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-12">
+                                        <div class="col-12 mb-3">
                                             <div class="form-label-group">
                                                 <label for="form_name">Contact</label>
                                                 <input id="form_name" type="text" name="contact"
@@ -107,7 +107,7 @@
 
 
 
-                                        <div class="col-12">
+                                        <div class="col-12 mb-3">
                                             <div class="form-label-group">
                                                 <label for="form_message">Image *</label>
                                                 <input id="form_message" type="file" name="image"
@@ -115,6 +115,62 @@
                                                        placeholder="Please enter your image *"
                                                        data-error="Image is required.">
                                                 @error('image')
+                                                <span style="color: red">{{$message}} </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-3">
+                                            <div class="form-label-group">
+                                                <label for="form_name">Facebook</label>
+                                                <input id="form_name" type="text" name="facebook"
+                                                       class="form-control  @error('facebook') is-invalid @enderror"
+                                                       placeholder="Please enter your facebook *"
+                                                       data-error="facebook is required."
+                                                       value="{{old('facebook')}}">
+
+                                                @error('facebook')
+                                                <span style="color: red">{{$message}} </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-3">
+                                            <div class="form-label-group">
+                                                <label for="form_name">Twitter</label>
+                                                <input id="form_name" type="text" name="twitter"
+                                                       class="form-control  @error('twitter') is-invalid @enderror"
+                                                       placeholder="Please enter your twitter *"
+                                                       data-error="twitter is required."
+                                                       value="{{old('twitter')}}">
+
+                                                @error('twitter')
+                                                <span style="color: red">{{$message}} </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-3">
+                                            <div class="form-label-group">
+                                                <label for="form_name">Instagram</label>
+                                                <input id="form_name" type="text" name="instagram"
+                                                       class="form-control  @error('instagram') is-invalid @enderror"
+                                                       placeholder="Please enter your instagram *"
+                                                       data-error="instagram is required."
+                                                       value="{{old('instagram')}}">
+
+                                                @error('instagram')
+                                                <span style="color: red">{{$message}} </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-3">
+                                            <div class="form-label-group">
+                                                <label for="form_name">Google</label>
+                                                <input id="form_name" type="text" name="google"
+                                                       class="form-control  @error('google') is-invalid @enderror"
+                                                       placeholder="Please enter your google *"
+                                                       data-error="google is required."
+                                                       value="{{old('google')}}">
+
+                                                @error('google')
                                                 <span style="color: red">{{$message}} </span>
                                                 @enderror
                                             </div>

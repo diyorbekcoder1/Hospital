@@ -20,8 +20,8 @@
                 <li class="dropdown"><a class="nav-link " href="{{route('admin.blog.index')}}"><i
                             data-feather="align-justify"></i><span>Blogs</span></a>
                 </li>
-                <li ><a class="nav-link " href="{{route('admin.employees.index')}}"><i
-                            data-feather="align-justify"></i><span>Employees</span></a>
+                <li ><a class="nav-link " href="{{route('admin.members.index')}}"><i
+                            data-feather="align-justify"></i><span>Team Members</span></a>
                 </li>
                 <li class="dropdown"><a class="nav-link " href="{{route('admin.event.index')}}"><i
                             data-feather="align-justify"></i><span>Events</span></a>

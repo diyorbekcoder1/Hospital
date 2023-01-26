@@ -19,7 +19,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-//            $table->enum('role_id',['0','1','2'])->default(2)->comment('0:owner 1:manager 2:employ');
+//            $table->enum('role_id',['0','1','2'])->default(2)->comment('0:owner 1:manager 2:member');
             $table->integer('role_id')->unsigned();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
