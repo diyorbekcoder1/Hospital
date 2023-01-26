@@ -8,6 +8,8 @@ use App\Repositories\Article\ArticleRepository;
 use App\Repositories\Category\CategoryRepository;
 use App\Services\Pagination;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
+use Laracasts\Flash\Flash;
 
 class ArticleController extends Controller
 {
@@ -47,7 +49,14 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $this->article->create($request->all());
+            Flash::message('Article was successfully added');
+
+            return langRedirectRoute('admin.article.index');
+        } catch (ValidationException $e) {
+            return langRedirectRoute('admin.article.create')->withInput()->withErrors($e->getErrors());
+        }
     }
 
     /**

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 
 if (!function_exists('gratavarUrl')) {
