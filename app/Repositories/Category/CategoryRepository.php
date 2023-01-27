@@ -36,14 +36,10 @@ class CategoryRepository extends RepositoryAbstract{
         $result->limit = $limit;
         $result->totalItems = 0;
         $result->items = array();
-
         $query = $this->category->orderBy('title');
-
         $categories = $query->skip($limit * ($page - 1))->take($limit)->where('lang', $this->getLang())->get();
-
         $result->totalItems = $this->totalCategories();
         $result->items = $categories->all();
-
         return $result;
     }
 

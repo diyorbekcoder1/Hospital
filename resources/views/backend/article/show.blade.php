@@ -1,4 +1,4 @@
-@extends('backend/layout/layout')
+@extends('backend.layouts.app')
 @section('content')
     {!! HTML::style('ckeditor/contents.css') !!}
     <!-- Content Header (Page header) -->

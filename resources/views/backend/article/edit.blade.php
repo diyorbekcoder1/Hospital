@@ -1,21 +1,13 @@
-@extends('backend/layout/layout')
+@extends('backend.layouts.app')
 @section('content')
-    {!! HTML::style('assets/bootstrap/css/bootstrap-tagsinput.css') !!}
-    {!! HTML::style('jasny-bootstrap/css/jasny-bootstrap.min.css') !!}
-    {!! HTML::script('jasny-bootstrap/js/jasny-bootstrap.min.js') !!}
-    {!! HTML::script('ckeditor/ckeditor.js') !!}
-    {!! HTML::script('assets/bootstrap/js/bootstrap-tagsinput.js') !!}
-    {!! HTML::script('assets/js/jquery.slug.js') !!}
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#title").slug();
-            if ($('#tag').length != 0) {
-                var elt = $('#tag');
-                elt.tagsinput();
-            }
-        });
-    </script>
-    <!-- Content Header (Page header) -->
+    @push('style')
+        <link rel="stylesheet" type="text/css" href="/plugins/bootstrap/css/bootstrap-tagsinput.css">
+        <link rel="stylesheet" type="text/css" href="/plugins/jasny-bootstrap/css/jasny-bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/assets/css/select2.css">
+        <link rel="stylesheet" type="text/css" href="/assets/css/dropzone.css">
+    @endpush
+
+   <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1> Article <small> | Update Article</small> </h1>
         <ol class="breadcrumb">
@@ -27,13 +19,13 @@
     <br>
     <div class="container">
 
-        {!! Form::open( array( 'route' => array(getLang(). '.admin.article.update', $article->id), 'method' => 'PATCH', 'files'=>true)) !!}
+        {!! Form::open( array( 'route' => array('admin.article.update', $article->id), 'method' => 'PATCH', 'files'=>true)) !!}
         <!-- Title -->
         <div class="control-group {!! $errors->has('title') ? 'has-error' : '' !!}">
             <label class="control-label" for="title">Title</label>
 
             <div class="controls">
-                {!! Form::text('title', $article->title, array('class'=>'form-control', 'id' => 'title', 'placeholder'=>'Title', 'value'=>Input::old('title'))) !!}
+                {!! Form::text('title', $article->title, array('class'=>'form-control', 'id' => 'title', 'placeholder'=>'Title', 'value'=>old('title'))) !!}
                 @if ($errors->first('title'))
                     <span class="help-block">{!! $errors->first('title') !!}</span>
                 @endif
@@ -46,7 +38,7 @@
             <label class="control-label" for="title">Tag</label>
 
             <div class="controls">
-                {!! Form::text('tag', $tags, array('class'=>'form-control', 'id' => 'tag', 'placeholder'=>'Tag', 'value'=>Input::old('tag'))) !!}
+                {!! Form::text('tag', $tags, array('class'=>'form-control', 'id' => 'tag', 'placeholder'=>'Tag', 'value'=>old('tag'))) !!}
                 @if ($errors->first('tag'))
                     <span class="help-block">{!! $errors->first('tag') !!}</span>
                 @endif
@@ -59,7 +51,7 @@
             <label class="control-label" for="title">Category</label>
 
             <div class="controls">
-                {!! Form::select('category', $categories, $article->category_id, array('class' => 'form-control', 'value'=>Input::old('category'))) !!}
+                {!! Form::select('category', $categories, $article->category_id, array('class' => 'form-control js-example-basic-single', 'value'=>old('category'))) !!}
                 @if ($errors->first('category'))
                     <span class="help-block">{!! $errors->first('category') !!}</span>
                 @endif
@@ -72,7 +64,7 @@
             <label class="control-label" for="title">Content</label>
 
             <div class="controls">
-                {!! Form::textarea('content', $article->content, array('class'=>'form-control', 'id' => 'content', 'placeholder'=>'Content', 'value'=>Input::old('content'))) !!}
+                {!! Form::textarea('content', $article->content, array('class'=>'form-control', 'id' => 'content', 'placeholder'=>'Content', 'value'=>old('content'))) !!}
                 @if ($errors->first('content'))
                     <span class="help-block">{!! $errors->first('content') !!}</span>
                 @endif
@@ -96,7 +88,7 @@
                                 <label class="control-label" for="title">Meta Description</label>
 
                                 <div class="controls">
-                                    {!! Form::text('meta_description', $article->meta_description, array('class'=>'form-control', 'id' => 'meta_description', 'placeholder'=>'Meta Description', 'value'=>Input::old('meta_description'))) !!}
+                                    {!! Form::text('meta_description', $article->meta_description, array('class'=>'form-control', 'id' => 'meta_description', 'placeholder'=>'Meta Description', 'value'=>old('meta_description'))) !!}
                                     @if ($errors->first('meta_description'))
                                         <span class="help-block">{!! $errors->first('meta_description') !!}</span>
                                     @endif
@@ -109,7 +101,7 @@
                                 <label class="control-label" for="title">Meta Keywords</label>
 
                                 <div class="controls">
-                                    {!! Form::textarea('meta_keywords', $article->meta_keywords, array('class'=>'form-control', 'id' => 'meta_keywords', 'placeholder'=>'Meta Keywords', 'value'=>Input::old('meta_keywords'))) !!}
+                                    {!! Form::textarea('meta_keywords', $article->meta_keywords, array('class'=>'form-control', 'id' => 'meta_keywords', 'placeholder'=>'Meta Keywords', 'value'=>old('meta_keywords'))) !!}
                                     @if ($errors->first('meta_keywords'))
                                         <span class="help-block">{!! $errors->first('meta_keywords') !!}</span>
                                     @endif
@@ -130,7 +122,7 @@
             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
             <div>
                 <div> <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span>
-        {!! Form::file('image', null, array('class'=>'form-control', 'id' => 'image', 'placeholder'=>'Image', 'value'=>Input::old('image'))) !!}
+        {!! Form::file('image', null, array('class'=>'form-control', 'id' => 'image', 'placeholder'=>'Image', 'value'=>old('image'))) !!}
                         @if ($errors->first('image')) <span class="help-block">{!! $errors->first('image') !!}</span> @endif </span> <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> </div>
             </div>
             <br>
@@ -156,4 +148,30 @@
                 };
             </script>
         </div>
+        @push("javascript")
+            <script src="{{asset('/plugins/editor/ckeditor/ckeditor.js')}}"></script>
+            {!! HTML::script('/plugins/jasny-bootstrap/js/jasny-bootstrap.min.js') !!}
+            {!! HTML::script('/plugins/bootstrap/js/bootstrap-tagsinput.js') !!}
+            <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
+            <script src="{{ asset('/plugins/select2/select2-custom.js') }}"></script>
+            <script src="{{ asset('/plugins/dropzone/dropzone.js')}}"></script>
+            <script src="{{ asset('/plugins/dropzone/dropzone-script.js')}}"></script>
+            {!! HTML::script('/js/jquery.slug.js') !!}
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("#title").slug();
+
+                    window.onload = function () {
+                        CKEDITOR.replace('content', {
+                            "filebrowserBrowseUrl": "{!! url('filemanager/show') !!}"
+                        });
+                    };
+                    if ($('#tag').length != 0) {
+                        var elt = $('#tag');
+                        elt.tagsinput();
+                    }
+                });
+            </script>
+    @endpush
+    </div>
 @stop
