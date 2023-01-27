@@ -25,6 +25,7 @@ function setActive($path, $active = 'active')
 
 function getLang()
 {
+    app()->setLocale("uz");
     return app()->getLocale();
 //    return LaravelLocalization::getCurrentLocale();
 }

@@ -5,11 +5,7 @@ namespace App\Repositories\Menu;
 use App\Models\Menu;
 use App\Repositories\RepositoryAbstract;
 
-/**
- * Class MenuRepository.
- *
- * @author Sefa Karagöz <karagozsefa@gmail.com>
- */
+
 class MenuRepository extends RepositoryAbstract implements MenuInterface
 {
 
@@ -20,9 +16,6 @@ class MenuRepository extends RepositoryAbstract implements MenuInterface
         $this->menu = $menu;
     }
 
-    /**
-     * @return mixed
-     */
     public function all()
     {
         return $this->menu->where('is_published', 1)->where('lang', $this->getLang())->orderBy('order', 'asc')->get();
