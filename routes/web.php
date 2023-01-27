@@ -24,7 +24,14 @@ Route::group(['middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin
     Route::resource('/contacts', App\Http\Controllers\Admin\ContactController::class);
     Route::resource('/blog', \App\Http\Controllers\Admin\BlogController::class);
     Route::resource('/post', \App\Http\Controllers\Admin\PostController::class);
-    Route::resource('/article', \App\Http\Controllers\Admin\ArticleController::class);
+//    Route::resource('/article', \App\Http\Controllers\Admin\ArticleController::class);
+
+    Route::resource('/article', '\App\Http\Controllers\Admin\ArticleController', array('before' => 'hasAccess:article'));
+    Route::get('/article/{id}/delete', array('as' => 'article.delete','uses' => '\App\Http\Controllers\Admin\ArticleController@confirmDestroy', ))->where('id', '\d+');
+//    Route::get('/article', array('as' => 'dashboard.article', 'uses' => '\App\Http\Controllers\Admin\ArticleController@index'));
+//    Route::get('/article/{slug}', array('as' => 'dashboard.article.show', 'uses' => '\App\Http\Controllers\Admin\ArticleController@show'));
+
+
     Route::resource('/interactive_services', \App\Http\Controllers\Admin\InteractiveServiceController::class);
     Route::resource('/interactive', \App\Http\Controllers\Admin\InteractiveController::class);
 

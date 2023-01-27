@@ -10,7 +10,7 @@ class Article extends Model
     use HasFactory;
 
     public $table = 'articles';
-    protected $fillable = ['title', 'content', 'meta_keywords', 'meta_description', 'is_published'];
+    protected $fillable = ['title','category_id', 'content', 'meta_keywords', 'meta_description', 'is_published'];
     protected $appends = ['url'];
 
     protected $sluggable = array(
@@ -20,12 +20,12 @@ class Article extends Model
 
     public function tags()
     {
-        return $this->belongsToMany('App\Models\Tag', 'articles_tags');
+        return $this->belongsToMany('App\Models\Tags', 'articles_tags');
     }
 
     public function category()
     {
-        return $this->hasMany('App\Models\Category', 'id', 'category_id');
+        return $this->hasMany('App\Models\Categories', 'id', 'category_id');
     }
 
 

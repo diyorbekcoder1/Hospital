@@ -29,11 +29,7 @@ function getLang()
 //    return LaravelLocalization::getCurrentLocale();
 }
 
-/**
- * @param null $url
- *
- * @return mixed
- */
+
 function langURL($url = null)
 {
 
@@ -42,15 +38,9 @@ function langURL($url = null)
     return getLang().$url;
 }
 
-/**
- * @param $route
- * @param array $parameters
- *
- * @return mixed
- */
 function langRoute($route, $parameters = array())
 {
-    return URL::route(getLang().'.'.$route, $parameters);
+    return URL::route($route, $parameters);
 }
 
 /**

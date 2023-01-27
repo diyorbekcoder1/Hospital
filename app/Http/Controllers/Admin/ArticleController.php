@@ -35,18 +35,13 @@ class ArticleController extends Controller
 
     public function create()
     {
-//        $categories = $this->category-->lists();
-        $categories = Categories::all();
+        $categories = $this->category->lists();
+//        $categories = Categories::all();
 
         return view('backend.article.create', compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     * @return Response
-     */
+
     public function store(Request $request)
     {
         try {
@@ -59,37 +54,63 @@ class ArticleController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
     public function show($id)
     {
-        //
+        $article = $this->article->find($id);
+
+        return view('backend.article.show', compact('article'));
     }
 
 
     public function edit($id)
     {
-        //
-    }
+        $article = $this->article->find($id);
+        $tags = null;
 
+        foreach ($article->tags as $tag) {
+            $tags .= ','.$tag->name;
+        }
 
-    public function update(Request $request, $id)
-    {
-        //
+        $tags = substr($tags, 1);
+        $categories = $this->category->lists();
+
+        return view('backend.article.edit', compact('article', 'tags', 'categories'));
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return Response
      */
+    public function update($id)
+    {
+        try {
+            $this->article->update($id, request()->all());
+            Flash::message('Article was successfully updated');
+
+            return langRedirectRoute('admin.article.index');
+        } catch (\App\Exceptions\Validation\ValidationException $e) {
+            return langRedirectRoute('admin.article.edit')->withInput()->withErrors($e->getErrors());
+        }
+    }
+
     public function destroy($id)
     {
-        //
+        $this->article->delete($id);
+        Flash::message('Article was successfully deleted');
+        return langRedirectRoute('admin.article.index');
+    }
+
+    public function confirmDestroy($id)
+    {
+        $article = $this->article->find($id);
+        return view('backend.article.confirm-destroy', compact('article'));
+    }
+
+    public function togglePublish($id)
+    {
+        return $this->article->togglePublish($id);
     }
 }

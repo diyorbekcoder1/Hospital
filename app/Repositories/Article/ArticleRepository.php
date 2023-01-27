@@ -3,23 +3,19 @@
 namespace App\Repositories\Article;
 
 use App\Models\Article;
+use App\Models\Categories;
+use App\Models\Tags;
 use Config;
 use Response;
 use App\Models\Tag;
 use App\Models\Category;
 use Str;
-use Event;
 use Image;
 use File;
 use App\Repositories\RepositoryAbstract;
 use App\Repositories\CrudableInterface as CrudableInterface;
 use App\Exceptions\Validation\ValidationException;
 
-/**
- * Class ArticleRepository.
- *
- * @author Sefa Karagöz <karagozsefa@gmail.com>
- */
 class ArticleRepository extends RepositoryAbstract implements ArticleInterface, CrudableInterface
 {
     protected $width;
@@ -29,19 +25,13 @@ class ArticleRepository extends RepositoryAbstract implements ArticleInterface, 
     protected $imgDir;
     protected $perPage;
     protected $article;
-    /**
-     * Rules.
-     *
-     * @var array
-     */
+
     protected static $rules = [
         'title' => 'required',
         'content' => 'required',
     ];
 
-    /**
-     * @param Article $article
-     */
+
     public function __construct(Article $article)
     {
         $config = Config::get('cms');
@@ -54,27 +44,18 @@ class ArticleRepository extends RepositoryAbstract implements ArticleInterface, 
         $this->article = $article;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function all()
     {
         return $this->article->with('tags')->orderBy('created_at', 'DESC')->where('is_published', 1)->where('lang', $this->getLang())->get();
     }
 
-    /**
-     * @param $limit
-     *
-     * @return mixed
-     */
+
     public function getLastArticle($limit)
     {
         return $this->article->orderBy('created_at', 'desc')->where('lang', $this->getLang())->take($limit)->offset(0)->get();
     }
 
-    /**
-     * @return mixed
-     */
     public function lists()
     {
         return $this->article->get()->where('lang', $this->getLang())->lists('title', 'id');
@@ -93,15 +74,7 @@ class ArticleRepository extends RepositoryAbstract implements ArticleInterface, 
     }
     */
 
-    /**
-     * Get paginated articles.
-     *
-     * @param int  $page  Number of articles per page
-     * @param int  $limit Results per page
-     * @param bool $all   Show published or all
-     *
-     * @return StdClass Object with $items and $totalItems for pagination
-     */
+
     public function paginate($page = 1, $limit = 10, $all = false)
     {
         $result = new \StdClass();
@@ -191,7 +164,7 @@ class ArticleRepository extends RepositoryAbstract implements ArticleInterface, 
 
             $this->article->lang = $this->getLang();
             if ($this->article->fill($attributes)->save()) {
-                $category = Category::find($attributes['category']);
+                $category = Categories::find($attributes['category_id']);
                 $category->articles()->save($this->article);
             }
 
@@ -202,10 +175,10 @@ class ArticleRepository extends RepositoryAbstract implements ArticleInterface, 
                     continue;
                 }
 
-                $tag = Tag::where('name', '=', $articleTag)->first();
+                $tag = Tags::where('name', '=', $articleTag)->first();
 
                 if (!$tag) {
-                    $tag = new Tag();
+                    $tag = new Tags();
                 }
 
                 $tag->lang = $this->getLang();
@@ -216,7 +189,8 @@ class ArticleRepository extends RepositoryAbstract implements ArticleInterface, 
             }
 
             //Event::fire('article.created', $this->article);
-            Event::fire('article.creating', $this->article);
+            //('article.creating', $this->article);
+
 
             return true;
         }

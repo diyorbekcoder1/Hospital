@@ -1,31 +1,57 @@
 @extends('backend.layouts.app')
 @section('content')
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#notification').show().delay(4000).fadeOut(700);
+
+            // publish settings
+            $(".publish").bind("click", function (e) {
+                var id = $(this).attr('id');
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{!! url(getLang() . '/admin/article/" + id + "/toggle-publish/') !!}",
+                    headers: {
+                        'X-CSRF-Token': $('meta[name="_token"]').attr('content')
+                    },
+                    success: function (response) {
+                        if (response['result'] == 'success') {
+                            var imagePath = (response['changed'] == 1) ? "{!!url('/')!!}/assets/images/publish.png" : "{!!url('/')!!}/assets/images/not_publish.png";
+                            $("#publish-image-" + id).attr('src', imagePath);
+                        }
+                    },
+                    error: function () {
+                        alert("error");
+                    }
+                })
+            });
+        });
+    </script>
     <section class="content-header">
         <h1> Article
             <small> | Control Panel</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="{!! url(getLang() . '/admin') !!}"></a></li>
-
-            <div class="title m-l-5"><a
-                    class="btn mr-1 mb-3 btn-primary btn-sm " href="{{route('admin.article.create')}}">Article
-                    add</a>
-            </div>
+            <li><a href="{!! url(getLang() . '/admin') !!}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Article</li>
         </ol>
     </section>
     <br>
 
     <div class="container">
         <div class="col-lg-10">
+            @include('flash::message')
             <br>
-            {{--            <div class="pull-left">--}}
-            {{--                <div class="btn-toolbar">--}}
-            {{--                    <a href="{!! langRoute('admin.article.create') !!}" class="btn btn-primary">--}}
-            {{--                        <span class="glyphicon glyphicon-plus"></span>&nbsp;Add Article </a>--}}
-            {{--                    <a href="{!! langRoute('admin.category.create') !!}" class="btn btn-primary">--}}
-            {{--                        <span class="glyphicon glyphicon-plus"></span>&nbsp;Add Category </a>--}}
-            {{--                </div>--}}
-            {{--            </div>--}}
+
+            <div class="pull-left">
+                <div class="btn-toolbar">
+                    <a href="{!! langRoute('admin.article.create') !!}" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp;Add Article </a>
+                    <a href="{!! langRoute('admin.category.create') !!}" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp;Add Category </a>
+                </div>
+            </div>
             <br> <br> <br>
             @if($articles->count())
                 <div class="">
@@ -70,11 +96,11 @@
                                                     Article </a>
                                             </li>
                                             <li class="divider"></li>
-                                            <li>
-                                                <a target="_blank" href="{!! URL::route('dashboard.article.show', ['slug' => $article->slug]) !!}">
-                                                    <span class="glyphicon glyphicon-eye-open"></span>&nbsp;View On Site
-                                                </a>
-                                            </li>
+{{--                                            <li>--}}
+{{--                                                <a target="_blank" href="{!! URL::route('dashboard.article.show', ['slug' => $article->slug]) !!}">--}}
+{{--                                                    <span class="glyphicon glyphicon-eye-open"></span>&nbsp;View On Site--}}
+{{--                                                </a>--}}
+{{--                                            </li>--}}
                                         </ul>
                                     </div>
                                 </td>
