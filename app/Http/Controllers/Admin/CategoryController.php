@@ -14,7 +14,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Categories::latest()->get();
+        $categories = Categories::with('posts')->latest()->get();
         $langs=   Language::pluck('code','code');
         return view('backend.category.index',compact('categories','langs'));
     }
@@ -31,14 +31,14 @@ class CategoryController extends Controller
     {
         $this->validate($request,[
             'name' => 'required|unique:categories'
-
         ]);
-        // get form image
+
+//      get form image
         $image = $request->file('image');
         $slug = $request->name;
         if (isset($image))
         {
-//            make unique name for image
+//         make unique name for image
             $currentDate = Carbon::now()->toDateString();
             $imagename = $slug.'-'.$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
 //            check category dir is exists
