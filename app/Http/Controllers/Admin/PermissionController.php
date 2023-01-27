@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Admin\Requests\PermissionRequest;
 use App\Http\Controllers\Controller;
-
+use App\Http\Controllers\Requests\PermissionRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

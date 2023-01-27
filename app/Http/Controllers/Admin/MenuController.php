@@ -7,6 +7,7 @@ use App\Models\Language;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Laracasts\Flash\Flash;
 
 class MenuController extends Controller
 {
@@ -76,7 +77,7 @@ class MenuController extends Controller
         $this->menu->url = $url;
         $this->menu->save();
 
-        //  Facadeslash::message('Menu was successfully added');
+          Flash::message('Menu was successfully added');
 
         return redirect(route('admin.menus.index'));
     }

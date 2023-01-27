@@ -183,7 +183,7 @@ class ArticleRepository extends RepositoryAbstract implements ArticleInterface, 
 
                 $tag->lang = $this->getLang();
                 $tag->name = $articleTag;
-                //$tag->slug = Str::slug($articleTag);
+                $tag->slug = Str::slug($articleTag);
 
                 $this->article->tags()->save($tag);
             }

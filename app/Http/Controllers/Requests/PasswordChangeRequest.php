@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Requests;
+namespace App\Http\Controllers\Requests;
 
 use App\Exceptions\ApiFailedException;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
-class PermissionRequest extends FormRequest
+class PasswordChangeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,8 @@ class PermissionRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'old_password' => 'required|string',
+            'password' => 'required|string|confirmed',
         ];
     }
 

@@ -16,7 +16,6 @@ class CategoryRepository extends RepositoryAbstract{
         'title' => 'required|min:3|unique:categories',
     ];
 
-
     public function __construct(Categories $category)
     {
         $this->category = $category;
@@ -63,10 +62,8 @@ class CategoryRepository extends RepositoryAbstract{
         if ($this->isValid($attributes)) {
             $this->category->lang = $this->getLang();
             $this->category->fill($attributes)->save();
-
             return true;
         }
-
         throw new ValidationException('Category validation failed', $this->getErrors());
     }
 
@@ -91,11 +88,8 @@ class CategoryRepository extends RepositoryAbstract{
         $this->category->delete();
     }
 
-
     protected function totalCategories()
     {
         return $this->category->where('lang', $this->getLang())->count();
     }
-
-
 }
