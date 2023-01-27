@@ -30,10 +30,7 @@ return new class extends Migration
 
         });
 
-//        Schema::table("users",function (Blueprint $table){
-//            $table->engine = 'InnoDB';
-//            $table->foreign('role_id',"user_role_id")->references('id')->on('roles');
-//        });
+
     }
 
     /**
