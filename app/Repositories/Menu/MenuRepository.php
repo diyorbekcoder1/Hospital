@@ -5,7 +5,6 @@ namespace App\Repositories\Menu;
 use App\Models\Menu;
 use App\Repositories\RepositoryAbstract;
 
-
 class MenuRepository extends RepositoryAbstract implements MenuInterface
 {
 
