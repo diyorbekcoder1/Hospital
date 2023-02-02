@@ -907,7 +907,7 @@ function mapBubble() {
   var title = chart.titles.create();
   title.text = "[bold font-size: 20]Population of Countries in 2011[/]\nsource: Gapminder";
   title.textAlign = "middle";
-  
+
 
   var latlong = {
     "IN": { "latitude": 20, "longitude": 77 },
