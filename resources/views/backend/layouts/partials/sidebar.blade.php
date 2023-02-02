@@ -161,12 +161,30 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.users.index')}}" class="nav-link ">
+                    <a href="{{url('admin\users')}}" class="nav-link ">
                         <i class="ph-house"></i>
-                        <span>Users
+                        <span>
+	                   Users
 								</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{url('admin\roles')}}" class="nav-link ">
+                        <i class="ph-house"></i>
+                        <span>
+	             Roles
+								</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('admin\permission')}}" class="nav-link ">
+                        <i class="ph-house"></i>
+                        <span>
+	                Permission
+								</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>
