@@ -57,7 +57,7 @@ Route::group(['middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin
     Route::post('/register-user', [App\Http\Controllers\Admin\LoginController::class, 'store'])->name('create_user');
     Route::get('/logout', [App\Http\Controllers\Admin\LoginController::class, 'logout'])->name('logout');
 
-    Route::group(['prefix' => '/users', ['middleware' => 'can:manage_user']], function () {
+    Route::group(['prefix' => 'users', ['middleware' => 'can:manage_user']], function () {
         Route::get('/', [App\Http\Controllers\Admin\UsersController::class, 'index']);
         Route::get('get-list', [App\Http\Controllers\Admin\UsersController::class, 'getUserList'])->name('get-list');
         Route::get('/create', [App\Http\Controllers\Admin\UsersController::class, 'create']);
