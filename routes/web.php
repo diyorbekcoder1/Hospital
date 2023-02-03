@@ -43,7 +43,7 @@ Route::group(['middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin
     Route::resource('/page', App\Http\Controllers\Admin\PageController::class);
     Route::resource('/setting', App\Http\Controllers\Admin\SettingController::class);
     Route::resource('/usefullink', App\Http\Controllers\Admin\UsefullinkController::class);
-    Route::resource('/category', App\Http\Controllers\Admin\MemberController::class);
+    Route::resource('/category', App\Http\Controllers\Admin\CategoryController::class);
 
 
 //        Route::group(['prefix'=>'menus'], function() {

@@ -63,7 +63,7 @@ class MemberController extends Controller
         $request = request()->merge(['id' => $id]);
         $request->validate(['id' => 'required|exists:employees,id']);
         $post = Members::find($id);
-        unlink('storage/images/' . $post->image);
+        unlink('uploads/' . $post->image);
         $post->delete();
         return redirect()->route('admin.members.index')->with('message', 'Post successfully delete.');
     }

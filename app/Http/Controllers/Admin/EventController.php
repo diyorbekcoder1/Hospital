@@ -58,7 +58,7 @@ class EventController extends Controller
         $request = request()->merge(['id' => $id]);
         $request->validate(['id' => 'required|exists:events,id']);
         $post = Events::find($id);
-        unlink('storage/images/' . $post->image);
+        unlink('uploads/' . $post->image);
         $post->delete();
         return redirect()->route('admin.event.index')->with('message', 'Post successfully delete.');
     }

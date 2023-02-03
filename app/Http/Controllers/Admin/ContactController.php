@@ -29,7 +29,7 @@ class ContactController extends Controller
         $data = $contactRequest->validated();
         $data = $this->fileUpload($data);
         Contact::create($data);
-        return redirect()->route('backend.contacts.index')->with('message', 'Post successfully create.');
+        return redirect()->route('admin.contacts.index')->with('message', 'Post successfully create.');
     }
 
 
@@ -59,7 +59,7 @@ class ContactController extends Controller
         $request = request()->merge(['id' => $id]);
         $request->validate(['id' => 'required|exists:contacts,id']);
         $post = Contact::find($id);
-        unlink('storage/images/' . $post->image);
+        unlink('uploads/' . $post->image);
         $post->delete();
         return redirect()->route('backend.contacts.index')->with('message', 'Post successfully delete.');
     }

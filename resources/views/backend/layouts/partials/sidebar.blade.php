@@ -129,7 +129,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.setting.index')}}" class="nav-link ">
+                    <a href="" class="nav-link ">
                         <i class="ph-house"></i>
                         <span>
 	                          	Setting

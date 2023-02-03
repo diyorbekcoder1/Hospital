@@ -5,9 +5,9 @@
 @section('content')
 {{--    {!! HTML::script('ckeditor/ckeditor.js') !!}--}}
     <div class="row clearfix">
-        <div class="col-lg-12">
+        <div class="col-lg-12 ">
             <div class="card">
-                <div class="body m-15">
+                <div class="body m-15 p-2">
                     {!! Form::open(array('action' => '\App\Http\Controllers\Admin\PageController@store')) !!}
                     <!-- Title -->
                     <div class="form-group m-t-20 m-b-20 {!! $errors->has('title') ? 'has-error' : '' !!}">

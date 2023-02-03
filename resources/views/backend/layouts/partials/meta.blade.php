@@ -17,7 +17,10 @@
 <!-- Theme JS files -->
 <script src="{{asset('/assets/js/vendor/visualization/d3/d3.min.js')}}"></script>
 <script src="{{asset('/assets/js/vendor/visualization/d3/d3_tooltip.js')}}"></script>
-
+<script src="{{asset('/assets/demo/pages/uploader_bootstrap.js')}}"></script>
+<script src="{{asset('/assets/js/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('/assets/js/vendor/uploaders/fileinput/fileinput.min.js')}}"></script>
+<script src="{{asset('/assets/js/vendor/uploaders/fileinput/plugins/sortable.min.js')}}"></script>
 <script src="{{asset('/assets/js/app.js')}}"></script>
 <script src="{{asset('/assets/demo/pages/dashboard.js')}}"></script>
 {{--<script src="{{asset('/assets/demo/charts/pages/dashboard/streamgraph.js')}}"></script>--}}

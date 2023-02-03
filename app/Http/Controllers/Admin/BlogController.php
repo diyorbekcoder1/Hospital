@@ -55,7 +55,7 @@ class BlogController extends Controller
         $request = request()->merge(['id' => $id]);
         $request->validate(['id' => 'required|exists:blogs,id']);
         $post = Blog::find($id);
-        unlink('storage/images/' . $post->image);
+        unlink('uploads/' . $post->image);
         $post->delete();
         return redirect()->route('admin.blog.index')->with('message', 'Post successfully delete.');
     }
