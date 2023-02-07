@@ -146,13 +146,10 @@ class ArticleRepository extends RepositoryAbstract implements ArticleInterface, 
                 $upload_success = $file->move($destinationPath, $fileName);
 
                 if ($upload_success) {
-
                     // resizing an uploaded file
                     Image::make($destinationPath.$fileName)->resize($this->width, $this->height)->save($destinationPath.$fileName);
-
                     // thumb
                     Image::make($destinationPath.$fileName)->resize($this->thumbWidth, $this->thumbHeight)->save($destinationPath.'thumb_'.$fileName);
-
                     $this->article->lang = $this->getLang();
                     $this->article->file_name = $fileName;
                     $this->article->file_size = $fileSize;

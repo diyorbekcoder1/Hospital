@@ -51,5 +51,5 @@ function langRoute($route, $parameters = array())
  */
 function langRedirectRoute($route)
 {
-    return Redirect::route(getLang().'.'.$route);
+    return Redirect::route($route);
 }

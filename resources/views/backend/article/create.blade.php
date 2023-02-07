@@ -1,10 +1,6 @@
 @extends('backend.layouts.limitless')
 @section('content')
     @push('style')
-        <link rel="stylesheet" type="text/css" href="/plugins/bootstrap/css/bootstrap-tagsinput.css">
-        <link rel="stylesheet" type="text/css" href="/plugins/jasny-bootstrap/css/jasny-bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="/assets/css/select2.css">
-        <link rel="stylesheet" type="text/css" href="/assets/css/dropzone.css">
 
     @endpush
     <!-- Content Header (Page header) -->
@@ -45,7 +41,7 @@
                         <div class="control-group {!! $errors->has('tag') ? 'has-error' : '' !!}">
                             <label class="control-label" for="title">Tag</label>
                             <div class="controls">
-                                {!! Form::text('tag', null, array('class'=>'form-control', 'id' => 'tag', 'placeholder'=>'Tag', 'value'=>old('tag'))) !!}
+                                {!! Form::text('tag', null, array('class'=>'form-control tokenfield-delimiters', 'id' => 'tag', 'placeholder'=>'Tag', 'value'=>old('tag'))) !!}
                                 @if ($errors->first('tag'))
                                     <span class="help-block">{!! $errors->first('tag') !!}</span>
                                 @endif
@@ -157,31 +153,7 @@
                         {!! Form::submit('Create', array('class' => 'btn btn-success')) !!}
                         {!! Form::close() !!}
 
-                        @push("javascript")
-                            <script src="{{asset('/plugins/editor/ckeditor/ckeditor.js')}}"></script>
-                            {!! HTML::script('/plugins/jasny-bootstrap/js/jasny-bootstrap.min.js') !!}
-                            {!! HTML::script('/plugins/bootstrap/js/bootstrap-tagsinput.js') !!}
-                            <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
-                            <script src="{{ asset('/plugins/select2/select2-custom.js') }}"></script>
-                            <script src="{{ asset('/plugins/dropzone/dropzone.js')}}"></script>
-                            <script src="{{ asset('/plugins/dropzone/dropzone-script.js')}}"></script>
-                            {!! HTML::script('/js/jquery.slug.js') !!}
-                            <script type="text/javascript">
-                                $(document).ready(function () {
-                                    $("#title").slug();
 
-                                    window.onload = function () {
-                                        CKEDITOR.replace('content', {
-                                            "filebrowserBrowseUrl": "{!! url('filemanager/show') !!}"
-                                        });
-                                    };
-                                    if ($('#tag').length != 0) {
-                                        var elt = $('#tag');
-                                        elt.tagsinput();
-                                    }
-                                });
-                            </script>
-                        @endpush
                     </div>
                 </div>
             </div>
@@ -189,11 +161,28 @@
     </div>
 @stop
 
-@push('javascript')
-    <script src="{{asset('/assets/demo/pages/uploader_bootstrap.js')}}"></script>
+@push("javascript")
+    <script src="{{asset('/plugins/editor/ckeditor/ckeditor.js')}}"></script>
+    {!! HTML::script('/js/jquery.slug.js') !!}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // $("#title").slug();
+
+            window.onload = function () {
+                CKEDITOR.replace('content', {
+                    "filebrowserBrowseUrl": "{!! url('filemanager/show') !!}"
+                });
+            };
+
+        });
+    </script>
+
+{{--    <script src="{{asset('/assets/demo/pages/uploader_bootstrap.js')}}"></script>--}}
     <script src="{{asset('/assets/js/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('/assets/js/vendor/uploaders/fileinput/fileinput.min.js')}}"></script>
     <script src="{{asset('/assets/js/vendor/uploaders/fileinput/plugins/sortable.min.js')}}"></script>
     <script src="{{asset('/assets/js/vendor/forms/selects/select2.min.js') }}"></script>
-    <script src="{{ asset('/assets/demo/pages/form_select2.js') }}"></script>
+    <script src="{{asset('/assets/demo/pages/form_select2.js') }}"></script>
+    <script src="{{asset('/assets/js/vendor/forms/tags/tokenfield.min.js')}}"></script>
+    <script src="{{asset('/assets/demo/pages/form_tags.js') }}"></script>
 @endpush
