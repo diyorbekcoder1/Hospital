@@ -56,8 +56,8 @@
                                 Select Category
                             </label>
                             <select name="category_id" class="form-select js-example-basic-single">
-                                @foreach ($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                @foreach ($categories as $id=>$category)
+                                    <option value="{{$id}}">{{$category}}</option>
                                 @endforeach
                             </select>
                             @error('category_id')

@@ -67,7 +67,7 @@ Route::group(['middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin
         Route::get('/delete/{id}', [App\Http\Controllers\Admin\UsersController::class, 'delete']);
     });
 //        'middleware' => 'can:manage_role|manage_user'
-    Route::group(['prefix' => '/roles'], function () {
+    Route::group(['prefix' => 'roles'], function () {
         Route::get('/', [App\Http\Controllers\Admin\RolesController::class, 'index']);
         Route::get('/get-list', [App\Http\Controllers\Admin\RolesController::class, 'getRoleList']);
         Route::post('/create', [App\Http\Controllers\Admin\RolesController::class, 'create']);
@@ -76,7 +76,7 @@ Route::group(['middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin
         Route::get('/delete/{id}', [App\Http\Controllers\Admin\RolesController::class, 'delete']);
     });
 //        ,'middleware' => 'can:manage_permission|manage_user'
-    Route::group(['prefix' => '/permission'], function () {
+    Route::group(['prefix' => 'permission'], function () {
         Route::get('/', [App\Http\Controllers\Admin\PermissionController::class, 'index']);
         Route::get('/get-list', [App\Http\Controllers\Admin\PermissionController::class, 'getPermissionList']);
         Route::post('/create', [App\Http\Controllers\Admin\PermissionController::class, 'create']);
