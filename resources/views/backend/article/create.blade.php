@@ -5,6 +5,7 @@
         <link rel="stylesheet" type="text/css" href="/plugins/jasny-bootstrap/css/jasny-bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/assets/css/select2.css">
         <link rel="stylesheet" type="text/css" href="/assets/css/dropzone.css">
+
     @endpush
     <!-- Content Header (Page header) -->
     <div class="container-fluid">
@@ -55,7 +56,7 @@
                             <label>
                                 Select Category
                             </label>
-                            <select name="category_id" class="form-select js-example-basic-single">
+                            <select name="category_id" class="form-select select">
                                 @foreach ($categories as $id=>$category)
                                     <option value="{{$id}}">{{$category}}</option>
                                 @endforeach
@@ -70,7 +71,6 @@
                         <!-- Content -->
                         <div class="control-group {!! $errors->has('content') ? 'has-error' : '' !!}">
                             <label class="control-label" for="title">Content</label>
-
                             <div class="controls">
                                 {!! Form::textarea('content', null, array('class'=>'form-control', 'id' => 'content', 'placeholder'=>'Content', 'value'=>old('content'))) !!}
                                 @if ($errors->first('content'))
@@ -84,7 +84,7 @@
                                 <h4 class="panel-title">
                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span
                                             class="glyphicon glyphicon-th-list">
-                </span>META DATA</a>
+                            </span>META DATA</a>
                                 </h4>
                             </div>
                             <div id="collapseTwo" class="panel-collapse collapse">
@@ -194,4 +194,6 @@
     <script src="{{asset('/assets/js/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('/assets/js/vendor/uploaders/fileinput/fileinput.min.js')}}"></script>
     <script src="{{asset('/assets/js/vendor/uploaders/fileinput/plugins/sortable.min.js')}}"></script>
+    <script src="{{asset('/assets/js/vendor/forms/selects/select2.min.js') }}"></script>
+    <script src="{{ asset('/assets/demo/pages/form_select2.js') }}"></script>
 @endpush
