@@ -51,11 +51,15 @@ Route::group(['middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin
     Route::post('menus/{id}/toggle-publish', [App\Http\Controllers\Admin\MenuController::class, 'togglePublish'])->name('admin.menus.toggle-publish')->where('id', '[0-9]+');
     Route::resource('/menus', App\Http\Controllers\Admin\MenuController::class);
 //        });
-
-//        Route::get('/login', [App\Http\Controllers\Admin\LoginController::class, 'login'])->name('login');
+    Route::middleware(['throttle:global'])->group(function () {
     Route::get('/register', [App\Http\Controllers\Admin\LoginController::class, 'register'])->name('register');
     Route::post('/register-user', [App\Http\Controllers\Admin\LoginController::class, 'store'])->name('create_user');
     Route::get('/logout', [App\Http\Controllers\Admin\LoginController::class, 'logout'])->name('logout');
+
+    });
+
+
+//        Route::get('/login', [App\Http\Controllers\Admin\LoginController::class, 'login'])->name('login')->middleware('throttle:3,3');
 
     Route::group(['prefix' => '/users', ['middleware' => 'can:manage_user']], function () {
         Route::get('/', [App\Http\Controllers\Admin\UsersController::class, 'index']);

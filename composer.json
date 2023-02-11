@@ -10,6 +10,7 @@
         "ext-gd": "^8.0",
         "ext-json": "^8.0",
         "ext-zip": "^1.19",
+        "akaunting/laravel-firewall": "^2.0",
         "barryvdh/laravel-debugbar": "^3.7",
         "barryvdh/laravel-ide-helper": "^2.12",
         "barryvdh/laravel-translation-manager": "^0.6.3",
