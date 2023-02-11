@@ -47,7 +47,7 @@ class CacheDecorator extends AbstractMenuDecorator
             if ($item->parent_id == $parentId) {
                 $childItem = $this->hasChildItems($item->id);
 
-                $result .= "<li class='menu-item ".(($childItem) ? 'dropdown' : null).(($childItem && $item->parent_id != 0) ? ' dropdown-submenu' : null)."'>
+                $result .= "<li class='".(($childItem) ? 'dropdown' : null).(($childItem && $item->parent_id != 0) ? ' dropdown-submenu' : null)."'>
                                 <a href='".url($item->url)."' ".(($childItem) ? 'class="dropdown-toggle" data-toggle="dropdown"' : null).">{$item->title}".(($childItem && $item->parent_id == 0) ? '<b class="caret"></b>' : null).'</a>'.$this->generateFrontMenu($menu, $item->id).'
                             </li>';
             }
@@ -60,11 +60,7 @@ class CacheDecorator extends AbstractMenuDecorator
         return $returnData;
     }
 
-    /**
-     * @param $items
-     *
-     * @return mixed|null|string
-     */
+
     public function getFrontMenuHTML($items)
     {
         $menus = $this->generateFrontMenu($items, 0, true);
@@ -72,11 +68,7 @@ class CacheDecorator extends AbstractMenuDecorator
         return $menus;
     }
 
-    /**
-     * @param $id
-     *
-     * @return bool|mixed
-     */
+
     public function hasChildItems($id)
     {
         $key = md5(getLang().$this->cacheKey.$id.'.has.child');
