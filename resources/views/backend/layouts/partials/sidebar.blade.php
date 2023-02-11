@@ -149,7 +149,7 @@
                     <a href="{{route('admin.category.index')}}" class="nav-link ">
                         <i class="ph-house"></i>
                         <span>
-	                        Category
+	                         {{__('public.Category')}}
 								</span>
                     </a>
                 </li>
