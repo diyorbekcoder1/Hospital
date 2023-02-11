@@ -30,15 +30,26 @@
                     </div>
                     <br>
                     <!-- Content -->
-                    <div class="form-group m-t-20 m-b-20 {!! $errors->has('content') ? 'has-error' : '' !!}">
-                        <label class="control-label" for="title">Content</label>
-                        <div class="controls">
-                            {!! Form::textarea('content', null, array('class'=>'form-control', 'id' => 'content', 'placeholder'=>'Content', 'value'=>old('content'))) !!}
-                            @if ($errors->first('content'))
-                                <span class="help-block">{!! $errors->first('content') !!}</span>
-                            @endif
+                    <div class="col-12 mt-5">
+                        <div class="form-label-group">
+                            <label for="form_name">Content</label>
+                            <textarea id="editor1" name="content" cols="30"
+                                      rows="10"></textarea>
+
+                            @error('content')
+                            <span style="color: red">{{$message}} </span>
+                            @enderror
                         </div>
                     </div>
+{{--                    <div class="form-group m-t-20 m-b-20 {!! $errors->has('content') ? 'has-error' : '' !!}">--}}
+{{--                        <label class="control-label" for="title">Content</label>--}}
+{{--                        <div class="controls">--}}
+{{--                            {!! Form::textarea('content', null, array('class'=>'form-control', 'id' => 'content', 'placeholder'=>'Content', 'value'=>old('content'))) !!}--}}
+{{--                            @if ($errors->first('content'))--}}
+{{--                                <span class="help-block">{!! $errors->first('content') !!}</span>--}}
+{{--                            @endif--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                     <br>
                     <!-- Published -->
 
@@ -58,3 +69,11 @@
         </div>
     </div>
 @stop
+
+@push('javascript')
+    <script src="{{asset('/plugins/editor/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('/plugins/editor/ckeditor/adapters/jquery.js')}}"></script>
+    <script src="{{asset('/plugins/editor/ckeditor/styles.js')}}"></script>
+    <script src="{{asset('/plugins/editor/ckeditor/ckeditor.custom.js')}}"></script>
+@endpush
+

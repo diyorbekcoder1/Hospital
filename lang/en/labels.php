@@ -3,5 +3,7 @@
 return [
     'general'=>"General",
     'user'=>"Users",
-    'settings'=>"Settings"
+    'settings'=>"Settings",
+    'Control Panel'=>"Boshqaruv paneli",
+
 ];

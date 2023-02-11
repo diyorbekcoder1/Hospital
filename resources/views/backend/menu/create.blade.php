@@ -29,7 +29,7 @@
 
     <!-- Type -->
     <label class="control-label" for="title">Type</label>
-    <div class="controls">
+    <div class="controls ">
         <div class="radio">
             <label>
                 {!! Form::radio('type', 'module', true, array('id'=>'module', 'class'=>'type')) !!}

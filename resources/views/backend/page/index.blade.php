@@ -7,7 +7,7 @@
         <div class="col-lg-12">
             @include('flash::message')
             <div class="card">
-                <div class="body m-10">
+                <div class="body p-2">
                     <div class="pull-left p-2">
                         <div class="btn-toolbar"><a href="{!! route('admin.page.create') !!}" class="btn btn-primary">
                                 <span class="glyphicon glyphicon-plus"></span>&nbsp;Add Page </a></div>

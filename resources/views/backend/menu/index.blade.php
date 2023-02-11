@@ -8,7 +8,7 @@
         <div class="col-lg-6 col-md-12 col-sm-12">
 
             <div class="card">
-                <div class="body m-10">
+                <div class="body p-3">
                     <div class="pull-right">
                         <div id="msg"></div>
                     </div>
@@ -28,7 +28,7 @@
         <div class="col-lg-6 col-md-12 col-sm-12">
 
             <div class="card m-10 ">
-                <div class="body m-20 ">
+                <div class="body p-3 ">
                     {!! Form::open(array('action' => '\App\Http\Controllers\Admin\MenuController@store')) !!}
                     <div class="pull-right">
                         <div id="msg"></div>

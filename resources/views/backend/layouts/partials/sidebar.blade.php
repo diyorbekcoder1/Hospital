@@ -6,7 +6,7 @@
         <!-- Sidebar header -->
         <div class="sidebar-section">
             <div class="sidebar-section-body d-flex justify-content-center">
-                <h5 class="sidebar-resize-hide flex-grow-1 my-auto">Navigation</h5>
+                <h5 class="sidebar-resize-hide flex-grow-1 my-auto">{{__('public.Control Panel')}}</h5>
 
                 <div>
                     <button type="button"
@@ -37,8 +37,7 @@
                     <a href="{{route('admin.home')}}" class="nav-link ">
                         <i class="ph-house"></i>
                         <span>
-									Dashboard
-
+					{{__('public.Homepage')}}
 								</span>
                     </a>
                 </li>
@@ -46,7 +45,7 @@
                     <a href="{{route('admin.contacts.index')}}" class="nav-link ">
                         <i class="ph-house"></i>
                         <span>
-								Contacts
+						{{__('public.Contacts')}}
 
 								</span>
                     </a>
@@ -55,7 +54,8 @@
                     <a href="{{route('admin.blog.index')}}" class="nav-link ">
                         <i class="ph-house"></i>
                         <span>
-							Blog
+
+                          {{__('public.News')}}
 
 								</span>
                     </a>
@@ -83,7 +83,8 @@
                     <a href="{{route('admin.interactive_services.index')}}" class="nav-link ">
                         <i class="ph-house"></i>
                         <span>
-						Interactive Services
+
+                              {{__('public.Interactive Services')}}
 
 								</span>
                     </a>
@@ -92,7 +93,7 @@
                     <a href="{{route('admin.interactive.index')}}" class="nav-link ">
                         <i class="ph-house"></i>
                         <span>
-						Interactive
+                        {{__('public.Interactive')}}
 								</span>
                     </a>
                 </li>
@@ -100,7 +101,7 @@
                     <a href="{{route('admin.members.index')}}" class="nav-link ">
                         <i class="ph-house"></i>
                         <span>
-						Members
+						 	        {{__('public.Members')}}
 								</span>
                     </a>
                 </li>
@@ -108,7 +109,7 @@
                     <a href="{{route('admin.galereya.index')}}" class="nav-link ">
                         <i class="ph-house"></i>
                         <span>
-					Galereya
+				   {{__('public.Galereya')}}
 								</span>
                     </a>
                 </li>
@@ -116,7 +117,7 @@
                     <a href="{{route('admin.event.index')}}" class="nav-link ">
                         <i class="ph-house"></i>
                         <span>
-					Event
+		     	 {{__('public.Event')}}
 								</span>
                     </a>
                 </li>
@@ -128,22 +129,22 @@
 								</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link ">
-                        <i class="ph-house"></i>
-                        <span>
-	                          	Setting
-								</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('admin.usefullink.index')}}" class="nav-link ">
-                        <i class="ph-house"></i>
-                        <span>
-	                          Usefullink
-								</span>
-                    </a>
-                </li>
+                {{--                <li class="nav-item">--}}
+                {{--                    <a href="" class="nav-link ">--}}
+                {{--                        <i class="ph-house"></i>--}}
+                {{--                        <span>--}}
+                {{--	                          	Setting--}}
+                {{--								</span>--}}
+                {{--                    </a>--}}
+                {{--                </li>--}}
+                {{--                <li class="nav-item">--}}
+                {{--                    <a href="{{route('admin.usefullink.index')}}" class="nav-link ">--}}
+                {{--                        <i class="ph-house"></i>--}}
+                {{--                        <span>--}}
+                {{--	                          Usefullink--}}
+                {{--								</span>--}}
+                {{--                    </a>--}}
+                {{--                </li>--}}
                 <li class="nav-item">
                     <a href="{{route('admin.category.index')}}" class="nav-link ">
                         <i class="ph-house"></i>
@@ -156,7 +157,7 @@
                     <a href="{{route('admin.menus.index')}}" class="nav-link ">
                         <i class="ph-house"></i>
                         <span>
-	                        Menus
+	                      {{__('public.Menus')}}
 								</span>
                     </a>
                 </li>
@@ -164,7 +165,7 @@
                     <a href="{{url('admin\users')}}" class="nav-link ">
                         <i class="ph-house"></i>
                         <span>
-	                   Users
+	                     {{__('public.Users')}}
 								</span>
                     </a>
                 </li>
@@ -172,7 +173,7 @@
                     <a href="{{url('admin\roles')}}" class="nav-link ">
                         <i class="ph-house"></i>
                         <span>
-	             Roles
+	                {{__('public.Roles')}}
 								</span>
                     </a>
                 </li>
@@ -180,7 +181,7 @@
                     <a href="{{url('admin\permission')}}" class="nav-link ">
                         <i class="ph-house"></i>
                         <span>
-	                Permission
+	             {{__('public.Permission')}}
 								</span>
                     </a>
                 </li>

@@ -39,16 +39,14 @@
 {{--                                            @enderror--}}
 {{--                                        </div>--}}
 {{--                                    </div>--}}
-                                    <div class="col-12">
-                                        <div class="form-label-group">
-                                            <label for="form_message">Image *</label>
-                                            <input id="form_message" type="file" name="image"
-                                                   class="form-control @error('image') is-invalid @enderror"
-                                                   placeholder="Please enter your image *"
-                                                   data-error="Image is required.">
-                                            @error('image')
-                                            <span style="color: red">{{$message}} </span>
-                                            @enderror
+                                    <div class="card mt-2">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">Upload image</h5>
+                                        </div>
+
+                                        <div class="card-body">
+
+                                            <input type="file" class="file-input" name="image" multiple="multiple">
                                         </div>
                                     </div>
                                     <div style="margin-top: 20px;" class="block-header">
