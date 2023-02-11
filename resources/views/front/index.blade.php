@@ -15,25 +15,12 @@
                                     <!-- SLIDE  -->
                                     <li data-index="rs-391" data-transition="parallaxhorizontal" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-rotate="0" data-saveperformance="off" data-title="Smooth Mask" data-description="">
                                         <!-- MAIN IMAGE -->
-                                        <img src="images/slider/slider1.png" alt="slide2" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                                        <!-- LAYERS -->
-
-                                        <!-- LAYER end -->
-
+                                        <img src="{{ asset('front/images/slider/slider1.png')}}" alt="slide2" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                                     </li>
-                                    <!--slide-->
-
-
                                     <li data-index="rs-392" data-transition="parallaxhorizontal" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-rotate="0" data-saveperformance="off" data-title="Smooth Mask" data-description="">
                                         <!-- MAIN IMAGE -->
-                                        <img src="images/slider/slider2.png" alt="slide2" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                                        <!-- LAYERS -->
-
-
-                                        <!-- LAYER end -->
-
+                                        <img src="{{ asset('front/images/slider/slider2.png') }}" alt="slide2" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                                     </li>
-
                                 </ul>
                             </div>
                         </div>
