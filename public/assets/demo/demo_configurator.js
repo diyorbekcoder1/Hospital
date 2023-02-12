@@ -1,12 +1,3 @@
-/* ------------------------------------------------------------------------------
- *
- *  # Template configurator
- *
- *  Demo JS code for sliding panel with demo config
- *
- * ---------------------------------------------------------------------------- */
-
-
 // Check localStorage on page load and set mathing theme/direction
 // ------------------------------
 
