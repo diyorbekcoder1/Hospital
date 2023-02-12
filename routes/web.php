@@ -66,6 +66,8 @@ Route::group(['middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin
         Route::get('/', [App\Http\Controllers\Admin\SliderController::class, 'index']);
         Route::get('/create', [App\Http\Controllers\Admin\SliderController::class, 'create'])->name('create');
         Route::post('/store', [App\Http\Controllers\Admin\SliderController::class, 'store'])->name('store');
+        Route::get('/edit',[App\Http\Controllers\Admin\SliderController::class, 'edit'])->name('edit');
+        Route::get('/delete',[App\Http\Controllers\Admin\SliderController::class, 'delete'])->name('delete');
 
         Route::post('/upload/{id}', ['as' => 'admin.slider.upload.image','uses' => 'SliderController@upload'])->where('id', '[0-9]+');
         Route::post('/slider-delete-image', ['as' => 'admin.slider.delete.image','uses' => 'SliderController@deleteImage']);

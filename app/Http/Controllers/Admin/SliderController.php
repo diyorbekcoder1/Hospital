@@ -36,12 +36,12 @@ class SliderController extends Controller
 
         $formData=$request->all();
         $slider=new Slider();
-        if (isset($formData['image'])) {
-            $file = $formData['image'];
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
 
             $destinationPath = public_path().$this->imgDir;
             $fileName = $file->getClientOriginalName();
-            $fileSize = $file->getClientSize();
+            $fileSize = $file->getSize();
 
             $upload_success = $file->move($destinationPath, $fileName);
 
@@ -61,6 +61,12 @@ class SliderController extends Controller
 
         Flash::message('Slider was successfully added');
 
-        return langRedirectRoute('admin.sliders.index');
+        return langRedirectRoute('admin.sliders');
+    }
+
+    public function edit($id){
+        $slider = Slider::findOrFail($id);
+
+        return view('backend.slider.edit', compact('slider'));
     }
 }
