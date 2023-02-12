@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InteractiveRequest;
-use App\Models\Galereya;
+use App\Models\PhotoGallery;
 use App\Models\Interactiv;
 use App\Models\Interactive_service;
 use Illuminate\Http\Request;
