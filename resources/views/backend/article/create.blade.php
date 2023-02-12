@@ -126,7 +126,6 @@
                             </div>
 
                             <div class="card-body">
-
                                 <input type="file" class="file-input" name="image" multiple="multiple">
                             </div>
                         </div>

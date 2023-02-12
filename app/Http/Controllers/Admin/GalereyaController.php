@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogRequest;
 use App\Http\Requests\GalereyaRequest;
 use App\Models\Blog;
-use App\Models\Galereya;
+use App\Models\PhotoGallery;
 use App\Traits\FileUpload;
 
 class   GalereyaController extends Controller
@@ -14,7 +14,7 @@ class   GalereyaController extends Controller
     use  FileUpload;
     public function index()
     {
-        $galereyas = Galereya::all();
+        $galereyas = PhotoGallery::all();
         return view('backend.galerey.galereya', compact('galereyas'));
     }
     public function create()
@@ -27,7 +27,7 @@ class   GalereyaController extends Controller
 
         $data = $galereyaRequest->validated();
         $data = $this->fileUpload($data);
-        Galereya::create($data);
+        PhotoGallery::create($data);
         return redirect()->route('admin.galereya.index')->with('message', 'Post successfully create.');
     }
 
@@ -35,7 +35,7 @@ class   GalereyaController extends Controller
     {
         $request = request()->merge(['id' => $id]);
         $request->validate(['id' => 'required|exists:galereyas,id']);
-        $post = Galereya::find($id);
+        $post = PhotoGallery::find($id);
         unlink('uploads/' . $post->image);
         $post->delete();
         return redirect()->route('admin.galereya.index')->with('message', 'Post successfully delete.');

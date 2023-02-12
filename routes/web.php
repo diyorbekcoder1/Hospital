@@ -62,6 +62,16 @@ Route::group(['middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin
 
 //        Route::get('/login', [App\Http\Controllers\Admin\LoginController::class, 'login'])->name('login')->middleware('throttle:3,3');
 
+    Route::group(['prefix' => '/sliders','as'=>'sliders.', ['middleware' => 'can:manage_user']], function () {
+        Route::get('/', [App\Http\Controllers\Admin\SliderController::class, 'index']);
+        Route::get('/create', [App\Http\Controllers\Admin\SliderController::class, 'create'])->name('create');
+        Route::post('/store', [App\Http\Controllers\Admin\SliderController::class, 'store'])->name('store');
+
+        Route::post('/upload/{id}', ['as' => 'admin.slider.upload.image','uses' => 'SliderController@upload'])->where('id', '[0-9]+');
+        Route::post('/slider-delete-image', ['as' => 'admin.slider.delete.image','uses' => 'SliderController@deleteImage']);
+
+    })->name('admin.sliders');
+
     Route::group(['prefix' => '/users', ['middleware' => 'can:manage_user']], function () {
         Route::get('/', [App\Http\Controllers\Admin\UsersController::class, 'index']);
         Route::get('get-list', [App\Http\Controllers\Admin\UsersController::class, 'getUserList'])->name('get-list');

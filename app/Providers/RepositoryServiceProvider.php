@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Models\Menu;
+use App\Models\Slider;
 use App\Repositories\Menu\MenuRepository;
+use App\Repositories\Slider\SliderRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -25,6 +27,15 @@ class RepositoryServiceProvider extends ServiceProvider
 
           return $menu;
       });
+
+        $app->bind('App\Repositories\Slider\SliderInterface',function ($app){
+
+            $sliders = new SliderRepository(
+                new Slider()
+            );
+
+            return $sliders;
+        });
     }
 
     /**
