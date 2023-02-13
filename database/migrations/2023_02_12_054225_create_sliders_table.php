@@ -21,8 +21,9 @@ return new class extends Migration
             $table->string('path', 255);
             $table->string('file_name', 255);
             $table->integer('file_size');
-            $table->integer('order');
+            $table->integer('order')->default(1);
             $table->string('lang', 20);
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

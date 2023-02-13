@@ -22,33 +22,21 @@ function setActive($path, $active = 'active')
 
     return call_user_func_array('Request::is', (array) $path) ? $active : '';
 }
-
 function getLang()
 {
     app()->setLocale("uz");
     return app()->getLocale();
 //    return LaravelLocalization::getCurrentLocale();
 }
-
-
 function langURL($url = null)
 {
-
     //return LaravelLocalization::getLocalizedURL(getLang(), $url);
-
     return getLang().$url;
 }
-
 function langRoute($route, $parameters = array())
 {
     return URL::route($route, $parameters);
 }
-
-/**
- * @param $route
- *
- * @return mixed
- */
 function langRedirectRoute($route)
 {
     return Redirect::route($route);

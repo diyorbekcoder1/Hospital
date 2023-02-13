@@ -35,13 +35,13 @@
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <a href="{!! langRoute('admin.slider.edit', array($slider->id)) !!}">
+                                                <a href="{!! langRoute('admin.sliders.edit', array($slider->id)) !!}">
                                                     <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit Slider
                                                 </a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
-                                                <a href="{{ route('admin.slider.delete', array($slider->id)) }}">
+                                                <a href="{{ route('admin.sliders.delete', array($slider->id)) }}">
                                                     <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Delete Slider
                                                 </a>
                                             </li>

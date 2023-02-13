@@ -2,12 +2,13 @@
 
 namespace App\Repositories\Page;
 use App\Models\Page;
+use App\Repositories\CrudableInterface;
 use App\Repositories\RepositoryAbstract;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Validation\ValidationException;
 use stdClass;
 
-class PageRepositoty extends RepositoryAbstract
+class PageRepository extends RepositoryAbstract implements PageInterface, CrudableInterface
 {
     protected $perPage;
     protected $page;
@@ -115,5 +116,9 @@ class PageRepositoty extends RepositoryAbstract
     }
 
 
+    public function all()
+    {
+        return $this->page->where('lang', $this->getLang())->get();
+    }
 }
 

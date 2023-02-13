@@ -2,9 +2,12 @@
 
 namespace App\Providers;
 
+
 use App\Models\Menu;
+use App\Models\Page;
 use App\Models\Slider;
 use App\Repositories\Menu\MenuRepository;
+use App\Repositories\Page\PageRepository;
 use App\Repositories\Slider\SliderRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -27,6 +30,14 @@ class RepositoryServiceProvider extends ServiceProvider
 
           return $menu;
       });
+
+        $app->bind('App\Repositories\Page\PageInterface', function ($app) {
+
+            $page = new PageRepository(
+                new Page()
+            );
+            return $page;
+        });
 
         $app->bind('App\Repositories\Slider\SliderInterface',function ($app){
 

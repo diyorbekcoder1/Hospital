@@ -11,6 +11,6 @@ class Slider extends Model
     protected $table='sliders';
 
     public function images(){
-        return $this->morphMany('','relationship','type');
+        return $this->morphMany('App\Models\Photo','relationship','type');
     }
 }
