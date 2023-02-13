@@ -44,11 +44,7 @@ function langRoute($route, $parameters = array())
     return URL::route($route, $parameters);
 }
 
-/**
- * @param $route
- *
- * @return mixed
- */
+
 function langRedirectRoute($route)
 {
     return Redirect::route($route);
