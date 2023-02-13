@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Page\PageRepositoty;
+use App\Repositories\Page\PageRepository;
 use App\Services\Pagination;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -15,7 +15,7 @@ class PageController extends Controller
     protected $page;
     protected $perPage;
 
-    public function __construct(PageRepositoty $page)
+    public function __construct(PageRepository $page)
     {
        // View::share('active', 'modules');
         $this->page = $page;

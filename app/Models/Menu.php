@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Repositories\Page\PageRepositoty;
+use App\Repositories\Page\PageRepository;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use ReflectionClass;
@@ -124,9 +124,9 @@ class Menu extends Model
     public function getMenuOptions()
     {
         $opts = array();
-        $page = new PageRepositoty(new Page());
+        $page = new PageRepository(new Page());
         $pageOpts = $page->lists();
-//
+
         foreach ($pageOpts as $k => $v) {
             $opts['Page']['App\Models\Page-'.$k] = $v;
         }

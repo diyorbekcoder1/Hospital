@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [\App\Http\Controllers\Front\IndexController::class, 'index'])->name('homes');
+//Route::get('/page', ['as' => 'dashboard.page', 'uses' => '\App\Http\Controllers\Front\PageController@index']);
+Route::get('/page/{slug}', [App\Http\Controllers\Front\PageController::class,'show'])->name('page.show');
 
 
 //'namespace' => 'Admin'
