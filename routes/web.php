@@ -26,7 +26,7 @@ Route::group(['middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin
     Route::resource('/contacts', App\Http\Controllers\Admin\ContactController::class);
     Route::resource('/blog', \App\Http\Controllers\Admin\BlogController::class);
     Route::resource('/post', \App\Http\Controllers\Admin\PostController::class);
-//    Route::resource('/article', \App\Http\Controllers\Admin\ArticleController::class);
+    Route::resource('/article', \App\Http\Controllers\Admin\ArticleController::class);
 
     Route::resource('/article', '\App\Http\Controllers\Admin\ArticleController', array('before' => 'hasAccess:article'));
     Route::get('/article/{id}/delete', array('as' => 'article.delete','uses' => '\App\Http\Controllers\Admin\ArticleController@confirmDestroy', ))->where('id', '\d+');
@@ -39,12 +39,12 @@ Route::group(['middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin
 
     /*        Route::get('/article', array('as' => 'dashboard.article', 'uses' => 'ArticleController@index'));
             Route::get('/article/{slug}', array('as' => 'dashboard.article.show', 'uses' => 'ArticleController@show'));*/
-//    Route::resource('/members', App\Http\Controllers\Admin\MemberController::class);
+    Route::resource('/members', App\Http\Controllers\Admin\MemberController::class);
     Route::resource('/galereya', App\Http\Controllers\Admin\GalereyaController::class);
-//    Route::resource('/event', App\Http\Controllers\Admin\EventController::class);
+    Route::resource('/event', App\Http\Controllers\Admin\EventController::class);
     Route::resource('/page', App\Http\Controllers\Admin\PageController::class);
-//    Route::resource('/setting', App\Http\Controllers\Admin\SettingController::class);
-//    Route::resource('/usefullink', App\Http\Controllers\Admin\UsefullinkController::class);
+    Route::resource('/setting', App\Http\Controllers\Admin\SettingController::class);
+    Route::resource('/usefullink', App\Http\Controllers\Admin\UsefullinkController::class);
     Route::resource('/category', App\Http\Controllers\Admin\CategoryController::class);
 
 
