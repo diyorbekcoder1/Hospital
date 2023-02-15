@@ -10,7 +10,7 @@
         </ol>
     </section>
     <div class="container">
-        {!! Form::open( array( 'route' => array('admin.sliders.update', $slider->id), 'method' => 'PATCH', 'files'=>true)) !!}
+        {!! Form::open([route('admin.sliders.update', $slider->id), 'method'=>'PATCH', 'files'=>true]) !!}
         <!-- Title -->
         <div class="control-group {!! $errors->has('title') ? 'has-error' : '' !!}">
             <label class="control-label" for="title">Title</label>
