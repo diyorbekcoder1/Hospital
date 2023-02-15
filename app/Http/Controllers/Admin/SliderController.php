@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Config;
 use Image;
 use Laracasts\Flash\Flash;
+use File;
+
 
 class SliderController extends Controller
 {
@@ -66,7 +68,57 @@ class SliderController extends Controller
 
     public function edit($id){
         $slider = Slider::findOrFail($id);
-
         return view('backend.slider.edit', compact('slider'));
+    }
+
+    public function update($id)
+    {
+        $formData = \request()->all();
+        $slider = Slider::findOrFail($id);
+
+        if (isset($formData['image'])) {
+            if ($file = $formData['image']) {
+
+                // delete old image
+                $destinationPath = public_path().$this->imgDir;
+                File::delete($destinationPath.$slider->file_name);
+
+                $destinationPath = public_path().$this->imgDir;
+                $fileName = $file->getClientOriginalName();
+                $fileSize = $file->getClientSize();
+                $upload_success = $file->move($destinationPath, $fileName);
+                if ($upload_success) {
+                    // resizing an uploaded file
+                    Image::make($destinationPath.$fileName)->resize($this->width, $this->height)->save($destinationPath.$fileName);
+                    $slider->file_name = $fileName;
+                    $slider->file_size = $fileSize;
+                    $slider->path = $this->imgDir.$fileName;
+                }
+            }
+        }
+        $slider->title = $formData['title'];
+        $slider->description = $formData['description'];
+        $slider->save();
+        Flash::message('Slider was successfully updated');
+        return langRedirectRoute('admin.slider.index');
+    }
+    public function destroy($id)
+    {
+        $slider = Slider::with('images')->findOrFail($id);
+        $destinationPath = public_path().$this->imgDir;
+
+        File::delete($destinationPath.$slider->file_name);
+        $slider->delete();
+
+        Flash::message('Slider was successfully deleted');
+
+        return langRedirectRoute('admin.slider.index');
+    }
+
+    public function confirmDestroy($id)
+    {
+        $slider = Slider::findOrFail($id);
+
+        return view('backend.slider.confirm-destroy', compact('slider'));
     }
 }

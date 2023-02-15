@@ -29,19 +29,19 @@
                                 <td>{!! $slider->description !!}</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="btn btn-danger dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <a class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" href="#">
                                             Action
                                             <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <a href="{!! langRoute('admin.sliders.edit', array($slider->id)) !!}">
+                                                <a href="{!! route('admin.sliders.edit', $slider->id) !!}">
                                                     <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit Slider
                                                 </a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
-                                                <a href="{{ route('admin.sliders.delete', array($slider->id)) }}">
+                                                <a href="{{ route('admin.sliders.delete', $slider->id) }}">
                                                     <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Delete Slider
                                                 </a>
                                             </li>
