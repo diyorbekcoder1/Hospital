@@ -131,7 +131,7 @@
                     <a href="{{route('admin.page.index')}}" class="nav-link ">
                         <i class="ph-house"></i>
                         <span>
-				Page
+			          	Page
 								</span>
                     </a>
                 </li>

@@ -15,6 +15,8 @@ return [
     'Users' => "Foydalanuvchilar",
     'Roles' => "Rollar",
     'Permission' => "Ruxsatlar",
+    'Category' => "Kategoryalar",
+    'Main' => "Asosiy",
 ];
 
 ?>
