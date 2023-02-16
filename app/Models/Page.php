@@ -3,7 +3,7 @@
 namespace App\Models;
 
 
-use Cviebrock\EloquentSluggable\SluggableInterface;
+
 use App\Interfaces\ModelInterface as ModelInterface;
 use App\Models\BaseModel;
 
