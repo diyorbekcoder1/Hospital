@@ -8,9 +8,9 @@
                 <div class="col-sm-6">
                     <h1>{!! $page->title !!}</h1>
                 </div>
-{{--                <div class="col-sm-6">--}}
-{{--                    @yield('partial/breadcrumbs', Breadcrumbs::render('page.show', $page))--}}
-{{--                </div>--}}
+                <div class="col-sm-6">
+                    @yield('partial/breadcrumbs', Breadcrumbs::render('front.page.show', $page))
+                </div>
             </div>
         </div>
     </section><!--/#title-->
