@@ -9,7 +9,7 @@ use App\Models\Blog;
 use App\Models\PhotoGallery;
 use App\Traits\FileUpload;
 
-class   GalereyaController extends Controller
+class PhotoGalleryController extends Controller
 {
     use  FileUpload;
     public function index()
@@ -21,10 +21,8 @@ class   GalereyaController extends Controller
     {
         return view('backend.galerey.galereya_create');
     }
-
     public function store(GalereyaRequest $galereyaRequest)
     {
-
         $data = $galereyaRequest->validated();
         $data = $this->fileUpload($data);
         PhotoGallery::create($data);

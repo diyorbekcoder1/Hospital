@@ -2,6 +2,8 @@
 
 namespace App\Repositories\Category;
 
+use App\Exceptions\Validation\ValidationException;
+use App\Repositories\RepositoryAbstract;
 use App\Models\Categories;
 
 use Config;
@@ -30,13 +32,7 @@ class CategoryRepository extends RepositoryAbstract implements CategoryInterface
         return $this->category->where('lang', $this->getLang())->get();
     }
 
-    /**
-     * @param int  $page
-     * @param int  $limit
-     * @param bool $all
-     *
-     * @return mixed|\StdClass
-     */
+
     public function paginate($page = 1, $limit = 10, $all = false)
     {
         $result = new \StdClass();
@@ -55,61 +51,31 @@ class CategoryRepository extends RepositoryAbstract implements CategoryInterface
         return $result;
     }
 
-    /**
-     * @return mixed
-     */
     public function lists()
     {
         return $this->category->where('lang', $this->getLang())->lists('title', 'id');
     }
 
-    /**
-     * @param $id
-     *
-     * @return mixed
-     */
     public function find($id)
     {
         return $this->category->findOrFail($id);
     }
 
-    /**
-     * @param $slug
-     *
-     * @return mixed
-     */
     public function getArticlesBySlug($slug)
     {
         return $this->category->where('slug', $slug)->where('lang', $this->getLang())->first()->articles()->paginate($this->perPage);
     }
 
-    /**
-     * @param $attributes
-     *
-     * @return bool|mixed
-     *
-     * @throws \Fully\Exceptions\Validation\ValidationException
-     */
     public function create($attributes)
     {
         if ($this->isValid($attributes)) {
             $this->category->lang = $this->getLang();
             $this->category->fill($attributes)->save();
-
             return true;
         }
-
         throw new ValidationException('Category validation failed', $this->getErrors());
     }
 
-    /**
-     * @param $id
-     * @param $attributes
-     *
-     * @return bool|mixed
-     *
-     * @throws \Fully\Exceptions\Validation\ValidationException
-     */
     public function update($id, $attributes)
     {
         $this->category = $this->find($id);
@@ -124,11 +90,6 @@ class CategoryRepository extends RepositoryAbstract implements CategoryInterface
         throw new ValidationException('Category validation failed', $this->getErrors());
     }
 
-    /**
-     * @param $id
-     *
-     * @return mixed|void
-     */
     public function delete($id)
     {
         $this->category = $this->category->find($id);
@@ -136,11 +97,6 @@ class CategoryRepository extends RepositoryAbstract implements CategoryInterface
         $this->category->delete();
     }
 
-    /**
-     * Get total category count.
-     *
-     * @return mixed
-     */
     protected function totalCategories()
     {
         return $this->category->where('lang', $this->getLang())->count();

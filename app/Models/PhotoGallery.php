@@ -3,14 +3,13 @@
 namespace App\Models;
 
 use App\interfaces\ModelInterface;
-use Cviebrock\EloquentSluggable\SluggableInterface;
-use Cviebrock\EloquentSluggable\SluggableTrait;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PhotoGallery extends BaseModel implements ModelInterface,SluggableInterface
+class PhotoGallery extends BaseModel implements ModelInterface
 {
-    use HasFactory,SluggableTrait;
+
     public $table = 'photo_galleries';
     public $fillable = ['title', 'content', 'is_published'];
     protected $appends = ['url'];
