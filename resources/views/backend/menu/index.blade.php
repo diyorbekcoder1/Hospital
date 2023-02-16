@@ -124,7 +124,7 @@
                     },
                     success: function (response) {
                         if (response['result'] == 'success') {
-                            var imagePath = (response['changed'] == 1) ? "fa fa-check" : "fa fa-remove";
+                            var imagePath = (response['changed'] == 1) ? "fa fa-check" : "fa fa-trash-alt";
                             var message = (response['changed'] == 1) ? "published" : "unpublished";
                             $("#publish-image-" + id).attr('class', imagePath);
                             $("#msg").html('<div class="msg-save" style="float:right; color:red;">' + message + '</div>');
