@@ -75,7 +75,7 @@ class Menu extends Model
                         <i id='publish-image-".$item->id."' class='{$imageName}'></i>
                         </a>
 			            <a title='Edit Menu' class='edit-menu' href='".route('admin.menus.edit', $item->id)."'>
-			            <i class='fa fa-pencil' ></i>
+			            <i class='fa fa-pencil-alt' ></i>
 			            </a>
 			            <a class='delete-menu' href='".route('admin.menus.destroy', $item->id)."'>
 			            <i class='fa fa-trash'></i>
