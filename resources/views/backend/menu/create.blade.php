@@ -97,5 +97,6 @@
         });
     </script>
 @endpush
+
 @stop
 

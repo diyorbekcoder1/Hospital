@@ -3,6 +3,7 @@
 @section('parentPageTitle', 'Меню список')
 
 @section('content')
+    <link href="{{asset('/assets/css/menu-managment.css')}}" rel="stylesheet" type="text/css">
     <meta name="_token" content="{!! csrf_token() !!}"/>
     <div class="row clearfix">
         <div class="col-lg-6 col-md-12 col-sm-12">
@@ -96,8 +97,88 @@
             </div>
         </div>
     </div>
-@endsection
+
 @push('javascript')
+    <script src="{{ asset('assets/js/jquery.nestable.js') }}"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            // $('#notification').show().delay(4000).fadeOut(700);
+            // publish settings
+            $(".publish").bind("click", function (e) {
+                var id = $(this).attr('id');
+                e.preventDefault();
+
+                $.ajax({
+                    type: "POST",
+                    url: "{!! url( '/admin/menus/" + id + "/toggle-publish/') !!}",
+                    headers: {
+                        'X-CSRF-Token': $('meta[name="_token"]').attr('content')
+                    },
+                    success: function (response) {
+                        if (response['result'] == 'success') {
+                            var imagePath = (response['changed'] == 1) ? "fa fa-check" : "fa fa-trash-alt";
+                            var message = (response['changed'] == 1) ? "published" : "unpublished";
+                            $("#publish-image-" + id).attr('class', imagePath);
+                            $("#msg").html('<div class="msg-save" style="float:right; color:red;">' + message + '</div>');
+                        }
+                    },
+                    error: function () {
+                        $("#msg").html('<div class="msg-save" style="float:right; color:red;">Saving!</div>');
+                        alert("error");
+                    }
+                });
+            });
+
+            $('.type').change(function () {
+                    var selected = $('input[class="type"]:checked').val();
+                    if (selected == "custom") {
+                        $('.modules').css('display', 'none');
+                        $('.url').css('display', 'block');
+                    } else {
+                        $('.modules').css('display', 'block');
+                        $('.url').css('display', 'none');
+                    }
+                }
+            );
+
+            $(".type").trigger("change");
 
 
+            var updateOutput = function (e) {
+                var list = e.length ? e : $(e.target),
+                    output = list.data('output');
+                if (window.JSON) {
+                    var jsonData = window.JSON.stringify(list.nestable('serialize'));
+                    console.log(window.JSON.stringify(list.nestable('serialize')));
+                    $.ajax({
+                        type: "POST",
+                        url: "{{ route('admin.menus.save') }}",
+                        data: {'json': jsonData},
+                        headers: {
+                            'X-CSRF-Token': $('meta[name="_token"]').attr('content')
+                        },
+                        success: function (response) {
+
+                            //$("#msg").append('<div class="alert alert-success msg-save">Saved!</div>');
+                            $("#msg").html('<div class="msg-save" style="float:right; color:red;">Saving!</div>');
+                            // $('.msg-save').delay(1000).fadeOut(500);
+                        },
+                        error: function () {
+                            alert("error");
+                        }
+                    });
+
+                } else {
+                    alert('error');
+                }
+            };
+
+            $('#nestable').nestable({
+                group: 1
+            }).on('change', updateOutput);
+        });
+    </script>
 @endpush
+@stop
+
