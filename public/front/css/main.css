@@ -1,14 +1,4 @@
-/*
-Copyright (c) 2016 Himanshu Softtech
-------------------------------------------------------------------
-[Master Stylesheet]
-
-Project:	Travelite - Tours and Travels Online Booking HTML
-Version:	1.0.0
-Assigned to:	Themeforest
--------------------------------------------------------------------*/
 @import url("travelite-style.css");
-
 @import url("woocommerce.css");
 @import url("responsive.css");
 @import url("fonts.css");
