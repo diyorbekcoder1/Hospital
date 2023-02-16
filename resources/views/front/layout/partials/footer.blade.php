@@ -4,9 +4,7 @@
             <div class="col-md-4">
                 <aside class="widget widget_text">
                     <a href="Home_01.html"><img src="{{ asset('/front/images/Logo.png') }}" alt="footer logo" /></a>
-{{--                    <p>In 2015, We launched Travellers with the belief that other travellers would share our desire to experience authentic adventures in a responsible and sustainable manner. <br>--}}
-{{--                        <br>--}}
-{{--                        We've grown from a one-man show to a company of over 50 world wide, and from a handful of trips in all over the world.</p>--}}
+                    <p> Tashkent city tour - <?php echo date('Y-m-d') ?>></p>
 {{--                    <a href="">Read More <i class="fa fa-angle-right"></i>--}}
                     </a>
                 </aside>
