@@ -1,5 +1,8 @@
 @extends('backend.layouts.limitless')
 @section('content')
+    @push('style')
+
+    @endpush
     <section class="content-header">
         <h1> Slider
             <small> | Update Slider</small>
@@ -57,4 +60,23 @@
             {!! Form::submit('Update', array('class' => 'btn btn-success')) !!}
             {!! Form::close() !!}
         </div>
+    </div>
+
+
+        @push("javascript")
+            <script src="{{asset('/plugins/editor/ckeditor/ckeditor.js')}}"></script>
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    // $("#title").slug();
+
+                    window.onload = function () {
+                        CKEDITOR.replace('description', {
+                            "filebrowserBrowseUrl": "{!! url('filemanager/show') !!}"
+                        });
+                    };
+
+                });
+            </script>
+    @endpush
 @stop

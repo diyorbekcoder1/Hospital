@@ -3,6 +3,7 @@
 @section('parentPageTitle', 'Меню список')
 
 @section('content')
+    <link href="{{asset('/assets/css/menu-managment.css')}}" rel="stylesheet" type="text/css">
     <meta name="_token" content="{!! csrf_token() !!}"/>
     <div class="row clearfix">
         <div class="col-lg-6 col-md-12 col-sm-12">
@@ -105,7 +106,9 @@
     </div>
 @endsection
 @push('javascript')
+    <script src="{{ asset('assets/js/jquery.nestable.js') }}"></script>
     <script type="text/javascript">
+
         $(document).ready(function () {
             // $('#notification').show().delay(4000).fadeOut(700);
             // publish settings

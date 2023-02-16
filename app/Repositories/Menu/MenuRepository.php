@@ -7,7 +7,6 @@ use App\Repositories\RepositoryAbstract;
 
 class MenuRepository extends RepositoryAbstract implements MenuInterface
 {
-
     protected $menu;
 
     public function __construct(Menu $menu)
@@ -27,13 +26,11 @@ class MenuRepository extends RepositoryAbstract implements MenuInterface
         foreach ($menu as $item) {
             if ($item->parent_id == $parentId) {
                 $childItem = $this->hasChildItems($item->id);
-
                 $result .= "<li class='menu-item ".(($childItem) ? 'dropdown' : null).(($childItem && $item->parent_id != 0) ? ' dropdown-submenu' : null)."'>
                                 <a href='".url($item->url)."' ".(($childItem) ? 'class="dropdown-toggle" data-toggle="dropdown"' : null).">{$item->title}".(($childItem && $item->parent_id == 0) ? '<b class="caret"></b>' : null).'</a>'.$this->generateFrontMenu($menu, $item->id).'
                             </li>';
             }
         }
-
         return $result ? "\n<ul class='".(($starter) ? ' nav navbar-nav navbar-right ' : null).((!$starter) ? ' dropdown-menu ' : null)."'>\n$result</ul>\n" : null;
     }
 
