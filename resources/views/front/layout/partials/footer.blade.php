@@ -18,7 +18,7 @@
             <div class="col-md-4">
                 <aside class="widget payment_method">
                     <h4 class="widget-title">ПОДДЕРЖИВАЕМЫЙ СПОСОБ ОПЛАТЫ</h4>
-                    <a href=""><img src="images/Payment-Images.png" alt="Payment Method" /></a> </aside>
+                    <a href=""><img src="{{asset('front/images/Payment-Images.png')}}" alt="Payment Method" /></a> </aside>
             </div>
         </div>
     </div>
