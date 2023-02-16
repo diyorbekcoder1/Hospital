@@ -9,9 +9,7 @@
                 <div class="btn-toolbar"><a href="{!! langRoute('admin.sliders.create') !!}" class="btn btn-primary">
                         <span class="glyphicon glyphicon-plus"></span>&nbsp;Add Slider </a></div>
             </div>
-            <br>
-            <br>
-            <br>
+
             @if($sliders->count())
                 <div class="">
                     <table class="table table-striped">
@@ -28,25 +26,21 @@
                                 <td>{!! $slider->title !!}</td>
                                 <td>{!! $slider->description !!}</td>
                                 <td>
-                                    <div class="btn-group">
-                                        <a class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" href="#">
-                                            Action
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a href="{!! route('admin.sliders.edit', $slider->id) !!}">
-                                                    <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit Slider
-                                                </a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                <a href="{{ route('admin.sliders.delete', $slider->id) }}">
-                                                    <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Delete Slider
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    <a href="{!! route('admin.sliders.edit', $slider->id) !!}"
+                                       class="btn btn-primary">Edit</a>
+                                    <form class="d-inline"
+                                          action="{{route('admin.sliders.destroy', $slider->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onclick="return confirm('Sure Want Delete?')"
+                                                class="btn btn-danger">Delete
+                                        </button>
+                                    </form>
+{{--                                    {!! Form::open([route('admin.sliders.destroy', $slider->id )]) !!}--}}
+{{--                                    @method('DELETE')--}}
+{{--                                    {!! Form::submit( 'Yes', array( 'class' => 'btn btn-danger' ) ) !!}--}}
+{{--                                    {!! Form::close() !!}--}}
+
                                 </td>
                             </tr>
                         @endforeach

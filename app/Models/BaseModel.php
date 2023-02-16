@@ -4,11 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class BaseModel.
- *
- * @author Sefa Karagöz <karagozsefa@gmail.com>
- */
+
 class BaseModel extends Model
 {
     public function scopeSearch($query, $search)

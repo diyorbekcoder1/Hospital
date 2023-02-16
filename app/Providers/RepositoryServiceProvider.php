@@ -13,11 +13,6 @@ use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
-    /**
-     * Register services.
-     *
-     * @return void
-     */
     public function register()
     {
       $app=$this->app;
@@ -48,12 +43,6 @@ class RepositoryServiceProvider extends ServiceProvider
             return $sliders;
         });
     }
-
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
     public function boot()
     {
         //

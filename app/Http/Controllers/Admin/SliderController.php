@@ -63,7 +63,7 @@ class SliderController extends Controller
 
         Flash::message('Slider was successfully added');
 
-        return langRedirectRoute('admin.sliders');
+        return route('admin.sliders');
     }
 
     public function edit($id){
@@ -100,7 +100,7 @@ class SliderController extends Controller
         $slider->description = $formData['description'];
         $slider->save();
         Flash::message('Slider was successfully updated');
-        return langRedirectRoute('admin.slider.index');
+        return route('admin.slider.index');
     }
     public function destroy($id)
     {
@@ -112,7 +112,7 @@ class SliderController extends Controller
 
         Flash::message('Slider was successfully deleted');
 
-        return langRedirectRoute('admin.slider.index');
+        return route('admin.sliders.index');
     }
 
     public function confirmDestroy($id)

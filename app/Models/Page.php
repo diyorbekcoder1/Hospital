@@ -2,12 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Page extends Model
-{
-    use HasFactory;
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use App\Interfaces\ModelInterface as ModelInterface;
+use App\Models\BaseModel;
+
+/**
+ * Class Page.
+ *
+ * @author Sefa Karagöz <karagozsefa@gmail.com>
+ */
+class Page extends BaseModel implements ModelInterface {
+
 
     public $table = 'pages';
     protected $fillable = ['title', 'content', 'is_published'];
@@ -18,10 +24,8 @@ class Page extends Model
         'save_to' => 'slug',
     );
 
-
     public function setUrlAttribute($value)
     {
-
         $this->attributes['url'] = $value;
     }
 
