@@ -31,7 +31,7 @@ class MenuRepository extends RepositoryAbstract implements MenuInterface
                             </li>';
             }
         }
-        return $result ? "\n<ul class='".(($starter) ? ' nav navbar-nav navbar-right ' : null).((!$starter) ? ' dropdown-menu ' : null)."'>\n$result</ul>\n" : null;
+        return $result ? "\n<ul class='".(($starter) ? ' ' : null).((!$starter) ? ' dropdown-menu ' : null)."'>\n$result</ul>\n" : null;
     }
 
 
