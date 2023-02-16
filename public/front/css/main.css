@@ -7,7 +7,7 @@ Project:	Travelite - Tours and Travels Online Booking HTML
 Version:	1.0.0
 Assigned to:	Themeforest
 -------------------------------------------------------------------*/
-@import url("Travelite-style.css");
+@import url("travelite-style.css");
 
 @import url("woocommerce.css");
 @import url("responsive.css");
@@ -20,7 +20,7 @@ Assigned to:	Themeforest
 @import url("bootstrap-select.css");
 @import url("jquery.datetimepicker.css");
 
-	
+
 /*Default css start*/
 @import url("default/blog.css");
 @import url("default/call-to-action.css");
@@ -45,7 +45,7 @@ Assigned to:	Themeforest
 
 /*Plugin css start*/
 @import url("../js/plugin/owl/owl.carousel.css");
-@import url("../js/plugin/owl/owl.theme.css"); 
+@import url("../js/plugin/owl/owl.theme.css");
 @import url("../js/plugin/bxslider/jquery.bxslider.css");
 @import url("../js/plugin/revolution/css/layers.css");
 @import url("../js/plugin/revolution/css/settings.css");
@@ -57,7 +57,7 @@ Assigned to:	Themeforest
 /*Plugin css end*/
 
 
-/* @import url("Travelite_dark.css"); */ 
+/* @import url("Travelite_dark.css"); */
 
 
 /* Color css start */
