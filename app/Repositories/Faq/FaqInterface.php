@@ -1,14 +1,10 @@
 <?php
 
-namespace Fully\Repositories\Faq;
+namespace App\Repositories\Faq;
 
-use Fully\Repositories\RepositoryInterface;
+use App\Repositories\RepositoryInterface;
 
-/**
- * Interface FaqInterface.
- *
- * @author Sefa Karagöz <karagozsefa@gmail.com>
- */
+
 interface FaqInterface extends RepositoryInterface
 {
 }

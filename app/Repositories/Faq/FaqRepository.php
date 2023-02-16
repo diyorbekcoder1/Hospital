@@ -1,12 +1,12 @@
 <?php
 
-namespace Fully\Repositories\Faq;
+namespace App\Repositories\Faq;
 
 use Config;
-use Fully\Models\Faq;
-use Fully\Repositories\RepositoryAbstract;
-use Fully\Repositories\CrudableInterface;
-use Fully\Exceptions\Validation\ValidationException;
+use App\Models\Faq;
+use App\Repositories\RepositoryAbstract;
+use App\Repositories\CrudableInterface;
+use App\Exceptions\Validation\ValidationException;
 
 /**
  * Class FaqRepository.
@@ -15,27 +15,15 @@ use Fully\Exceptions\Validation\ValidationException;
  */
 class FaqRepository extends RepositoryAbstract implements FaqInterface, CrudableInterface
 {
-    /**
-     * @var
-     */
+
     protected $perPage;
-    /**
-     * @var \Faq
-     */
     protected $faq;
-    /**
-     * Rules.
-     *
-     * @var array
-     */
     protected static $rules = [
         'question' => 'required',
         'answer' => 'required',
     ];
 
-    /**
-     * @param Faq $faq
-     */
+
     public function __construct(Faq $faq)
     {
         $this->faq = $faq;
@@ -43,23 +31,12 @@ class FaqRepository extends RepositoryAbstract implements FaqInterface, Crudable
         $this->perPage = $config['per_page'];
     }
 
-    /**
-     * @return mixed
-     */
     public function all()
     {
         return $this->faq->where('lang', $this->getLang())->get();
     }
 
-    /**
-     * Get paginated faqs.
-     *
-     * @param int  $page  Number of faqs per page
-     * @param int  $limit Results per page
-     * @param bool $all   Show published or all
-     *
-     * @return StdClass Object with $items and $totalItems for pagination
-     */
+
     public function paginate($page = 1, $limit = 10, $all = false)
     {
         $result = new \StdClass();
@@ -78,23 +55,13 @@ class FaqRepository extends RepositoryAbstract implements FaqInterface, Crudable
         return $result;
     }
 
-    /**
-     * @param $id
-     *
-     * @return mixed
-     */
+
     public function find($id)
     {
         return $this->faq->findOrFail($id);
     }
 
-    /**
-     * @param $attributes
-     *
-     * @return bool|mixed
-     *
-     * @throws \Fully\Exceptions\Validation\ValidationException
-     */
+
     public function create($attributes)
     {
         if ($this->isValid($attributes)) {
@@ -107,14 +74,7 @@ class FaqRepository extends RepositoryAbstract implements FaqInterface, Crudable
         throw new ValidationException('Faq validation failed', $this->getErrors());
     }
 
-    /**
-     * @param $id
-     * @param $attributes
-     *
-     * @return bool|mixed
-     *
-     * @throws \Fully\Exceptions\Validation\ValidationException
-     */
+
     public function update($id, $attributes)
     {
         $this->faq = $this->find($id);
@@ -128,23 +88,13 @@ class FaqRepository extends RepositoryAbstract implements FaqInterface, Crudable
         throw new ValidationException('Faq validation failed', $this->getErrors());
     }
 
-    /**
-     * @param $id
-     *
-     * @return mixed|void
-     */
+
     public function delete($id)
     {
         $this->faq->find($id)->delete();
     }
 
-    /**
-     * Get total faq count.
-     *
-     * @param bool $all
-     *
-     * @return mixed
-     */
+
     protected function totalFaqs()
     {
         return $this->faq->where('lang', $this->getLang())->count();

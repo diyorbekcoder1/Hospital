@@ -19,6 +19,11 @@ Route::get('/', [\App\Http\Controllers\Front\IndexController::class, 'index'])->
 //Route::get('/page', ['as' => 'dashboard.page', 'uses' => '\App\Http\Controllers\Front\PageController@index']);
 Route::get('/page/{slug}', [App\Http\Controllers\Front\PageController::class,'show'])->name('page.show');
 
+// contact
+Route::get('/contacts', array('as' => 'dashboard.contact', 'uses' => '\App\Http\Controllers\Front\ContactController@getContact'));
+
+Route::post('/contacts', array('as' => 'contact.post', 'uses' => '\App\Http\Controllers\Front\ContactController@postContact', ), array('before' => 'csrf'));
+
 
 //'namespace' => 'Admin'
 Route::group(['middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin',], function () {
