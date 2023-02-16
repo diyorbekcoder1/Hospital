@@ -298,7 +298,7 @@
                             </div>
                             <div class="latest_news_desc">
                                 <h4><a href="#">Get Ready to Ride</a></h4>
-                                <div class="news_heading_tag"><span>steven</span><span>travel</span></div>
+                                <div class="news_heading_tag"><span>steven</span><span>Tashkent City Tour</span></div>
                                 <p>Duis non lectus sit amet Etiam adipiscing morbi est imperdiet cursus ame elementum vitae eros. </p>
                                 <div class="news_read_more">
                                     <a href="#" class="read_more">Read More</a>
