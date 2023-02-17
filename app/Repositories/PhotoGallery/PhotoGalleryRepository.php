@@ -80,33 +80,19 @@ class PhotoGalleryRepository extends RepositoryAbstract implements PhotoGalleryI
         return $this->photoGallery->where('lang', $this->getLang())->get();
     }
 
-    /**
-     * @param $slug
-     *
-     * @return mixed
-     */
+
     public function getBySlug($slug)
     {
         return $this->photoGallery->where('slug', $slug)->first();
     }
 
-    /**
-     * @return mixed
-     */
+
     public function lists()
     {
         return $this->photoGallery->where('lang', $this->getLang())->lists('title', 'id');
     }
 
-    /**
-     * Get paginated photo galleries.
-     *
-     * @param int  $page  Number of photo galleries per page
-     * @param int  $limit Results per page
-     * @param bool $all   Show published or all
-     *
-     * @return StdClass Object with $items and $totalItems for pagination
-     */
+
     public function paginate($page = 1, $limit = 10, $all = false)
     {
         $result = new \StdClass();
@@ -131,23 +117,13 @@ class PhotoGalleryRepository extends RepositoryAbstract implements PhotoGalleryI
         return $result;
     }
 
-    /**
-     * @param $id
-     *
-     * @return mixed
-     */
+
     public function find($id)
     {
         return $this->photoGallery->with('photos')->findOrFail($id);
     }
 
-    /**
-     * @param $attributes
-     *
-     * @return mixed
-     *
-     * @throws \Fully\Exceptions\Validation\ValidationException
-     */
+
     public function create($attributes)
     {
         if ($this->isValid($attributes)) {
@@ -160,14 +136,7 @@ class PhotoGalleryRepository extends RepositoryAbstract implements PhotoGalleryI
         throw new ValidationException('Photo Gallery validation failed', $this->getErrors());
     }
 
-    /**
-     * @param $id
-     * @param $attributes
-     *
-     * @return bool|mixed
-     *
-     * @throws \Fully\Exceptions\Validation\ValidationException
-     */
+
     public function update($id, $attributes)
     {
         $attributes['is_published'] = isset($attributes['is_published']) ? true : false;

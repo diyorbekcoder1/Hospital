@@ -50,10 +50,8 @@ class PhotoGalleryController extends Controller
             'content' => 'Photo Gallery Content',
             'is_published' => false,
         ];
-
         try {
             $id = $this->photoGallery->create($attributes);
-
             return Redirect::to('/admin/galereya/'.$id.'/edit');
         } catch (ValidationException $e) {
         }
