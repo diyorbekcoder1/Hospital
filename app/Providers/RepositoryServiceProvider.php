@@ -5,9 +5,11 @@ namespace App\Providers;
 
 use App\Models\Menu;
 use App\Models\Page;
+use App\Models\PhotoGallery;
 use App\Models\Slider;
 use App\Repositories\Menu\MenuRepository;
 use App\Repositories\Page\PageRepository;
+use App\Repositories\PhotoGallery\PhotoGalleryRepository;
 use App\Repositories\Slider\SliderRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -41,6 +43,14 @@ class RepositoryServiceProvider extends ServiceProvider
             );
 
             return $sliders;
+        });
+
+
+        $app->bind('App\Repositories\PhotoGallery\PhotoGalleryInterface', function ($app) {
+            $photoGallery = new PhotoGalleryRepository(
+                new PhotoGallery()
+            );
+            return $photoGallery;
         });
     }
     public function boot()

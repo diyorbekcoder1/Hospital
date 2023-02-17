@@ -25,7 +25,7 @@ class GalereyaRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string'],
-//            'description' => ['required', 'string'],
+            'description' => ['required', 'string'],
             'image'=> ['mimes:jpeg,jpg,png,gif|max:5000'],
         ];
     }

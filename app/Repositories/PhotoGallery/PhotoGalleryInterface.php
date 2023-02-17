@@ -1,8 +1,8 @@
 <?php
 
-namespace Fully\Repositories\PhotoGallery;
+namespace App\Repositories\PhotoGallery;
 
-use Fully\Repositories\RepositoryInterface;
+use App\Repositories\RepositoryInterface;
 
 /**
  * Interface PhotoGalleryInterface.

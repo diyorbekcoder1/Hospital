@@ -8,13 +8,28 @@ use App\Http\Requests\GalereyaRequest;
 use App\Models\Blog;
 use App\Models\PhotoGallery;
 use App\Traits\FileUpload;
+use App\Repositories\PhotoGallery\PhotoGalleryInterface;
+use App\Services\Pagination;
 
 class PhotoGalleryController extends Controller
 {
+
     use  FileUpload;
+    protected $photoGallery;
+    protected $perPage;
+
+    public function __construct(PhotoGalleryInterface $photoGallery)
+    {
+        View::share('active', 'modules');
+        $this->photoGallery = $photoGallery;
+        $this->perPage = config('fully.modules.photo_gallery.per_page');
+    }
+
     public function index()
     {
-        $galereyas = PhotoGallery::all();
+        $pagiData = $this->photoGallery->paginate(Input::get('page', 1), $this->perPage, true);
+        $galereyas = Pagination::makeLengthAware($pagiData->items, $pagiData->totalItems, $this->perPage);
+       // $galereyas = PhotoGallery::all();
         return view('backend.galerey.galereya', compact('galereyas'));
     }
     public function create()

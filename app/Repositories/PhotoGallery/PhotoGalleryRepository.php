@@ -1,16 +1,16 @@
 <?php
 
-namespace Fully\Repositories\PhotoGallery;
+namespace App\Repositories\PhotoGallery;
 
-use Fully\Models\PhotoGallery;
+use App\Models\PhotoGallery;
 use File;
 use Config;
-use Fully\Models\Photo;
+use App\Models\Photo;
 use Image;
 use Response;
-use Fully\Repositories\RepositoryAbstract;
-use Fully\Repositories\CrudableInterface;
-use Fully\Exceptions\Validation\ValidationException;
+use App\Repositories\RepositoryAbstract;
+use App\Repositories\CrudableInterface;
+use App\Exceptions\Validation\ValidationException;
 
 /**
  * Class PhotoGalleryRepository.
