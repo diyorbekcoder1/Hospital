@@ -36,9 +36,34 @@ class PhotoGalleryController extends Controller
        // $galereyas = PhotoGallery::all();
         return view('backend.galerey.galereya', compact('galereyas'));
     }
+//    public function create()
+//    {
+//        $photo_gallery = $this->photoGallery->find($id);
+//
+//        return view('backend.galerey.galereya_create', compact('photo_gallery'));
+//    }
+
     public function create()
     {
-        return view('backend.galerey.galereya_create');
+        $attributes = [
+            'title' => 'Photo Gallery Title',
+            'content' => 'Photo Gallery Content',
+            'is_published' => false,
+        ];
+
+        try {
+            $id = $this->photoGallery->create($attributes);
+
+            return Redirect::to('/admin/galereya/'.$id.'/edit');
+        } catch (ValidationException $e) {
+        }
+    }
+
+    public function edit($id)
+    {
+        $photo_gallery = $this->photoGallery->find($id);
+
+        return view('backend.galerey.galereya_create', compact('photo_gallery'));
     }
     public function store(GalereyaRequest $galereyaRequest)
     {

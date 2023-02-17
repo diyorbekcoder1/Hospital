@@ -2,6 +2,7 @@
 @section('content')
     <!-- Container-fluid starts-->
     <div class="container-fluid">
+        @include('flash::message')
         @if (session()->has('message'))
             <div class="alert alert-success">
                 {{ session('message') }}
@@ -74,7 +75,36 @@
         </div>
     </div>
     <!-- Container-fluid Ends-->
+@push('javascript')
+    <script type="text/javascript">
+        $(document).ready(function () {
 
+            $('#notification').show().delay(4000).fadeOut(700);
+
+            // publish settings
+            $(".publish").bind("click", function (e) {
+                var id = $(this).attr('id');
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{!! url(getLang() . '/admin/photo-gallery/" + id + "/toggle-publish/') !!}",
+                    headers: {
+                        'X-CSRF-Token': $('meta[name="_token"]').attr('content')
+                    },
+                    success: function (response) {
+                        if (response['result'] == 'success') {
+                            var imagePath = (response['changed'] == 1) ? "{!!url('/')!!}/assets/images/publish.png" : "{!!url('/')!!}/assets/images/not_publish.png";
+                            $("#publish-image-" + id).attr('src', imagePath);
+                        }
+                    },
+                    error: function () {
+                        alert("error");
+                    }
+                })
+            });
+        });
+    </script>
+@endpush
 @endsection
 
 
