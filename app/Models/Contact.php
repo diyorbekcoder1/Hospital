@@ -9,5 +9,5 @@ class Contact extends Model
 {
     use HasFactory;
     public $table = 'contacts';
-    public $fillable = ['sender_name_surname', 'sender_email', 'sender_phone_number', 'subject', 'message'];
+    public $fillable = ['sender_name_surname', 'sender_email', 'sender_phone_number', 'subject', 'message','created_ip'];
 }

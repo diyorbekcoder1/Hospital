@@ -14,12 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('contacts', function (Blueprint $table) {
-            $table->id();
-            $table->string('address');
-            $table->string('phone');
-            $table->string('image');
-            $table->string('email');
+            $table->increments('id');
+            $table->string('sender_name_surname', 255);
+            $table->string('sender_email', 255);
+            $table->string('sender_phone_number', 255);
+            $table->string('subject', 255);
+            $table->text('message');
+            $table->string('created_ip', 15);
+            $table->boolean('is_answered')->default(false);
             $table->timestamps();
+            $table->string('lang', 20);
         });
     }
 

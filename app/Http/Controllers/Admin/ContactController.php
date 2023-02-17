@@ -59,8 +59,11 @@ class ContactController extends Controller
         $request = request()->merge(['id' => $id]);
         $request->validate(['id' => 'required|exists:contacts,id']);
         $post = Contact::find($id);
-        unlink('uploads/' . $post->image);
+        if ($post->image){
+            unlink('uploads/' . $post->image);
+        }
+
         $post->delete();
-        return redirect()->route('backend.contacts.index')->with('message', 'Post successfully delete.');
+        return redirect()->route('admin.contacts.index')->with('message', 'Post successfully delete.');
     }
 }

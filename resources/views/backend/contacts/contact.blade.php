@@ -31,10 +31,9 @@
                             <thead>
                             <tr>
                                 <th scope="col">№</th>
-                                <th scope="col">Address</th>
+                                <th scope="col">Firtsname LastName</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Phone</th>
-                                <th scope="col">Logo</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
@@ -43,14 +42,10 @@
                                 @foreach($contact as $key => $contact_a)
                                     <tr>
                                         <th scope="row">{{++$key}}</th>
-                                        <td>{{substr($contact_a->address, 0, 20)}}</td>
-                                        <td>{{substr($contact_a->email, 0, 20)}}</td>
-                                        <td>{{$contact_a->phone}}</td>
-                                        <td style="width: 50px; height: 50px; border-radius: 50%;"><img
-                                                style="width: 50px; height: 50px; border-radius: 50%;"
-                                                src="{{ asset('uploads/'.$contact_a->image) }}"
-                                                alt="">
-                                        </td>
+                                        <td>{{$contact_a->sender_name_surname}}</td>
+                                        <td>{{$contact_a->sender_email}}</td>
+                                        <td>{{$contact_a->sender_phone_number}}</td>
+
                                         <td>
                                             <a href="{{route('admin.contacts.edit', $contact_a)}}" class="btn btn-primary">Edit</a>
                                             <form class="d-inline"

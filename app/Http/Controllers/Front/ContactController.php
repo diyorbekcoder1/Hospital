@@ -66,11 +66,12 @@ class ContactController extends Controller
         $formPost->sender_phone_number = $formData['sender_phone_number'];
         $formPost->subject = $formData['subject'];
         $formPost->message = $formData['post'];
+        $formPost->created_ip=$_SERVER['REMOTE_ADDR'];
         $formPost->lang = getLang();
 
         $formPost->save();
 
-        return Redirect::action('FormPostController@getContact')->with('message', 'Success');
+        return Redirect::action('App\Http\Controllers\Front\ContactController@getContact')->with('message', 'Success');
     }
     public function index()
     {

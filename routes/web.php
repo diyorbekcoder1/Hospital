@@ -45,7 +45,7 @@ Route::group(['middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin
     /*        Route::get('/article', array('as' => 'dashboard.article', 'uses' => 'ArticleController@index'));
             Route::get('/article/{slug}', array('as' => 'dashboard.article.show', 'uses' => 'ArticleController@show'));*/
     Route::resource('/members', App\Http\Controllers\Admin\MemberController::class);
-    Route::resource('/galereya', App\Http\Controllers\Admin\GalereyaController::class);
+    Route::resource('/galereya', App\Http\Controllers\Admin\PhotoGalleryController::class);
     Route::resource('/event', App\Http\Controllers\Admin\EventController::class);
     Route::resource('/page', App\Http\Controllers\Admin\PageController::class);
     Route::resource('/setting', App\Http\Controllers\Admin\SettingController::class);

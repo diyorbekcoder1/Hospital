@@ -28,17 +28,17 @@
                                             @enderror
                                         </div>
                                     </div>
-{{--                                    <div class="col-12 mt-5">--}}
-{{--                                        <div class="form-label-group">--}}
-{{--                                            <label for="form_name">Description</label>--}}
-{{--                                            <textarea id="editor1" name="description" cols="30"--}}
-{{--                                                      rows="10"></textarea>--}}
+                                    <div class="col-12 mt-5">
+                                        <div class="form-label-group">
+                                            <label for="form_name">Description</label>
+                                            <textarea id="editor1" name="description" cols="30"
+                                                      rows="10"></textarea>
 
-{{--                                            @error('description')--}}
-{{--                                            <span style="color: red">{{$message}} </span>--}}
-{{--                                            @enderror--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                                            @error('description')
+                                            <span style="color: red">{{$message}} </span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                     <div class="card mt-2">
                                         <div class="card-header">
                                             <h5 class="mb-0">Upload image</h5>
