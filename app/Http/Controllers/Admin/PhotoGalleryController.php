@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Exceptions\Validation\ValidationException;
 use http\Env\Request;
 use Illuminate\Support\Facades\Response;
+use Laracasts\Flash\Flash;
 use View;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogRequest;
@@ -44,6 +46,18 @@ class PhotoGalleryController extends Controller
         $data = $this->fileUpload($data);
         PhotoGallery::create($data);
         return redirect()->route('admin.galereya.index')->with('message', 'Post successfully create.');
+    }
+
+    public function update($id)
+    {
+        try {
+            $this->photoGallery->update($id, request()->all());
+            Flash::message('Photo gallery was successfully updated');
+
+            return langRedirectRoute('admin.photo-gallery.index');
+        } catch (ValidationException $e) {
+            return langRedirectRoute('admin.photo_gallery.edit')->withInput()->withErrors($e->getErrors());
+        }
     }
 
     public function destroy($id)
