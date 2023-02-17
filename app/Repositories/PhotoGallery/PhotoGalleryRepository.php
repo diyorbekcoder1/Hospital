@@ -64,7 +64,7 @@ class PhotoGalleryRepository extends RepositoryAbstract implements PhotoGalleryI
 
     public function __construct(PhotoGallery $photoGallery)
     {
-        $config = Config::get('fully');
+        $config = Config::get('cms');
         $this->perPage = $config['per_page'];
         $this->width = $config['modules']['photo_gallery']['thumb_size']['width'];
         $this->height = $config['modules']['photo_gallery']['thumb_size']['height'];

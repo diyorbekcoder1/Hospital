@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use http\Env\Request;
+use Illuminate\Support\Facades\Response;
+use View;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogRequest;
 use App\Http\Requests\GalereyaRequest;
@@ -22,12 +24,12 @@ class PhotoGalleryController extends Controller
     {
         View::share('active', 'modules');
         $this->photoGallery = $photoGallery;
-        $this->perPage = config('fully.modules.photo_gallery.per_page');
+        $this->perPage = config('cms.modules.photo_gallery.per_page');
     }
 
     public function index()
     {
-        $pagiData = $this->photoGallery->paginate(Input::get('page', 1), $this->perPage, true);
+        $pagiData = $this->photoGallery->paginate(request()->get('page', 1), $this->perPage, true);
         $galereyas = Pagination::makeLengthAware($pagiData->items, $pagiData->totalItems, $this->perPage);
        // $galereyas = PhotoGallery::all();
         return view('backend.galerey.galereya', compact('galereyas'));
@@ -52,5 +54,21 @@ class PhotoGalleryController extends Controller
         unlink('uploads/' . $post->image);
         $post->delete();
         return redirect()->route('admin.galereya.index')->with('message', 'Post successfully delete.');
+    }
+
+    public function upload($id)
+    {
+        try {
+            $this->photoGallery->upload($id, request()->file());
+
+            return Response::json('success', 200);
+        } catch (ValidationException $e) {
+            return Response::json('error: '.$e->getErrors(), 400);
+        }
+    }
+
+    public function deleteImage()
+    {
+        return $this->photoGallery->deletePhoto(request()->get('file'));
     }
 }
