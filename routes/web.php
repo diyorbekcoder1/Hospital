@@ -65,11 +65,9 @@ Route::group(['middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin
     Route::get('/logout', [App\Http\Controllers\Admin\LoginController::class, 'logout'])->name('logout');
 
 
-
-
-//        Route::get('/login', [App\Http\Controllers\Admin\LoginController::class, 'login'])->name('login')->middleware('throttle:3,3');
-    Route::resource('/sliders', App\Http\Controllers\Admin\SliderController::class)->name('admin.sliders');
-//    Route::group(['prefix' => '/sliders','as'=>'sliders.', ['middleware' => 'can:manage_user']], function () {
+//   FF0F0000     Route::get('/login', [App\Http\Controllers\Admin\LoginController::class, 'login'])->name('login')->middleware('throttle:3,3');
+    Route::resource('/sliders', App\Http\Controllers\Admin\SliderController::class);
+//        Route::group(['prefix' => '/sliders','as'=>'sliders.', ['middleware' => 'can:manage_user']], function () {
 //        Route::resource('/', App\Http\Controllers\Admin\SliderController::class);
 //        Route::get('/create', [App\Http\Controllers\Admin\SliderController::class, 'create'])->name('create');
 //        Route::post('/store', [App\Http\Controllers\Admin\SliderController::class, 'store'])->name('store');
@@ -77,10 +75,8 @@ Route::group(['middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin
 //        Route::get('/{id}/delete',[App\Http\Controllers\Admin\SliderController::class, 'confirmDestroy'])->name('delete')->where('id', '[0-9]+');
 //        Route::post('/update',[App\Http\Controllers\Admin\SliderController::class, 'update'])->name('update');
 //        Route::delete('/destroy',[App\Http\Controllers\Admin\SliderController::class, 'destroy'])->name('destroy');
-//
 //        Route::post('/upload/{id}', ['as' => 'admin.slider.upload.image','uses' => 'SliderController@upload'])->where('id', '[0-9]+');
 //        Route::patch('/slider-delete-image', ['as' => 'admin.slider.delete.image','uses' => 'SliderController@deleteImage']);
-
 //    });
 
     Route::group(['prefix' => '/users', ['middleware' => 'can:manage_user']], function () {
