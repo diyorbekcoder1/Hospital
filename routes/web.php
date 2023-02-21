@@ -35,8 +35,8 @@ Route::group(['middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin
 
     Route::resource('/article', '\App\Http\Controllers\Admin\ArticleController', array('before' => 'hasAccess:article'));
     Route::get('/article/{id}/delete', array('as' => 'article.delete','uses' => '\App\Http\Controllers\Admin\ArticleController@confirmDestroy', ))->where('id', '\d+');
-//    Route::get('/article', array('as' => 'dashboard.article', 'uses' => '\App\Http\Controllers\Admin\ArticleController@index'));
-//    Route::get('/article/{slug}', array('as' => 'dashboard.article.show', 'uses' => '\App\Http\Controllers\Admin\ArticleController@show'));
+//   Route::get('/article', array('as' => 'dashboard.article', 'uses' => '\App\Http\Controllers\Admin\ArticleController@index'));
+//   Route::get('/article/{slug}', array('as' => 'dashboard.article.show', 'uses' => '\App\Http\Controllers\Admin\ArticleController@show'));
 
 
     Route::resource('/interactive_services', \App\Http\Controllers\Admin\InteractiveServiceController::class);
@@ -68,7 +68,7 @@ Route::group(['middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin
 
 
 //        Route::get('/login', [App\Http\Controllers\Admin\LoginController::class, 'login'])->name('login')->middleware('throttle:3,3');
-    Route::resource('/sliders', App\Http\Controllers\Admin\SliderController::class);
+    Route::resource('/sliders', App\Http\Controllers\Admin\SliderController::class)->name('admin.sliders');
 //    Route::group(['prefix' => '/sliders','as'=>'sliders.', ['middleware' => 'can:manage_user']], function () {
 //        Route::resource('/', App\Http\Controllers\Admin\SliderController::class);
 //        Route::get('/create', [App\Http\Controllers\Admin\SliderController::class, 'create'])->name('create');
