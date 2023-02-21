@@ -5,7 +5,7 @@ namespace App\Models;
 
 
 use App\Interfaces\ModelInterface as ModelInterface;
-use App\Models\BaseModel;
+
 
 /**
  * Class Page.

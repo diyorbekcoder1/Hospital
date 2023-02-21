@@ -20,7 +20,7 @@ class CategoryRepository extends RepositoryAbstract implements CategoryInterface
     public function __construct(Categories $category)
     {
         $this->category = $category;
-        $config = Config::get('fully');
+        $config = Config::get('cms');
         $this->perPage = $config['per_page'];
     }
 
