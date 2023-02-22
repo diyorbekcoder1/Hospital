@@ -4,11 +4,6 @@ namespace App\Repositories\PhotoGallery;
 
 use App\Repositories\RepositoryInterface;
 
-/**
- * Interface PhotoGalleryInterface.
- *
- * @author Sefa Karagöz <karagozsefa@gmail.com>
- */
 interface PhotoGalleryInterface extends RepositoryInterface
 {
     /**

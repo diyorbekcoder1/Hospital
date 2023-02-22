@@ -19,45 +19,15 @@ use App\Exceptions\Validation\ValidationException;
  */
 class PhotoGalleryRepository extends RepositoryAbstract implements PhotoGalleryInterface, CrudableInterface
 {
-    /**
-     * @var
-     */
+
     protected $width;
-
-    /**
-     * @var
-     */
     protected $height;
-
-    /**
-     * @var
-     */
     protected $imgDir;
-
-    /**
-     * @var
-     */
     protected $perPage;
-
-    /**
-     * @var \PhotoGallery
-     */
     protected $photoGallery;
-
-    /**
-     * Rules.
-     *
-     * @var array
-     */
     protected static $rules = [
         'title' => 'required|min:3|unique:categories',
     ];
-
-    /**
-     * Image rules.
-     *
-     * @var array
-     */
     protected static $photoRules = [
         'file' => 'mimes:jpg,jpeg,png|max:10000',
     ];
@@ -72,26 +42,20 @@ class PhotoGalleryRepository extends RepositoryAbstract implements PhotoGalleryI
         $this->photoGallery = $photoGallery;
     }
 
-    /**
-     * @return mixed
-     */
     public function all()
     {
         return $this->photoGallery->where('lang', $this->getLang())->get();
     }
 
-
-    public function getBySlug($slug)
+   public function getBySlug($slug)
     {
         return $this->photoGallery->where('slug', $slug)->first();
     }
-
 
     public function lists()
     {
         return $this->photoGallery->where('lang', $this->getLang())->lists('title', 'id');
     }
-
 
     public function paginate($page = 1, $limit = 10, $all = false)
     {
@@ -153,11 +117,7 @@ class PhotoGalleryRepository extends RepositoryAbstract implements PhotoGalleryI
         throw new ValidationException('Photo Gallery validation failed', $this->getErrors());
     }
 
-    /**
-     * @param $id
-     *
-     * @return mixed|void
-     */
+
     public function delete($id)
     {
         $photo_gallery = $this->photoGallery->find($id);
@@ -172,11 +132,7 @@ class PhotoGalleryRepository extends RepositoryAbstract implements PhotoGalleryI
         $photo_gallery->delete();
     }
 
-    /**
-     * @param $id
-     *
-     * @return mixed
-     */
+
     public function togglePublish($id)
     {
         $photo_gallery = $this->photoGallery->findOrFail($id);
