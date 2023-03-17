@@ -23,6 +23,6 @@ class IndexController extends Controller
     public function index()
     {
         $sliders=$this->slider->all();
-        return view('front.index',compact('sliders'));
+        return view('front.homepage.app',compact('sliders'));
     }
 }

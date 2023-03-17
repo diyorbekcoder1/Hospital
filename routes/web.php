@@ -1,6 +1,7 @@
 <?php
 
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,9 +30,9 @@ Route::post('/contacts', array('as' => 'contact.post', 'uses' => '\App\Http\Cont
 Route::group(['middleware' => ['auth:web'], 'as' => 'admin.', 'prefix' => 'admin',], function () {
     Route::get('/home', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('home');
     Route::resource('/contacts', App\Http\Controllers\Admin\ContactController::class);
-    Route::resource('/blog', \App\Http\Controllers\Admin\BlogController::class);
+
     Route::resource('/post', \App\Http\Controllers\Admin\PostController::class);
-    Route::resource('/article', \App\Http\Controllers\Admin\ArticleController::class);
+
 
     Route::resource('/article', '\App\Http\Controllers\Admin\ArticleController', array('before' => 'hasAccess:article'));
     Route::get('/article/{id}/delete', array('as' => 'article.delete','uses' => '\App\Http\Controllers\Admin\ArticleController@confirmDestroy', ))->where('id', '\d+');

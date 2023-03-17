@@ -24,7 +24,7 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('front.layout.partials.menu', 'App\Composers\MenuComposer');
-        View::composer('front.layout.partials.footer', 'App\Composers\MenuComposer');
+        View::composer('front.homepage.layouts.partials.navbar', 'App\Composers\MenuComposer');
+        View::composer('front.homepage.layouts.partials.footer', 'App\Composers\MenuComposer');
     }
 }

@@ -50,14 +50,14 @@
 								</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{route('admin.blog.index')}}" class="nav-link ">
-                        <i class="ph-house"></i>
-                        <span>
-                          {{__('public.News')}}
-								</span>
-                    </a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{route('admin.blog.index')}}" class="nav-link ">--}}
+{{--                        <i class="ph-house"></i>--}}
+{{--                        <span>--}}
+{{--                          {{__('public.News')}}--}}
+{{--								</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
                 <li class="nav-item">
                     <a href="{{url('admin/sliders')}}" class="nav-link ">
                         <i class="ph-house"></i>
@@ -76,15 +76,15 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="{{route('admin.article.index')}}" class="nav-link ">
-                        <i class="ph-house"></i>
-                        <span>
-							Article
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{route('admin.article.index')}}" class="nav-link ">--}}
+{{--                        <i class="ph-house"></i>--}}
+{{--                        <span>--}}
+{{--							Article--}}
 
-								</span>
-                    </a>
-                </li>
+{{--								</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
                 <li class="nav-item">
                     <a href="{{route('admin.interactive_services.index')}}" class="nav-link ">
                         <i class="ph-house"></i>
