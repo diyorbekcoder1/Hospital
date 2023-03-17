@@ -1,3 +1,33 @@
+<!doctype html>
+<html lang="zxx">
+<head>
+    @include('front.homepage.layouts.partials.meta')
+
+    <title>Hospital</title>
+
+</head>
+<body>
+<!-- Pre Loader -->
+<div class="preloader">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="spinner"></div>
+        </div>
+    </div>
+</div>
+<!-- End Pre Loader -->
+
+<!-- Top Header Start -->
+@include('front.homepage.layouts.partials.header')
+<!-- Top Header End -->
+
+<!-- Start Navbar Area -->
+@include('front.homepage.layouts.partials.navbar')
+<!-- End Navbar Area -->
+
+
+
+<!-- Appointment Area -->
 <div class="appointment-area appointment-bg pt-100 pb-70">
     <div class="container">
         <div class="row">
@@ -90,3 +120,30 @@
         <img src="assetss/img/appointment/appointment-shape.png" alt="Images">
     </div>
 </div>
+<!-- Appointment Area End -->
+
+
+
+<!-- Footer Area -->
+@include('front.homepage.layouts.partials.footer')
+<!-- Footer Area End -->
+
+<!-- Copy-Right Area -->
+<div class="copy-right-area">
+    <div class="container">
+        <div class="copy-right-text text-center">
+            <p>
+                Copyright ©2021 Medizo. All Rights Reserved by
+
+            </p>
+        </div>
+    </div>
+</div>
+<!-- Copy-Right Area End -->
+
+@include('front.homepage.layouts.partials.script')
+<!-- Jquery Min JS -->
+
+
+</body>
+</html>
