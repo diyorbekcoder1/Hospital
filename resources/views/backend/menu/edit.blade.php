@@ -8,8 +8,8 @@
     <div class="row clearfix">
         <div class="col-lg-6 col-md-12 col-sm-12">
 
-            <div class="card">
-                <div class="body">
+            <div class="card ">
+                <div class="body p-3">
                     <div class="pull-right">
                         <div id="msg"></div>
                     </div>
@@ -29,7 +29,7 @@
         <div class="col-lg-6 col-md-12 col-sm-12">
 
             <div class="card">
-                <div class="body">
+                <div class="body p-3">
                     {!! Form::open(['route'=>['admin.menus.update',$menu->id],'method'=>'put', 'enctype'=>'multipart/form-data']) !!}
                     <div class="pull-right">
                         <div id="msg"></div>
